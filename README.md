@@ -104,20 +104,20 @@ perl configure.pl
 (1) Predict from protein file:
 ```
    Usage:
-   $ perl runDNSS2.pl -seq <file name>.fasta -file -out <output folder>
+   $ perl run_DNSS2.pl -seq <file name>.fasta -file -out <output folder>
 
    Example:
-   a)perl runDNSS2.pl -seq test/2SN3-A.fasta -file -out ./output/2SN3-A
+   a)perl run_DNSS2.pl -seq test/2SN3-A.fasta -file -out ./output/2SN3-A
 ```
 
 
 (2) Directly give a sequence:
 ```
    Usage:
-   $  perl runDNSS2.pl -seq <AA sequence> -name <Protein Name> -out   -out <output folder>
+   $  perl run_DNSS2.pl -seq <AA sequence> -name <Protein Name> -out   -out <output folder>
 
    Example:
-   a). perl runDNSS2.pl -seq KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLPNKSA -name 2SN3-A  -out ./output/2SN3-A
+   a). perl run_DNSS2.pl -seq KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLPNKSA -name 2SN3-A  -out ./output/2SN3-A
 ```
 
 
@@ -125,10 +125,10 @@ perl configure.pl
 
 ```
    Usage:
-   $ perl runDNSS2.pl -indir <input directory> -out <output directory>
+   $ perl run_DNSS2.pl -indir <input directory> -out <output directory>
 
    Example:
-   a) perl runDNSS2.pl -indir ./test/ -out ./output/
+   a) perl run_DNSS2.pl -indir ./test/ -out ./output/
 ```
 
 

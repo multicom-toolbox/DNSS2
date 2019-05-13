@@ -41,7 +41,7 @@ if (prompt_yn("DNSS2 will be installed into <$install_dir> ")){
 print "Start install DNSS2 into <$install_dir>\n\n";
 
 
-$files		="scripts/PredictSS.pl,lib/DN_SSpred2.pm";
+$files		="scripts/PredictSS.pl,lib/DN_SSpred.pm,lib/DN_SSpred2.pm,./run_DNSS2.pl";
 
 @updatelist		=split(/,/,$files);
 
@@ -108,7 +108,7 @@ foreach my $file (@updatelist) {
 
 
 ###### update database path
-$files		="scripts/PredictSS.pl";
+$files		="scripts/PredictSS.pl,./run_DNSS2.pl";
 
 @updatelist		=split(/,/,$files);
 
