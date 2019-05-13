@@ -11,8 +11,8 @@ Installation Steps
 **(A) Download and Unzip DNSS2 source package**  
 
 Create a working directory called 'DNSS2' where all scripts, programs and databases will reside:
-```
-Download the DeepSF code:
+
+Download the DNSS2 code:
 ```
 cd ~/
 git clone https://github.com/multicom-toolbox/DNSS2.git
