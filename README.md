@@ -21,7 +21,7 @@ cd DNSS2
 
 **(B) Install tensorflow, Keras, and h5py and Update keras.json**  
 
-(a) Create python virtual environment (if not installed)
+(a) Create python2 virtual environment (if not installed)
 ```
 virtualenv ~/python_virtualenv_DNSS2
 source ~/python_virtualenv_DNSS2/bin/activate
