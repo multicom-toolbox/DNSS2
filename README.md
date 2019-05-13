@@ -99,7 +99,7 @@ perl configure.pl
 
 
 **(F) Test**
-* There are three ways to indicate the protein to predict:
+* There are two ways to indicate the protein to predict:
 
 (1) Predict from protein file:
 ```
@@ -111,19 +111,7 @@ perl configure.pl
    $ perl run_DNSS2.pl -seq test/2SN3-A.fasta -file -out ./output/2SN3-A
 ```
 
-
-(2) Directly give a sequence:
-```
-   Usage:
-   $ perl run_DNSS2.pl -seq <AA sequence> -name <Protein Name> -out   -out <output folder>
-
-   Example:
-   $ source ~/python_virtualenv_DNSS2/bin/activate
-   $ perl run_DNSS2.pl -seq KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLPNKSA -name 2SN3-A  -out ./output/2SN3-A
-```
-
-
-(3) Predicting multiple proteins:
+(2) Predicting multiple proteins:
 
 ```
    Usage:

@@ -422,7 +422,7 @@ sub print_help{
     print "\t-indir : Indicate a directory full of fastas to predict.\n";
     print "\t-out    : Dictate the location of prediction files (default is . )\n";
     print "\t-help  : Print this help message.\n\n";
-    print "* There are three ways to indicate the protein to predict:\n";
+    print "* There are two ways to indicate the protein to predict:\n";
     print "----------------------------------------------------------------------------\n";
     print "(1) Predict from protein file:\n";
     print "   \n";
@@ -434,18 +434,7 @@ sub print_help{
     print "   \$ perl run_DNSS2.pl -seq test/1GNY-A.fasta -file -out output/\n";
     print "          \n";
     print "----------------------------------------------------------------------------\n";
-    print "(2) Directly give a sequence:\n";
-    print "      \n";
-    print "   Usage:\n";
-    print "   \$  perl run_DNSS2.pl -seq <AA sequence> -name <Protein Name> -out   -out <output folder>\n";
-    print "   \n";
-    print "   Example:\n";
-    print "   \$ source ~/python_virtualenv_DNSS2/bin/activate\n";
-    print "   \$ perl run_DNSS2.pl -seq GNVVIEVDMANGWRGNASGSTSHSGITYSADGVTFAALGDGVGAVFDIARPTTLEDAVIAMVVNVSAEFKASEANLQIFAQLKEDWSKGEWDALAGSSELTADTDLTLTATIDEDDDKFNQTARDVQVGIQAKGTPAGTITIKSVTITLAQEA -name Prot1  -out ./output/\n";
-    print "   \n";
-    print "----------------------------------------------------------------------------\n";
-    print "   \n";
-    print "(3) Predicting multiple proteins:\n";
+    print "(2) Predicting multiple proteins:\n";
     print "   \n";
     print "   \n";
     print "   Usage:\n";
