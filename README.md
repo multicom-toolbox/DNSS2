@@ -65,7 +65,8 @@ tar -zxf hhsuite-3.0-beta.3-Linux.tar.gz
 ```
 
 **(D) Download programs**
-DNSS2 requires non-redundent sequence database formated by blast(i.e., uniref90) and hhblits database(i.e., uniclust30_2017_10). If the two databases haven't been downloaded and formated, please try following steps:
+
+* DNSS2 requires non-redundent sequence database formated by blast(i.e., uniref90) and hhblits database(i.e., uniclust30_2017_10). If the two databases haven't been downloaded and formated, please try following steps:
 
 ```
 cd database
@@ -84,7 +85,8 @@ wget http://wwwuser.gwdg.de/~compbiol/uniclust/2017_10/uniclust30_2017_10_hhsuit
 
 
 **(E) Configuration**
-(a) Update the database paths for the following variables in the script 'configure.pl'
+
+* Update the database paths for the following variables in the script 'configure.pl'
 ```
 $uniref90db = 'your_db_path/uniref90/uniref90.fasta';
 $uniclust30db = 'your_db_path/uniclust30_2017_10/uniclust30_2017_10';
@@ -98,35 +100,36 @@ perl configure.pl
 
 **(F) Test**
 * There are three ways to indicate the protein to predict:
-----------------------------------------------------------------------------
-(1) Predict from protein file:
 
+(1) Predict from protein file:
+```
    Usage:
    $ perl runDNSS2.pl -seq <file name>.fasta -file -out <output folder>
 
    Example:
    a)perl runDNSS2.pl -seq test/2SN3-A.fasta -file -out ./output/2SN3-A
+```
 
-----------------------------------------------------------------------------
+
 (2) Directly give a sequence:
-
+```
    Usage:
    $  perl runDNSS2.pl -seq <AA sequence> -name <Protein Name> -out   -out <output folder>
 
    Example:
    a). perl runDNSS2.pl -seq KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLPNKSA -name 2SN3-A  -out ./output/2SN3-A
+```
 
-----------------------------------------------------------------------------
 
 (3) Predicting multiple proteins:
 
-
+```
    Usage:
    $ perl runDNSS2.pl -indir <input directory> -out <output directory>
 
    Example:
    a) perl runDNSS2.pl -indir ./test/ -out ./output/
-
+```
 
 
 
