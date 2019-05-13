@@ -175,11 +175,11 @@ for (my $ii=0; $ii<@fasta; $ii++){
     {
       print "PSSM generation done!\n";
     }else{
-      #`$GLOBAL_PATH/scripts/generate-pssm_withDB.sh $fasta[$ii] $pssm $log $uniref90db`;
+      `$GLOBAL_PATH/scripts/generate-pssm_withDB.sh $fasta[$ii] $pssm $log $uniref90db`;
     }
     unless (-f $pssm){
         print "PSSM generation failed; using less stringent parameters.\n";
-        #`$GLOBAL_PATH/scripts/gen-pssm-less-stringent_withDB.sh $fasta[$ii] $pssm $log $uniref90db`;
+        `$GLOBAL_PATH/scripts/gen-pssm-less-stringent_withDB.sh $fasta[$ii] $pssm $log $uniref90db`;
         unless (-f $pssm){
             check_err("err: PSSM generation failed.", $logfile);
             next;
@@ -195,21 +195,21 @@ for (my $ii=0; $ii<@fasta; $ii++){
     {
       print "HMM generation done!\n";
     }else{
-      #`$GLOBAL_PATH/scripts/generate-hmm_withDB.sh $fasta[$ii] $hmmdir$name[$ii] $uniclust30db`;
+      `$GLOBAL_PATH/scripts/generate-hmm_withDB.sh $fasta[$ii] $hmmdir$name[$ii] $uniclust30db`;
     }
-    #system("egrep -v \"^>\" $a3m | sed 's/[a-z]//g' > $aln");
+    system("egrep -v \"^>\" $a3m | sed 's/[a-z]//g' > $aln");
     
 
 
     ## get alignment probability
     timeprint($logfile, "Generating Alignment Probability...\nperl $GLOBAL_PATH/scripts/msa2profile_sspro.pl $fasta[$ii] $aln  $hmmdir $GLOBAL_PATH/scripts/msa2profile_sspro $GLOBAL_PATH/scripts/sspro.model\n");
-    #`perl $GLOBAL_PATH/scripts/msa2profile_sspro.pl $fasta[$ii] $aln  $hmmdir $GLOBAL_PATH/scripts/msa2profile_sspro $GLOBAL_PATH/scripts/sspro.model`;
+    `perl $GLOBAL_PATH/scripts/msa2profile_sspro.pl $fasta[$ii] $aln  $hmmdir $GLOBAL_PATH/scripts/msa2profile_sspro $GLOBAL_PATH/scripts/sspro.model`;
 
 
     
     ## get emission prob and transition prob
     timeprint($logfile, "Generating HMM Probability...\nperl $GLOBAL_PATH/scripts/gen_transition_prob_fromhmm.pl  $fasta[$ii] $hmm\n");
-    #`perl $GLOBAL_PATH/scripts/gen_transition_prob_fromhmm.pl  $fasta[$ii] $hmm`;
+    `perl $GLOBAL_PATH/scripts/gen_transition_prob_fromhmm.pl  $fasta[$ii] $hmm`;
 
 
     SKIP:
@@ -422,36 +422,35 @@ sub print_help{
     print "\t-indir : Indicate a directory full of fastas to predict.\n";
     print "\t-out    : Dictate the location of prediction files (default is . )\n";
     print "\t-help  : Print this help message.\n\n";
-    print "* There are two ways to indicate the protein to predict:\n";
+    print "* There are three ways to indicate the protein to predict:\n";
     print "----------------------------------------------------------------------------\n";
-    print "(1) Directly give a sequence:\n";
+    print "(1) Predict from protein file:\n";
+    print "   \n";
+    print "   Usage:\n";
+    print "   \$ perl runDNSS2.pl -seq <file name>.fasta -file -out <output folder>\n";
+    print "   \n";
+    print "   Example:\n";
+    print "   a)perl runDNSS2.pl -seq test/1GNY-A.fasta -file -out output/\n";
+    print "          \n";
+    print "----------------------------------------------------------------------------\n";
+    print "(2) Directly give a sequence:\n";
     print "      \n";
     print "   Usage:\n";
-    print "   \$  perl PredictSS.pl -seq <AA sequence> -name <Protein Name> -device <GPU/CPU> -out   -out <output folder>\n";
+    print "   \$  perl runDNSS2.pl -seq <AA sequence> -name <Protein Name> -out   -out <output folder>\n";
     print "   \n";
     print "   Example:\n";
-    print "   a). CPU: perl /home/jh7x3/DNSS/scripts/PredictSS.pl -seq GNVVIEVDMANGWRGNASGSTSHSGITYSADGVTFAALGDGVGAVFDIARPTTLEDAVIAMVVNVSAEFKASEANLQIFAQLKEDWSKGEWDALAGSSELTADTDLTLTATIDEDDDKFNQTARDVQVGIQAKGTPAGTITIKSVTITLAQEA -name Prot1  -out ./output/\n";
+    print "   a). perl runDNSS2.pl -seq GNVVIEVDMANGWRGNASGSTSHSGITYSADGVTFAALGDGVGAVFDIARPTTLEDAVIAMVVNVSAEFKASEANLQIFAQLKEDWSKGEWDALAGSSELTADTDLTLTATIDEDDDKFNQTARDVQVGIQAKGTPAGTITIKSVTITLAQEA -name Prot1  -out ./output/\n";
     print "   \n";
-    print "----------------------------------------------------------------------------\n";
-    print "(2) Predict from protein file:\n";
-    print "   \n";
-    print "   Usage:\n";
-    print "   \$ perl PredictSS.pl -seq <file name>.fasta -file -out <output folder>\n";
-    print "   \n";
-    print "   Example:\n";
-    print "   a) CPU: perl /home/jh7x3/DNSS/scripts/PredictSS.pl -seq test/1GNY-A.fasta -file -out output/\n";
-    print "          \n";
-    print "           \n";
     print "----------------------------------------------------------------------------\n";
     print "   \n";
     print "(3) Predicting multiple proteins:\n";
     print "   \n";
     print "   \n";
     print "   Usage:\n";
-    print "   \$ perl PredictSS.pl -indir <input directory> -out <output directory> -device <GPU/CPU>\n";
+    print "   \$ perl runDNSS2.pl -indir <input directory> -out <output directory>\n";
     print "  \n";
     print "   Example:\n";
-    print "   a) CPU: perl /home/jh7x3/DNSS/scripts/PredictSS.pl -indir ./test/ -out ./output/\n";
+    print "   a) perl runDNSS2.pl -indir ./test/ -out ./output/\n";
     print "----------------------------------------------------------------------------\n";
     print "\n";
     print " If you have questions, please contact:   \n";     

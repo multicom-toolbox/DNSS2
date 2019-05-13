@@ -1,32 +1,16 @@
 Using TensorFlow backend.
-Traceback (most recent call last):
-  File "/storage/htc/bdm/Collaboration/Zhiye/SSP/DNSS2/benchmark_tools/DNSS2//scripts/test_dnss_single.py", line 10, in <module>
-    from keras.models import model_from_json
-  File "/storage/htc/bdm/Collaboration/Zhiye/Vir_env/Keras1.2_TF1.5/lib/python2.7/site-packages/keras/__init__.py", line 2, in <module>
-    from . import backend
-  File "/storage/htc/bdm/Collaboration/Zhiye/Vir_env/Keras1.2_TF1.5/lib/python2.7/site-packages/keras/backend/__init__.py", line 67, in <module>
-    from .tensorflow_backend import *
-  File "/storage/htc/bdm/Collaboration/Zhiye/Vir_env/Keras1.2_TF1.5/lib/python2.7/site-packages/keras/backend/tensorflow_backend.py", line 1, in <module>
-    import tensorflow as tf
-  File "/storage/htc/bdm/Collaboration/Zhiye/Vir_env/Keras1.2_TF1.5/lib/python2.7/site-packages/tensorflow/__init__.py", line 24, in <module>
-    from tensorflow.python import *
-  File "/storage/htc/bdm/Collaboration/Zhiye/Vir_env/Keras1.2_TF1.5/lib/python2.7/site-packages/tensorflow/python/__init__.py", line 49, in <module>
-    from tensorflow.python import pywrap_tensorflow
-  File "/storage/htc/bdm/Collaboration/Zhiye/Vir_env/Keras1.2_TF1.5/lib/python2.7/site-packages/tensorflow/python/pywrap_tensorflow.py", line 74, in <module>
-    raise ImportError(msg)
-ImportError: Traceback (most recent call last):
-  File "/storage/htc/bdm/Collaboration/Zhiye/Vir_env/Keras1.2_TF1.5/lib/python2.7/site-packages/tensorflow/python/pywrap_tensorflow.py", line 58, in <module>
-    from tensorflow.python.pywrap_tensorflow_internal import *
-  File "/storage/htc/bdm/Collaboration/Zhiye/Vir_env/Keras1.2_TF1.5/lib/python2.7/site-packages/tensorflow/python/pywrap_tensorflow_internal.py", line 28, in <module>
-    _pywrap_tensorflow_internal = swig_import_helper()
-  File "/storage/htc/bdm/Collaboration/Zhiye/Vir_env/Keras1.2_TF1.5/lib/python2.7/site-packages/tensorflow/python/pywrap_tensorflow_internal.py", line 24, in swig_import_helper
-    _mod = imp.load_module('_pywrap_tensorflow_internal', fp, pathname, description)
-ImportError: libcublas.so.9.0: cannot open shared object file: No such file or directory
-
-
-Failed to load the native TensorFlow runtime.
-
-See https://www.tensorflow.org/install/install_sources#common_installation_problems
-
-for some common reasons and solutions.  Include the entire stack trace
-above this error message when asking for help.
+RuntimeError: module compiled against API version 0xb but this version of numpy is 0xa
+RuntimeError: module compiled against API version 0xb but this version of numpy is 0xa
+2019-05-12 22:24:44.674444: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+WARNING:tensorflow:From /home/jh7x3/python_virtualenv_DNSS2/lib/python2.7/site-packages/keras/backend/tensorflow_backend.py:993: calling reduce_max (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+WARNING:tensorflow:From /home/jh7x3/python_virtualenv_DNSS2/lib/python2.7/site-packages/keras/backend/tensorflow_backend.py:1029: calling reduce_sum (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+WARNING:tensorflow:From /home/jh7x3/python_virtualenv_DNSS2/lib/python2.7/site-packages/keras/backend/tensorflow_backend.py:1108: calling reduce_mean (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+######## Loading existing model  /storage/htc/bdm/Collaboration/Zhiye/SSP/DNSS2/benchmark_tools/DNSS2//models//model-train-deepss_1dFrac.json
+######## Loaded model from disk
+######## Loading existing weights  /storage/htc/bdm/Collaboration/Zhiye/SSP/DNSS2/benchmark_tools/DNSS2//models//model-train-weight-deepss_1dFrac-best-val.h5
