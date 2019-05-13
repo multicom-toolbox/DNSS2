@@ -3,8 +3,8 @@ Match_columns 153
 No_of_seqs    8 out of 10
 Neff          2.60202
 Searched_HMMs 272
-Date          Sun May 12 21:48:09 2019
-Command       /storage/htc/bdm/jh7x3/DNSS2_github/DNSS2//programs/hhsuite-3.0-beta.3-Linux//bin/hhblits -i test/1GNY-A.fasta -d /storage/htc/bdm/Collaboration/jh7x3/DeepCov_SS_SA_project/DNSS2.0/database/uniclust30_2017_10/uniclust30_2017_10 -oa3m test/1GNY-A//temp/hmm/1GNY-A.a3m -n 3 
+Date          Sun May 12 23:25:37 2019
+Command       /storage/htc/bdm/jh7x3/DNSS2_github/DNSS2//programs/hhsuite-3.0-beta.3-Linux//bin/hhblits -i ./test/1GNY-A.fasta -d /storage/htc/bdm/Collaboration/jh7x3/DeepCov_SS_SA_project/DNSS2.0/database/uniclust30_2017_10/uniclust30_2017_10 -oa3m ./output//temp/hmm/1GNY-A.a3m -n 3 
 
  No Hit                             Prob E-value P-value  Score    SS Cols Query HMM  Template HMM
   1 sp|Q59675|XY10C_CELJA Endo-bet 100.0 4.7E-56 1.7E-61  403.1   0.0  153    1-153    91-243 (606)

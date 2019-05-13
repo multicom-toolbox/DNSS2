@@ -1667,7 +1667,6 @@ sub predict_SS2 {
 	unless (-f $featfile){
 		return ("err: predict_SS: File $featfile not found");
 	} 
-	print "python2 $GLOBAL_PATH/scripts/test_dnss_single.py $model $weight $featfile $predfile $probfile &> $outdir/$tag.log\n";
 	`python2 $GLOBAL_PATH/scripts/test_dnss_single.py $model $weight $featfile $predfile $probfile &> $outdir/$tag.log`;
 	return ($probfile, $predfile);
 }
