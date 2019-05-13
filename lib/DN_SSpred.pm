@@ -78,7 +78,7 @@ use vars qw(@ISA @EXPORT @EXPORT_OK);
 
 my $GLOBAL_PATH;
 BEGIN { 
-$GLOBAL_PATH='/storage/htc/bdm/Collaboration/Zhiye/SSP/DNSS2/benchmark_tools/DNSS/';
+$GLOBAL_PATH='/storage/htc/bdm/jh7x3/DNSS2_github/DNSS2/';
 }
 
 #############################
