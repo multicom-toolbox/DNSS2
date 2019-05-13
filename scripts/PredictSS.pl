@@ -6,7 +6,7 @@
 # Lastest Modified: 11/2/2016 by Jie Hou
 my $GLOBAL_PATH;
 BEGIN { 
-$GLOBAL_PATH='/storage/htc/bdm/Collaboration/Zhiye/SSP/DNSS2/benchmark_tools/DNSS2/';
+$GLOBAL_PATH='/storage/htc/bdm/jh7x3/DNSS2_github/DNSS2/';
 }
 
 use strict;
@@ -28,8 +28,8 @@ my $opt = GetOptions(    '-out:s', \$outdir,
 print_help() if ($help || (!@seq && !$indir));
 
 
-my $uniclust30db= "uniclust30_2017_10"; # /storage/htc/bdm/Collaboration/jh7x3/DeepCov_SS_SA_project/DNSS2.0/database/uniclust30_2017_10/
-my $uniref90db= "uniref90.fasta"; # /storage/htc/bdm/Collaboration/jh7x3/DeepCov_SS_SA_project/DNSS2.0/database/uniref90_20180920/uniref90.fasta
+my $uniclust30db='/storage/htc/bdm/Collaboration/jh7x3/DeepCov_SS_SA_project/DNSS2.0/database/uniclust30_2017_10/uniclust30_2017_10';
+my $uniref90db='/storage/htc/bdm/Collaboration/jh7x3/DeepCov_SS_SA_project/DNSS2.0/database/uniref90_20180920/uniref90.fasta';
 
 ##################################################
 ##  Setting up directory architecture
@@ -430,7 +430,8 @@ sub print_help{
     print "   \$ perl run_DNSS2.pl -seq <file name>.fasta -file -out <output folder>\n";
     print "   \n";
     print "   Example:\n";
-    print "   a)perl run_DNSS2.pl -seq test/1GNY-A.fasta -file -out output/\n";
+    print "   \$ source ~/python_virtualenv_DNSS2/bin/activate\n";
+    print "   \$ perl run_DNSS2.pl -seq test/1GNY-A.fasta -file -out output/\n";
     print "          \n";
     print "----------------------------------------------------------------------------\n";
     print "(2) Directly give a sequence:\n";
@@ -439,7 +440,8 @@ sub print_help{
     print "   \$  perl run_DNSS2.pl -seq <AA sequence> -name <Protein Name> -out   -out <output folder>\n";
     print "   \n";
     print "   Example:\n";
-    print "   a). perl run_DNSS2.pl -seq GNVVIEVDMANGWRGNASGSTSHSGITYSADGVTFAALGDGVGAVFDIARPTTLEDAVIAMVVNVSAEFKASEANLQIFAQLKEDWSKGEWDALAGSSELTADTDLTLTATIDEDDDKFNQTARDVQVGIQAKGTPAGTITIKSVTITLAQEA -name Prot1  -out ./output/\n";
+    print "   \$ source ~/python_virtualenv_DNSS2/bin/activate\n";
+    print "   \$ perl run_DNSS2.pl -seq GNVVIEVDMANGWRGNASGSTSHSGITYSADGVTFAALGDGVGAVFDIARPTTLEDAVIAMVVNVSAEFKASEANLQIFAQLKEDWSKGEWDALAGSSELTADTDLTLTATIDEDDDKFNQTARDVQVGIQAKGTPAGTITIKSVTITLAQEA -name Prot1  -out ./output/\n";
     print "   \n";
     print "----------------------------------------------------------------------------\n";
     print "   \n";
@@ -450,7 +452,8 @@ sub print_help{
     print "   \$ perl run_DNSS2.pl -indir <input directory> -out <output directory>\n";
     print "  \n";
     print "   Example:\n";
-    print "   a) perl run_DNSS2.pl -indir ./test/ -out ./output/\n";
+    print "   \$ source ~/python_virtualenv_DNSS2/bin/activate\n";
+    print "   \$ perl run_DNSS2.pl -indir ./test/ -out ./output/\n";
     print "----------------------------------------------------------------------------\n";
     print "\n";
     print " If you have questions, please contact:   \n";     

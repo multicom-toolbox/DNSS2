@@ -107,17 +107,19 @@ perl configure.pl
    $ perl run_DNSS2.pl -seq <file name>.fasta -file -out <output folder>
 
    Example:
-   a)perl run_DNSS2.pl -seq test/2SN3-A.fasta -file -out ./output/2SN3-A
+   $ source ~/python_virtualenv_DNSS2/bin/activate
+   $ perl run_DNSS2.pl -seq test/2SN3-A.fasta -file -out ./output/2SN3-A
 ```
 
 
 (2) Directly give a sequence:
 ```
    Usage:
-   $  perl run_DNSS2.pl -seq <AA sequence> -name <Protein Name> -out   -out <output folder>
+   $ perl run_DNSS2.pl -seq <AA sequence> -name <Protein Name> -out   -out <output folder>
 
    Example:
-   a). perl run_DNSS2.pl -seq KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLPNKSA -name 2SN3-A  -out ./output/2SN3-A
+   $ source ~/python_virtualenv_DNSS2/bin/activate
+   $ perl run_DNSS2.pl -seq KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLPNKSA -name 2SN3-A  -out ./output/2SN3-A
 ```
 
 
@@ -128,7 +130,8 @@ perl configure.pl
    $ perl run_DNSS2.pl -indir <input directory> -out <output directory>
 
    Example:
-   a) perl run_DNSS2.pl -indir ./test/ -out ./output/
+   $ source ~/python_virtualenv_DNSS2/bin/activate
+   $ perl run_DNSS2.pl -indir ./test/ -out ./output/
 ```
 
 
