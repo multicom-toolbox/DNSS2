@@ -1,0 +1,3314 @@
+PSIBLAST 2.2.25+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+
+Reference for compositional score matrix adjustment: Stephen F.
+Altschul, John C. Wootton, E. Michael Gertz, Richa Agarwala,
+Aleksandr Morgulis, Alejandro A. Schaffer, and Yi-Kuo Yu (2005)
+"Protein database searches using compositionally adjusted
+substitution matrices", FEBS J. 272:5101-5109.
+
+
+
+Reference for composition-based statistics starting in round 2:
+Alejandro A. Schaffer, L. Aravind, Thomas L. Madden, Sergei
+Shavirin, John L. Spouge, Yuri I. Wolf, Eugene V. Koonin, and
+Stephen F. Altschul (2001), "Improving the accuracy of PSI-BLAST
+protein database searches with composition-based statistics and
+other refinements", Nucleic Acids Res. 29:2994-3005.
+
+
+
+Database: nr90
+           9,741,704 sequences; 3,383,841,944 total letters
+
+Results from round 1
+
+
+Query= 2SN3-A
+
+Length=65
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+  gi|20141091|sp|P01493.2|SCX2_CENSC RecName: Full=Toxin CsEv2; S...   114    3e-24
+  gi|20141665|sp|P01492.3|SCX1_CENSC RecName: Full=Toxin CsEv1; S...   109    7e-23
+  gi|1173398|sp|P45664.1|SCXX_CENNO RecName: Full=Toxin CngtIII; ...   105    1e-21
+  gi|39932334|sp|Q7Z1K4.1|SCX8_CENLL RecName: Full=Toxin Cll8; Fl...   100    5e-20
+  gi|46397719|sp|Q94435.2|SCXA_CENNO RecName: Full=Insect-toxin C...  99.4    1e-19
+  gi|74908731|sp|Q68PH1.1|SCX4_CENEX RecName: Full=Neurotoxin Cex...  99.4    1e-19
+  gi|74908734|sp|Q68PH4.1|SCX1_CENEX RecName: Full=Neurotoxin Cex...  94.4    3e-18
+  gi|20178103|sp|P58778.1|SCX4_CENSC RecName: Full=Toxin CsEv4; S...  75.5    2e-12
+  gi|20178267|sp|P01491.3|SCXI_CENSC RecName: Full=Beta-toxin CsE...  73.2    7e-12
+  gi|1173400|sp|P45665.1|SCXY_CENNO RecName: Full=Toxin CngtIV; F...  71.6    3e-11
+  gi|74908726|sp|Q68PG6.1|SCX9_CENEX RecName: Full=Neurotoxin Cex...  71.2    3e-11
+  gi|74908722|sp|Q68PG2.1|SCX13_CENEX RecName: Full=Neurotoxin Ce...  70.5    5e-11
+  gi|20178112|sp|Q95WD3.1|SCXX_CENSC RecName: Full=Neurotoxin E1x...  70.5    5e-11
+  gi|39932335|sp|Q7Z1K5.1|SCX6_CENLL RecName: Full=Toxin Cll6; Fl...  70.1    6e-11
+  gi|39932339|sp|Q7Z1K9.1|SCX3_CENLL RecName: Full=Toxin Cll3; Fl...  68.9    1e-10
+  gi|37087994|sp|P59865.1|SCX7_CENLL RecName: Full=Toxin Cll7; Fl...  68.2    3e-10
+  gi|134350|sp|P08900.1|SCX2_CENSU RecName: Full=Beta-mammal toxi...  66.2    1e-09
+  gi|2507369|sp|P01495.3|SCX2_CENNO RecName: Full=Beta-mammal tox...  65.1    2e-09
+  gi|74908727|sp|Q68PG7.1|SCX8_CENEX RecName: Full=Toxin Cex8; Fl...  62.0    2e-08
+  gi|39932242|sp|P60163.1|SCX2_CENGR RecName: Full=Toxin Cg2          60.5    6e-08
+  gi|20178111|sp|Q95WD2.1|SCE3_CENSC RecName: Full=Beta-toxin CsE...  59.7    9e-08
+  gi|134356|sp|P80076.1|SCX3_CENNO RecName: Full=Toxin Cn3; Short...  59.3    1e-07
+  gi|306531034|sp|P0CH41.1|CEII9_CENEL RecName: Full=Beta-mammal ...  57.8    4e-07
+  gi|1173394|sp|P45662.1|SCX4_CENNO RecName: Full=Beta-toxin Cn4;...  57.4    4e-07
+  gi|363548474|sp|Q9TWL0.2|SCX8_CENNO RecName: Full=Beta-toxin Cn...  57.0    6e-07
+  gi|317412107|sp|P0CI57.1|SNAB6_LYCMC RecName: Full=Neurotoxin L...  49.7    8e-05
+  gi|20140133|sp|Q95WD1.1|SCX8_CENSC RecName: Full=Toxin CsE8; Al...  49.3    1e-04
+  gi|969192|gb|AAB34083.1| Cii-1=beta-toxin {N-terminal} [Centrur...  46.6    9e-04
+
+
+> gi|20141091|sp|P01493.2|SCX2_CENSC RecName: Full=Toxin CsEv2; 
+Short=CsE v2; AltName: Full=Neurotoxin 2; Flags: Precursor 
+gi|16444978|gb|AAL23421.1|AF338453_1 sodium-channel modifier 
+toxin precursor CsEv2a [Centruroides exilicauda]
+Length=87
+
+ Score =  114 bits (285),  Expect = 3e-24, Method: Compositional matrix adjust.
+ Identities = 56/65 (87%), Positives = 56/65 (87%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KYG LKLGENEGCD E KAKNQGGSYGY YAFACW EGLPESTPTYPL
+Sbjct  20  KEGYLVNKSTGCKYGCLKLGENEGCDKECKAKNQGGSYGYCYAFACWCEGLPESTPTYPL  79
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  80  PNKSC  84
+
+
+> gi|20141665|sp|P01492.3|SCX1_CENSC RecName: Full=Toxin CsEv1; 
+Short=CsE v1; AltName: Full=Neurotoxin 1; Flags: Precursor 
+gi|16444982|gb|AAL23423.1|AF338455_1 sodium-channel modifier 
+toxin precursor CsEv1b [Centruroides exilicauda]
+Length=87
+
+ Score =  109 bits (273),  Expect = 7e-23, Method: Compositional matrix adjust.
+ Identities = 54/65 (84%), Positives = 55/65 (85%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLVKKSDG KY    LG+NE CDTE KAKNQGGSYGY YAFACW EGLPESTPTYPL
+Sbjct  20  KEGYLVKKSDGCKYDCFWLGKNEHCDTECKAKNQGGSYGYCYAFACWCEGLPESTPTYPL  79
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  80  PNKSC  84
+
+
+> gi|1173398|sp|P45664.1|SCXX_CENNO RecName: Full=Toxin CngtIII; 
+Flags: Precursor gi|304569|gb|AAA28286.1| Na+-channel blocking 
+toxin [Centruroides noxius]
+Length=87
+
+ Score =  105 bits (263),  Expect = 1e-21, Method: Compositional matrix adjust.
+ Identities = 51/65 (79%), Positives = 53/65 (82%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KYG   LG+NEGCD E KAKNQGGSYGY YAF CW EGLPESTPTYPL
+Sbjct  20  KEGYLVNKSTGCKYGCFWLGKNEGCDKECKAKNQGGSYGYCYAFGCWCEGLPESTPTYPL  79
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  80  PNKTC  84
+
+
+> gi|39932334|sp|Q7Z1K4.1|SCX8_CENLL RecName: Full=Toxin Cll8; 
+Flags: Precursor gi|31376364|gb|AAP49509.1|AF491134_1 sodium-channel 
+modifier toxin Cll8 precursor [Centruroides limpidus 
+limpidus]
+Length=72
+
+ Score =  100 bits (248),  Expect = 5e-20, Method: Compositional matrix adjust.
+ Identities = 50/65 (77%), Positives = 52/65 (80%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLVKKS+G KY   KLGENE CDTE KA NQGGSYGY   F CW EGLPESTPT+PL
+Sbjct  5   KEGYLVKKSNGCKYECFKLGENEHCDTECKAPNQGGSYGYCDTFECWCEGLPESTPTWPL  64
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  65  PNKSC  69
+
+
+> gi|46397719|sp|Q94435.2|SCXA_CENNO RecName: Full=Insect-toxin 
+Cn10; AltName: Full=CngtVIII; Flags: Precursor gi|1805721|emb|CAA69595.1| 
+toxin Cn10 [Centruroides noxius]
+Length=81
+
+ Score = 99.4 bits (246),  Expect = 1e-19, Method: Compositional matrix adjust.
+ Identities = 47/65 (73%), Positives = 50/65 (77%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KY  L LGEN+ CD E KAKNQGGSYGY Y  ACW EGLPESTPTYP+
+Sbjct  14  KEGYLVNKSTGCKYNCLILGENKNCDMECKAKNQGGSYGYCYKLACWCEGLPESTPTYPI  73
+
+Query  61  PNKSA  65
+           P K+ 
+Sbjct  74  PGKTC  78
+
+
+> gi|74908731|sp|Q68PH1.1|SCX4_CENEX RecName: Full=Neurotoxin Cex4; 
+Flags: Precursor gi|51234240|gb|AAT97995.1| Cex4 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=87
+
+ Score = 99.4 bits (246),  Expect = 1e-19, Method: Compositional matrix adjust.
+ Identities = 49/65 (76%), Positives = 51/65 (79%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KY    LG+NE CD E KAKNQGGSYGY Y+FACW EGLPEST TYPL
+Sbjct  20  KEGYLVNKSTGCKYECFWLGKNEFCDKECKAKNQGGSYGYCYSFACWCEGLPESTSTYPL  79
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  80  PNKSC  84
+
+
+> gi|74908734|sp|Q68PH4.1|SCX1_CENEX RecName: Full=Neurotoxin Cex1; 
+Flags: Precursor gi|51234234|gb|AAT97992.1| Cex1 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=87
+
+ Score = 94.4 bits (233),  Expect = 3e-18, Method: Compositional matrix adjust.
+ Identities = 46/65 (71%), Positives = 49/65 (76%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KY    LG+NEGCD E KA NQGG YGY +AFACW E LPESTPTYP+
+Sbjct  20  KEGYLVSKSTGCKYECFWLGKNEGCDKECKAPNQGGGYGYCHAFACWCENLPESTPTYPI  79
+
+Query  61  PNKSA  65
+           P KS 
+Sbjct  80  PGKSC  84
+
+
+> gi|20178103|sp|P58778.1|SCX4_CENSC RecName: Full=Toxin CsEv4; 
+Short=CsE v4; AltName: Full=Neurotoxin 4 gi|102789|pir||B23727 
+neurotoxin V-4 - bark scorpion
+Length=66
+
+ Score = 75.5 bits (184),  Expect = 2e-12, Method: Compositional matrix adjust.
+ Identities = 39/63 (62%), Positives = 44/63 (70%), Gaps = 0/63 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY+V KS G  Y   K GE+  CD E KAKNQGGSYG+     CW EGLPESTPT+PL
+Sbjct  1   KEGYMVNKSTGCSYSCPKTGESVYCDKECKAKNQGGSYGFCQYSNCWCEGLPESTPTWPL  60
+
+Query  61  PNK  63
+            +K
+Sbjct  61  DDK  63
+
+
+> gi|20178267|sp|P01491.3|SCXI_CENSC RecName: Full=Beta-toxin CsEI; 
+Short=CsE-I; AltName: Full=Neurotoxin I; Flags: Precursor
+Length=86
+
+ Score = 73.2 bits (178),  Expect = 7e-12, Method: Compositional matrix adjust.
+ Identities = 38/65 (59%), Positives = 48/65 (74%), Gaps = 1/65 (1%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV+K+ G K    KLGEN+ C+ E K K+ GGSYGY Y F C+ EGLP+ST T+PL
+Sbjct  20  KDGYLVEKT-GCKKTCYKLGENDFCNRECKWKHIGGSYGYCYGFGCYCEGLPDSTQTWPL  78
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  79  PNKTC  83
+
+
+> gi|1173400|sp|P45665.1|SCXY_CENNO RecName: Full=Toxin CngtIV; 
+Flags: Precursor
+Length=86
+
+ Score = 71.6 bits (174),  Expect = 3e-11, Method: Compositional matrix adjust.
+ Identities = 37/65 (57%), Positives = 45/65 (70%), Gaps = 1/65 (1%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV    G K    KLGEN+ C+ E K K++GGSYGY Y F C+ EGL +STPT+PL
+Sbjct  20  KDGYLVD-VKGCKKNCYKLGENDYCNRECKMKHRGGSYGYCYGFGCYCEGLSDSTPTWPL  78
+
+Query  61  PNKSA  65
+           PNK  
+Sbjct  79  PNKRC  83
+
+
+> gi|74908726|sp|Q68PG6.1|SCX9_CENEX RecName: Full=Neurotoxin Cex9; 
+Flags: Precursor gi|51234250|gb|AAT98000.1| Cex9 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=67
+
+ Score = 71.2 bits (173),  Expect = 3e-11, Method: Compositional matrix adjust.
+ Identities = 38/65 (59%), Positives = 47/65 (73%), Gaps = 1/65 (1%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GY V+ + G K    KLGEN+ C+ E K K++GGSYGY Y F C+ EGL ESTPT+PL
+Sbjct  1   KDGYPVEVT-GCKKSCYKLGENKFCNRECKMKHRGGSYGYCYFFGCYCEGLAESTPTWPL  59
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  60  PNKSC  64
+
+
+> gi|74908722|sp|Q68PG2.1|SCX13_CENEX RecName: Full=Neurotoxin 
+Cex13; Flags: Precursor gi|51234258|gb|AAT98004.1| Cex13 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=73
+
+ Score = 70.5 bits (171),  Expect = 5e-11, Method: Compositional matrix adjust.
+ Identities = 35/65 (54%), Positives = 43/65 (67%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV    G KY    LG+N+ C++E   K  G  YGY YAF CW EGLPES PT+PL
+Sbjct  8   KDGYLVIIKTGCKYNCYILGKNKYCNSE--CKEVGAGYGYCYAFGCWCEGLPESIPTWPL  65
+
+Query  61  PNKSA  65
+           P+K+ 
+Sbjct  66  PDKTC  70
+
+
+> gi|20178112|sp|Q95WD3.1|SCXX_CENSC RecName: Full=Neurotoxin E1x; 
+AltName: Full=CsE1x; Flags: Precursor gi|16444968|gb|AAL23416.1|AF338448_1 
+sodium-channel modifier toxin precursor CsE1x 
+[Centruroides exilicauda]
+Length=86
+
+ Score = 70.5 bits (171),  Expect = 5e-11, Method: Compositional matrix adjust.
+ Identities = 37/65 (57%), Positives = 45/65 (70%), Gaps = 1/65 (1%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G K    KLG+N+ C+ E K K+ GGSYGY Y F C+ EGLP+ST T+PL
+Sbjct  20  KEGYLVD-VKGCKKNCWKLGDNDYCNRECKWKHIGGSYGYCYGFGCYCEGLPDSTQTWPL  78
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  79  PNKTC  83
+
+
+> gi|39932335|sp|Q7Z1K5.1|SCX6_CENLL RecName: Full=Toxin Cll6; 
+Flags: Precursor gi|31376360|gb|AAP49507.1|AF491132_1 sodium-channel 
+modifier toxin Cll6 precursor [Centruroides limpidus 
+limpidus]
+Length=85
+
+ Score = 70.1 bits (170),  Expect = 6e-11, Method: Compositional matrix adjust.
+ Identities = 36/65 (56%), Positives = 41/65 (64%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G KYG  +LG+N  CD   K K + G+YGY Y   CW EGLP S PT+PL
+Sbjct  20  KEGYLVNMKTGCKYGCYELGDNGYCD--RKCKAESGNYGYCYTVGCWCEGLPNSKPTWPL  77
+
+Query  61  PNKSA  65
+           P KS 
+Sbjct  78  PGKSC  82
+
+
+> gi|39932339|sp|Q7Z1K9.1|SCX3_CENLL RecName: Full=Toxin Cll3; 
+Flags: Precursor gi|31376350|gb|AAP49502.1|AF491127_1 sodium-channel 
+modifier toxin Cll3 precursor [Centruroides limpidus 
+limpidus]
+Length=87
+
+ Score = 68.9 bits (167),  Expect = 1e-10, Method: Compositional matrix adjust.
+ Identities = 34/65 (53%), Positives = 40/65 (62%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY+V   DG KY  LKLGEN+ C  E KA+    + GY YAFACW   L E    +PL
+Sbjct  20  KEGYIVNYYDGCKYACLKLGENDYCLRECKARYYKSAGGYCYAFACWCTHLYEQAVVWPL  79
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  80  PNKTC  84
+
+
+> gi|37087994|sp|P59865.1|SCX7_CENLL RecName: Full=Toxin Cll7; 
+Flags: Precursor gi|31376362|gb|AAP49508.1|AF491133_1 sodium-channel 
+modifier toxin Cll7 precursor [Centruroides limpidus 
+limpidus]
+Length=85
+
+ Score = 68.2 bits (165),  Expect = 3e-10, Method: Compositional matrix adjust.
+ Identities = 35/65 (54%), Positives = 41/65 (64%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G KY   KLGEN+ C   D+ K  G  YGY Y F C+ EG PE+ PT+PL
+Sbjct  20  KEGYLVNTYTGCKYICWKLGENKYCI--DECKEIGAGYGYCYGFGCYCEGFPENKPTWPL  77
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  78  PNKTC  82
+
+
+> gi|134350|sp|P08900.1|SCX2_CENSU RecName: Full=Beta-mammal toxin 
+Css2; AltName: Full=Css II; Short=CssII
+Length=66
+
+ Score = 66.2 bits (160),  Expect = 1e-09, Method: Compositional matrix adjust.
+ Identities = 35/65 (54%), Positives = 40/65 (62%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KY  LKLG+N+ C  E K +    S GY YAFACW   L E    +PL
+Sbjct  1   KEGYLVSKSTGCKYECLKLGDNDYCLRECKQQYGKSSGGYCYAFACWCTHLYEQAVVWPL  60
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  61  PNKTC  65
+
+
+> gi|2507369|sp|P01495.3|SCX2_CENNO RecName: Full=Beta-mammal toxin 
+Cn2; Short=Toxin 2; AltName: Full=Toxin II.9.2.2; Flags: 
+Precursor gi|1336782|gb|AAB36086.1| Na+ channel-specific toxin 
+2 [Centruroides noxius]
+Length=84
+
+ Score = 65.1 bits (157),  Expect = 2e-09, Method: Compositional matrix adjust.
+ Identities = 34/65 (53%), Positives = 40/65 (62%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV K+ G KY  LKLG+N+ C  E K +   G+ GY YAFACW   L E    +PL
+Sbjct  17  KEGYLVDKNTGCKYECLKLGDNDYCLRECKQQYGKGAGGYCYAFACWCTHLYEQAIVWPL  76
+
+Query  61  PNKSA  65
+           PNK  
+Sbjct  77  PNKRC  81
+
+
+> gi|74908727|sp|Q68PG7.1|SCX8_CENEX RecName: Full=Toxin Cex8; 
+Flags: Precursor gi|51234248|gb|AAT97999.1| Cex8 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=67
+
+ Score = 62.0 bits (149),  Expect = 2e-08, Method: Compositional matrix adjust.
+ Identities = 33/65 (51%), Positives = 36/65 (56%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G KY    LGENE C  E   K  G  YGY + F CW E  PE+ P+YP 
+Sbjct  2   KEGYLVNIYTGCKYSCWLLGENEYCIAE--CKEIGAGYGYCHGFGCWCEQFPENKPSYPY  59
+
+Query  61  PNKSA  65
+           P KS 
+Sbjct  60  PEKSC  64
+
+
+> gi|39932242|sp|P60163.1|SCX2_CENGR RecName: Full=Toxin Cg2
+Length=68
+
+ Score = 60.5 bits (145),  Expect = 6e-08, Method: Compositional matrix adjust.
+ Identities = 28/65 (44%), Positives = 40/65 (62%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV KS G KY  ++   +  C+ E  +  + GSYGY Y F C+  G+P+ST  YP+
+Sbjct  1   KDGYLVNKSTGCKYSCIENINDSHCNEECISSIRKGSYGYCYKFYCYCIGMPDSTQVYPI  60
+
+Query  61  PNKSA  65
+           P K+ 
+Sbjct  61  PGKTC  65
+
+
+> gi|20178111|sp|Q95WD2.1|SCE3_CENSC RecName: Full=Beta-toxin CsE3; 
+AltName: Full=Neurotoxin E3; Flags: Precursor gi|16444970|gb|AAL23417.1|AF338449_1 
+sodium-channel modifier toxin precursor 
+CsE3 [Centruroides exilicauda]
+Length=87
+
+ Score = 59.7 bits (143),  Expect = 9e-08, Method: Compositional matrix adjust.
+ Identities = 30/65 (47%), Positives = 36/65 (56%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY+V    G KY   KLG+N+ C  E K ++  GS GY YAF CW   L E    +PL
+Sbjct  20  KEGYIVNYHTGCKYECFKLGDNDYCLRECKLRHGKGSGGYCYAFGCWCTHLYEQAVVWPL  79
+
+Query  61  PNKSA  65
+           P K  
+Sbjct  80  PKKKC  84
+
+
+> gi|134356|sp|P80076.1|SCX3_CENNO RecName: Full=Toxin Cn3; Short=Toxin 
+3; AltName: Full=Toxin II.9.2.3 gi|245683|gb|AAB21462.1| 
+toxin 3, Cn3 [Centruroides noxius=scorpions, Hoffmann, 
+venom, Peptide, 66 aa]
+Length=66
+
+ Score = 59.3 bits (142),  Expect = 1e-07, Method: Compositional matrix adjust.
+ Identities = 31/65 (48%), Positives = 38/65 (59%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV+   G KY   KLG+N+ C  E KA+   G+ GY YAF CW   L E    +PL
+Sbjct  1   KEGYLVELGTGCKYECFKLGDNDYCLRECKARYGKGAGGYCYAFGCWCTQLYEQAVVWPL  60
+
+Query  61  PNKSA  65
+            NK+ 
+Sbjct  61  KNKTC  65
+
+
+> gi|306531034|sp|P0CH41.1|CEII9_CENEL RecName: Full=Beta-mammal 
+toxin CeII9
+Length=67
+
+ Score = 57.8 bits (138),  Expect = 4e-07, Method: Compositional matrix adjust.
+ Identities = 30/65 (47%), Positives = 36/65 (56%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV  S G KY   KLG+N+ C  E +     G+ GY YAF CW   L E    +PL
+Sbjct  1   KEGYLVNHSTGCKYECFKLGDNDYCLRECRQGYGKGAGGYCYAFGCWCTHLYEQAVVWPL  60
+
+Query  61  PNKSA  65
+           P K+ 
+Sbjct  61  PKKTC  65
+
+
+> gi|1173394|sp|P45662.1|SCX4_CENNO RecName: Full=Beta-toxin Cn4; 
+Short=Toxin 4; AltName: Full=Toxin CngtV; AltName: Full=Toxin 
+II-10; Flags: Precursor gi|304573|gb|AAA28288.1| Na+-channel 
+blocking toxin [Centruroides noxius]
+Length=87
+
+ Score = 57.4 bits (137),  Expect = 4e-07, Method: Compositional matrix adjust.
+ Identities = 30/65 (47%), Positives = 36/65 (56%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G KY   KLG+N+ C  E K +   G+ GY YAF CW   L E    +PL
+Sbjct  20  KEGYLVNSYTGCKYECFKLGDNDYCLRECKQQYGKGAGGYCYAFGCWCTHLYEQAVVWPL  79
+
+Query  61  PNKSA  65
+            NK+ 
+Sbjct  80  KNKTC  84
+
+
+> gi|363548474|sp|Q9TWL0.2|SCX8_CENNO RecName: Full=Beta-toxin 
+Cn8; Short=Toxin-8; AltName: Full=Toxin II-13.4
+Length=67
+
+ Score = 57.0 bits (136),  Expect = 6e-07, Method: Compositional matrix adjust.
+ Identities = 29/65 (45%), Positives = 36/65 (56%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY+V    G K+   KLG+N+ C  E KA+   G+ GY YAF CW   L E    +PL
+Sbjct  1   KEGYIVNYYTGCKFACAKLGDNDYCLRECKARYGKGAGGYCYAFGCWCTHLYEQAVVWPL  60
+
+Query  61  PNKSA  65
+           P K  
+Sbjct  61  PKKKC  65
+
+
+> gi|317412107|sp|P0CI57.1|SNAB6_LYCMC RecName: Full=Neurotoxin 
+LmNaTx11.6; Flags: Precursor
+Length=81
+
+ Score = 49.7 bits (117),  Expect = 8e-05, Method: Compositional matrix adjust.
+ Identities = 29/59 (50%), Positives = 36/59 (62%), Gaps = 3/59 (5%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYP  59
+           K+GYLVKK +G  Y    L  +  C+ E KA     S+G  YAFAC+  GLP+S PTYP
+Sbjct  19  KDGYLVKK-NGCAYDCTVLFGDSNCNGECKAFK--ASWGSCYAFACYCRGLPDSVPTYP  74
+
+
+> gi|20140133|sp|Q95WD1.1|SCX8_CENSC RecName: Full=Toxin CsE8; 
+AltName: Full=Neurotoxin 8; Flags: Precursor gi|16444972|gb|AAL23418.1|AF338450_1 
+sodium-channel modifier toxin precursor 
+CsE8 [Centruroides exilicauda]
+Length=85
+
+ Score = 49.3 bits (116),  Expect = 1e-04, Method: Compositional matrix adjust.
+ Identities = 28/63 (45%), Positives = 37/63 (59%), Gaps = 2/63 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           ++GYLV +  G +Y     GEN  CD E   K+QGG  G   + AC+ +GLPE T T+PL
+Sbjct  20  EKGYLVHEDTGCRYKCTFSGENSYCDKE--CKSQGGDSGICQSKACYCQGLPEDTKTWPL  77
+
+Query  61  PNK  63
+             K
+Sbjct  78  IGK  80
+
+
+> gi|969192|gb|AAB34083.1| Cii-1=beta-toxin {N-terminal} [Centruroides 
+infamatus, spp. infamatus, venom, Peptide Partial, 48 
+aa]
+Length=48
+
+ Score = 46.6 bits (109),  Expect = 9e-04, Method: Compositional matrix adjust.
+ Identities = 25/47 (54%), Positives = 29/47 (62%), Gaps = 0/47 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACW  47
+           KEGYLV  S G KY   KLG+N+ C  E K +   G+ GY YAF CW
+Sbjct  1   KEGYLVNHSTGCKYECYKLGDNDYCLRECKQQYGKGAKGYKYAFGCW  47
+
+
+
+Lambda     K      H
+   0.307    0.133    0.412 
+
+Gapped
+Lambda     K      H
+   0.267   0.0410    0.140 
+
+Effective search space used: 84655169088
+Results from round 2
+
+
+Query= 2SN3-A
+
+Length=65
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+Sequences used in model and found again:
+
+  gi|20141091|sp|P01493.2|SCX2_CENSC RecName: Full=Toxin CsEv2; S...   108    1e-22
+  gi|1173398|sp|P45664.1|SCXX_CENNO RecName: Full=Toxin CngtIII; ...   107    4e-22
+  gi|74908731|sp|Q68PH1.1|SCX4_CENEX RecName: Full=Neurotoxin Cex...   106    6e-22
+  gi|20141665|sp|P01492.3|SCX1_CENSC RecName: Full=Toxin CsEv1; S...   106    7e-22
+  gi|74908734|sp|Q68PH4.1|SCX1_CENEX RecName: Full=Neurotoxin Cex...   101    2e-20
+  gi|20178111|sp|Q95WD2.1|SCE3_CENSC RecName: Full=Beta-toxin CsE...   100    4e-20
+  gi|2507369|sp|P01495.3|SCX2_CENNO RecName: Full=Beta-mammal tox...   100    5e-20
+  gi|46397719|sp|Q94435.2|SCXA_CENNO RecName: Full=Insect-toxin C...   100    6e-20
+  gi|1173394|sp|P45662.1|SCX4_CENNO RecName: Full=Beta-toxin Cn4;...  99.2    1e-19
+  gi|39932334|sp|Q7Z1K4.1|SCX8_CENLL RecName: Full=Toxin Cll8; Fl...  98.5    2e-19
+  gi|20178267|sp|P01491.3|SCXI_CENSC RecName: Full=Beta-toxin CsE...  98.5    2e-19
+  gi|20178112|sp|Q95WD3.1|SCXX_CENSC RecName: Full=Neurotoxin E1x...  98.1    2e-19
+  gi|39932339|sp|Q7Z1K9.1|SCX3_CENLL RecName: Full=Toxin Cll3; Fl...  96.9    6e-19
+  gi|1173400|sp|P45665.1|SCXY_CENNO RecName: Full=Toxin CngtIV; F...  95.8    1e-18
+  gi|134350|sp|P08900.1|SCX2_CENSU RecName: Full=Beta-mammal toxi...  93.1    8e-18
+  gi|306531034|sp|P0CH41.1|CEII9_CENEL RecName: Full=Beta-mammal ...  93.1    9e-18
+  gi|37087994|sp|P59865.1|SCX7_CENLL RecName: Full=Toxin Cll7; Fl...  91.9    2e-17
+  gi|39932335|sp|Q7Z1K5.1|SCX6_CENLL RecName: Full=Toxin Cll6; Fl...  90.4    5e-17
+  gi|134356|sp|P80076.1|SCX3_CENNO RecName: Full=Toxin Cn3; Short...  90.0    6e-17
+  gi|363548474|sp|Q9TWL0.2|SCX8_CENNO RecName: Full=Beta-toxin Cn...  89.6    1e-16
+  gi|74908722|sp|Q68PG2.1|SCX13_CENEX RecName: Full=Neurotoxin Ce...  86.9    5e-16
+  gi|20178103|sp|P58778.1|SCX4_CENSC RecName: Full=Toxin CsEv4; S...  86.9    6e-16
+  gi|74908726|sp|Q68PG6.1|SCX9_CENEX RecName: Full=Neurotoxin Cex...  84.6    3e-15
+  gi|39932242|sp|P60163.1|SCX2_CENGR RecName: Full=Toxin Cg2          82.3    2e-14
+  gi|20140133|sp|Q95WD1.1|SCX8_CENSC RecName: Full=Toxin CsE8; Al...  80.4    6e-14
+  gi|74908727|sp|Q68PG7.1|SCX8_CENEX RecName: Full=Toxin Cex8; Fl...  78.4    2e-13
+  gi|317412107|sp|P0CI57.1|SNAB6_LYCMC RecName: Full=Neurotoxin L...  71.1    4e-11
+  gi|969192|gb|AAB34083.1| Cii-1=beta-toxin {N-terminal} [Centrur...  65.3    2e-09
+
+Sequences not found previously or not previously below threshold:
+
+  gi|161705285|gb|ABX76749.1| neurotoxin LmNaTx1 precursor [Lycha...  57.2    5e-07
+  gi|16444974|gb|AAL23419.1|AF338451_1 sodium-channel modifier to...  56.9    6e-07
+  gi|37089118|sp|Q8WRY4.1|SCX9_CENLL RecName: Full=Toxin Cll9; Fl...  54.2    4e-06
+  gi|56404744|sp|P68725.1|SX21_LEIQH RecName: Full=Insect toxin 2...  54.2    4e-06
+  gi|300431719|gb|ADK12684.1| Acra-3 toxin [Androctonus crassicauda]  53.8    5e-06
+  gi|317412112|sp|P0CI81.1|SNAY1_LYCMC RecName: Full=Neurotoxin L...  52.6    1e-05
+  gi|317412115|sp|P0CI55.1|SNAZ2_LYCMC RecName: Full=Neurotoxin L...  51.9    2e-05
+  gi|294863148|sp|C9X4K3.1|SCNA5_TITDI RecName: Full=Putative neu...  51.5    3e-05
+  gi|317412113|sp|P0CI59.1|SNAY2_LYCMC RecName: Full=Neurotoxin L...  49.9    9e-05
+  gi|149134014|gb|ABR21035.1| venom sodium channel toxin-2 [Mesob...  49.5    9e-05
+  gi|158706342|sp|P0C5H3.1|SCB1_LEIQH RecName: Full=Beta-mammal/i...  49.5    1e-04
+  gi|20140338|sp|Q9UAC8.1|SCAT_MESMA RecName: Full=Beta-toxin BmK...  49.5    1e-04
+  gi|317412099|sp|D9U2A1.1|SNA17_LYCMC RecName: Full=Neurotoxin L...  49.2    2e-04
+  gi|294863149|sp|C9X4K4.1|SCNA6_TITDI RecName: Full=Putative neu...  48.8    2e-04
+  gi|37088131|sp|Q26292.1|SIX2_LEIQH RecName: Full=Beta-insect de...  48.8    2e-04
+  gi|149134008|gb|ABR21032.1| venom sodium channel toxin-1 [Mesob...  48.8    2e-04
+  gi|317412102|sp|P0CI58.1|SNA64_LYCMC RecName: Full=Neurotoxin L...  48.8    2e-04
+  gi|115311309|sp|P0C1X7.1|SCNA4_TITDI RecName: Full=Ardiscretin;...  48.8    2e-04
+  gi|337255706|gb|AEI61921.1| alpha-toxin [Centruroides vittatus]     47.6    4e-04
+  gi|324497678|gb|ADY39489.1| beta-buthitoxin-Hj2a [Hottentotta j...  47.2    5e-04
+  gi|317412110|sp|P0CI51.1|SNAJ_LYCMC RecName: Full=Neurotoxin Lm...  47.2    5e-04
+  gi|212278283|gb|ACJ23126.1| putative depressant toxin Tx580 [Bu...  46.8    7e-04
+
+
+> gi|20141091|sp|P01493.2|SCX2_CENSC RecName: Full=Toxin CsEv2; 
+Short=CsE v2; AltName: Full=Neurotoxin 2; Flags: Precursor 
+gi|16444978|gb|AAL23421.1|AF338453_1 sodium-channel modifier 
+toxin precursor CsEv2a [Centruroides exilicauda]
+Length=87
+
+ Score =  108 bits (271),  Expect = 1e-22, Method: Composition-based stats.
+ Identities = 56/65 (87%), Positives = 56/65 (87%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KYG LKLGENEGCD E KAKNQGGSYGY YAFACW EGLPESTPTYPL
+Sbjct  20  KEGYLVNKSTGCKYGCLKLGENEGCDKECKAKNQGGSYGYCYAFACWCEGLPESTPTYPL  79
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  80  PNKSC  84
+
+
+> gi|1173398|sp|P45664.1|SCXX_CENNO RecName: Full=Toxin CngtIII; 
+Flags: Precursor gi|304569|gb|AAA28286.1| Na+-channel blocking 
+toxin [Centruroides noxius]
+Length=87
+
+ Score =  107 bits (267),  Expect = 4e-22, Method: Composition-based stats.
+ Identities = 51/65 (79%), Positives = 53/65 (82%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KYG   LG+NEGCD E KAKNQGGSYGY YAF CW EGLPESTPTYPL
+Sbjct  20  KEGYLVNKSTGCKYGCFWLGKNEGCDKECKAKNQGGSYGYCYAFGCWCEGLPESTPTYPL  79
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  80  PNKTC  84
+
+
+> gi|74908731|sp|Q68PH1.1|SCX4_CENEX RecName: Full=Neurotoxin Cex4; 
+Flags: Precursor gi|51234240|gb|AAT97995.1| Cex4 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=87
+
+ Score =  106 bits (266),  Expect = 6e-22, Method: Composition-based stats.
+ Identities = 49/65 (76%), Positives = 51/65 (79%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KY    LG+NE CD E KAKNQGGSYGY Y+FACW EGLPEST TYPL
+Sbjct  20  KEGYLVNKSTGCKYECFWLGKNEFCDKECKAKNQGGSYGYCYSFACWCEGLPESTSTYPL  79
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  80  PNKSC  84
+
+
+> gi|20141665|sp|P01492.3|SCX1_CENSC RecName: Full=Toxin CsEv1; 
+Short=CsE v1; AltName: Full=Neurotoxin 1; Flags: Precursor 
+gi|16444982|gb|AAL23423.1|AF338455_1 sodium-channel modifier 
+toxin precursor CsEv1b [Centruroides exilicauda]
+Length=87
+
+ Score =  106 bits (265),  Expect = 7e-22, Method: Composition-based stats.
+ Identities = 54/65 (84%), Positives = 55/65 (85%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLVKKSDG KY    LG+NE CDTE KAKNQGGSYGY YAFACW EGLPESTPTYPL
+Sbjct  20  KEGYLVKKSDGCKYDCFWLGKNEHCDTECKAKNQGGSYGYCYAFACWCEGLPESTPTYPL  79
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  80  PNKSC  84
+
+
+> gi|74908734|sp|Q68PH4.1|SCX1_CENEX RecName: Full=Neurotoxin Cex1; 
+Flags: Precursor gi|51234234|gb|AAT97992.1| Cex1 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=87
+
+ Score =  101 bits (253),  Expect = 2e-20, Method: Composition-based stats.
+ Identities = 46/65 (71%), Positives = 49/65 (76%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KY    LG+NEGCD E KA NQGG YGY +AFACW E LPESTPTYP+
+Sbjct  20  KEGYLVSKSTGCKYECFWLGKNEGCDKECKAPNQGGGYGYCHAFACWCENLPESTPTYPI  79
+
+Query  61  PNKSA  65
+           P KS 
+Sbjct  80  PGKSC  84
+
+
+> gi|20178111|sp|Q95WD2.1|SCE3_CENSC RecName: Full=Beta-toxin CsE3; 
+AltName: Full=Neurotoxin E3; Flags: Precursor gi|16444970|gb|AAL23417.1|AF338449_1 
+sodium-channel modifier toxin precursor 
+CsE3 [Centruroides exilicauda]
+Length=87
+
+ Score =  100 bits (250),  Expect = 4e-20, Method: Composition-based stats.
+ Identities = 30/65 (47%), Positives = 36/65 (56%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY+V    G KY   KLG+N+ C  E K ++  GS GY YAF CW   L E    +PL
+Sbjct  20  KEGYIVNYHTGCKYECFKLGDNDYCLRECKLRHGKGSGGYCYAFGCWCTHLYEQAVVWPL  79
+
+Query  61  PNKSA  65
+           P K  
+Sbjct  80  PKKKC  84
+
+
+> gi|2507369|sp|P01495.3|SCX2_CENNO RecName: Full=Beta-mammal toxin 
+Cn2; Short=Toxin 2; AltName: Full=Toxin II.9.2.2; Flags: 
+Precursor gi|1336782|gb|AAB36086.1| Na+ channel-specific toxin 
+2 [Centruroides noxius]
+Length=84
+
+ Score =  100 bits (249),  Expect = 5e-20, Method: Composition-based stats.
+ Identities = 34/65 (53%), Positives = 40/65 (62%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV K+ G KY  LKLG+N+ C  E K +   G+ GY YAFACW   L E    +PL
+Sbjct  17  KEGYLVDKNTGCKYECLKLGDNDYCLRECKQQYGKGAGGYCYAFACWCTHLYEQAIVWPL  76
+
+Query  61  PNKSA  65
+           PNK  
+Sbjct  77  PNKRC  81
+
+
+> gi|46397719|sp|Q94435.2|SCXA_CENNO RecName: Full=Insect-toxin 
+Cn10; AltName: Full=CngtVIII; Flags: Precursor gi|1805721|emb|CAA69595.1| 
+toxin Cn10 [Centruroides noxius]
+Length=81
+
+ Score =  100 bits (249),  Expect = 6e-20, Method: Composition-based stats.
+ Identities = 47/65 (73%), Positives = 50/65 (77%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KY  L LGEN+ CD E KAKNQGGSYGY Y  ACW EGLPESTPTYP+
+Sbjct  14  KEGYLVNKSTGCKYNCLILGENKNCDMECKAKNQGGSYGYCYKLACWCEGLPESTPTYPI  73
+
+Query  61  PNKSA  65
+           P K+ 
+Sbjct  74  PGKTC  78
+
+
+> gi|1173394|sp|P45662.1|SCX4_CENNO RecName: Full=Beta-toxin Cn4; 
+Short=Toxin 4; AltName: Full=Toxin CngtV; AltName: Full=Toxin 
+II-10; Flags: Precursor gi|304573|gb|AAA28288.1| Na+-channel 
+blocking toxin [Centruroides noxius]
+Length=87
+
+ Score = 99.2 bits (246),  Expect = 1e-19, Method: Composition-based stats.
+ Identities = 30/65 (47%), Positives = 36/65 (56%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G KY   KLG+N+ C  E K +   G+ GY YAF CW   L E    +PL
+Sbjct  20  KEGYLVNSYTGCKYECFKLGDNDYCLRECKQQYGKGAGGYCYAFGCWCTHLYEQAVVWPL  79
+
+Query  61  PNKSA  65
+            NK+ 
+Sbjct  80  KNKTC  84
+
+
+> gi|39932334|sp|Q7Z1K4.1|SCX8_CENLL RecName: Full=Toxin Cll8; 
+Flags: Precursor gi|31376364|gb|AAP49509.1|AF491134_1 sodium-channel 
+modifier toxin Cll8 precursor [Centruroides limpidus 
+limpidus]
+Length=72
+
+ Score = 98.5 bits (244),  Expect = 2e-19, Method: Composition-based stats.
+ Identities = 50/65 (77%), Positives = 52/65 (80%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLVKKS+G KY   KLGENE CDTE KA NQGGSYGY   F CW EGLPESTPT+PL
+Sbjct  5   KEGYLVKKSNGCKYECFKLGENEHCDTECKAPNQGGSYGYCDTFECWCEGLPESTPTWPL  64
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  65  PNKSC  69
+
+
+> gi|20178267|sp|P01491.3|SCXI_CENSC RecName: Full=Beta-toxin CsEI; 
+Short=CsE-I; AltName: Full=Neurotoxin I; Flags: Precursor
+Length=86
+
+ Score = 98.5 bits (244),  Expect = 2e-19, Method: Composition-based stats.
+ Identities = 38/65 (59%), Positives = 47/65 (73%), Gaps = 1/65 (1%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV+K  G K    KLGEN+ C+ E K K+ GGSYGY Y F C+ EGLP+ST T+PL
+Sbjct  20  KDGYLVEK-TGCKKTCYKLGENDFCNRECKWKHIGGSYGYCYGFGCYCEGLPDSTQTWPL  78
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  79  PNKTC  83
+
+
+> gi|20178112|sp|Q95WD3.1|SCXX_CENSC RecName: Full=Neurotoxin E1x; 
+AltName: Full=CsE1x; Flags: Precursor gi|16444968|gb|AAL23416.1|AF338448_1 
+sodium-channel modifier toxin precursor CsE1x 
+[Centruroides exilicauda]
+Length=86
+
+ Score = 98.1 bits (243),  Expect = 2e-19, Method: Composition-based stats.
+ Identities = 37/65 (57%), Positives = 45/65 (70%), Gaps = 1/65 (1%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G K    KLG+N+ C+ E K K+ GGSYGY Y F C+ EGLP+ST T+PL
+Sbjct  20  KEGYLVDVK-GCKKNCWKLGDNDYCNRECKWKHIGGSYGYCYGFGCYCEGLPDSTQTWPL  78
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  79  PNKTC  83
+
+
+> gi|39932339|sp|Q7Z1K9.1|SCX3_CENLL RecName: Full=Toxin Cll3; 
+Flags: Precursor gi|31376350|gb|AAP49502.1|AF491127_1 sodium-channel 
+modifier toxin Cll3 precursor [Centruroides limpidus 
+limpidus]
+Length=87
+
+ Score = 96.9 bits (240),  Expect = 6e-19, Method: Composition-based stats.
+ Identities = 34/65 (53%), Positives = 40/65 (62%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY+V   DG KY  LKLGEN+ C  E KA+    + GY YAFACW   L E    +PL
+Sbjct  20  KEGYIVNYYDGCKYACLKLGENDYCLRECKARYYKSAGGYCYAFACWCTHLYEQAVVWPL  79
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  80  PNKTC  84
+
+
+> gi|1173400|sp|P45665.1|SCXY_CENNO RecName: Full=Toxin CngtIV; 
+Flags: Precursor
+Length=86
+
+ Score = 95.8 bits (237),  Expect = 1e-18, Method: Composition-based stats.
+ Identities = 37/65 (57%), Positives = 45/65 (70%), Gaps = 1/65 (1%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV    G K    KLGEN+ C+ E K K++GGSYGY Y F C+ EGL +STPT+PL
+Sbjct  20  KDGYLVDVK-GCKKNCYKLGENDYCNRECKMKHRGGSYGYCYGFGCYCEGLSDSTPTWPL  78
+
+Query  61  PNKSA  65
+           PNK  
+Sbjct  79  PNKRC  83
+
+
+> gi|134350|sp|P08900.1|SCX2_CENSU RecName: Full=Beta-mammal toxin 
+Css2; AltName: Full=Css II; Short=CssII
+Length=66
+
+ Score = 93.1 bits (230),  Expect = 8e-18, Method: Composition-based stats.
+ Identities = 35/65 (54%), Positives = 40/65 (62%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KY  LKLG+N+ C  E K +    S GY YAFACW   L E    +PL
+Sbjct  1   KEGYLVSKSTGCKYECLKLGDNDYCLRECKQQYGKSSGGYCYAFACWCTHLYEQAVVWPL  60
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  61  PNKTC  65
+
+
+> gi|306531034|sp|P0CH41.1|CEII9_CENEL RecName: Full=Beta-mammal 
+toxin CeII9
+Length=67
+
+ Score = 93.1 bits (230),  Expect = 9e-18, Method: Composition-based stats.
+ Identities = 30/65 (47%), Positives = 36/65 (56%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV  S G KY   KLG+N+ C  E +     G+ GY YAF CW   L E    +PL
+Sbjct  1   KEGYLVNHSTGCKYECFKLGDNDYCLRECRQGYGKGAGGYCYAFGCWCTHLYEQAVVWPL  60
+
+Query  61  PNKSA  65
+           P K+ 
+Sbjct  61  PKKTC  65
+
+
+> gi|37087994|sp|P59865.1|SCX7_CENLL RecName: Full=Toxin Cll7; 
+Flags: Precursor gi|31376362|gb|AAP49508.1|AF491133_1 sodium-channel 
+modifier toxin Cll7 precursor [Centruroides limpidus 
+limpidus]
+Length=85
+
+ Score = 91.9 bits (227),  Expect = 2e-17, Method: Composition-based stats.
+ Identities = 35/65 (54%), Positives = 40/65 (62%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G KY   KLGEN+ C  E K    G  YGY Y F C+ EG PE+ PT+PL
+Sbjct  20  KEGYLVNTYTGCKYICWKLGENKYCIDECK--EIGAGYGYCYGFGCYCEGFPENKPTWPL  77
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  78  PNKTC  82
+
+
+> gi|39932335|sp|Q7Z1K5.1|SCX6_CENLL RecName: Full=Toxin Cll6; 
+Flags: Precursor gi|31376360|gb|AAP49507.1|AF491132_1 sodium-channel 
+modifier toxin Cll6 precursor [Centruroides limpidus 
+limpidus]
+Length=85
+
+ Score = 90.4 bits (223),  Expect = 5e-17, Method: Composition-based stats.
+ Identities = 36/65 (56%), Positives = 42/65 (65%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G KYG  +LG+N  CD + KA  + G+YGY Y   CW EGLP S PT+PL
+Sbjct  20  KEGYLVNMKTGCKYGCYELGDNGYCDRKCKA--ESGNYGYCYTVGCWCEGLPNSKPTWPL  77
+
+Query  61  PNKSA  65
+           P KS 
+Sbjct  78  PGKSC  82
+
+
+> gi|134356|sp|P80076.1|SCX3_CENNO RecName: Full=Toxin Cn3; Short=Toxin 
+3; AltName: Full=Toxin II.9.2.3 gi|245683|gb|AAB21462.1| 
+toxin 3, Cn3 [Centruroides noxius=scorpions, Hoffmann, 
+venom, Peptide, 66 aa]
+Length=66
+
+ Score = 90.0 bits (222),  Expect = 6e-17, Method: Composition-based stats.
+ Identities = 31/65 (48%), Positives = 38/65 (59%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV+   G KY   KLG+N+ C  E KA+   G+ GY YAF CW   L E    +PL
+Sbjct  1   KEGYLVELGTGCKYECFKLGDNDYCLRECKARYGKGAGGYCYAFGCWCTQLYEQAVVWPL  60
+
+Query  61  PNKSA  65
+            NK+ 
+Sbjct  61  KNKTC  65
+
+
+> gi|363548474|sp|Q9TWL0.2|SCX8_CENNO RecName: Full=Beta-toxin 
+Cn8; Short=Toxin-8; AltName: Full=Toxin II-13.4
+Length=67
+
+ Score = 89.6 bits (221),  Expect = 1e-16, Method: Composition-based stats.
+ Identities = 29/65 (45%), Positives = 36/65 (56%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY+V    G K+   KLG+N+ C  E KA+   G+ GY YAF CW   L E    +PL
+Sbjct  1   KEGYIVNYYTGCKFACAKLGDNDYCLRECKARYGKGAGGYCYAFGCWCTHLYEQAVVWPL  60
+
+Query  61  PNKSA  65
+           P K  
+Sbjct  61  PKKKC  65
+
+
+> gi|74908722|sp|Q68PG2.1|SCX13_CENEX RecName: Full=Neurotoxin 
+Cex13; Flags: Precursor gi|51234258|gb|AAT98004.1| Cex13 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=73
+
+ Score = 86.9 bits (214),  Expect = 5e-16, Method: Composition-based stats.
+ Identities = 35/65 (54%), Positives = 43/65 (67%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV    G KY    LG+N+ C++E K    G  YGY YAF CW EGLPES PT+PL
+Sbjct  8   KDGYLVIIKTGCKYNCYILGKNKYCNSECK--EVGAGYGYCYAFGCWCEGLPESIPTWPL  65
+
+Query  61  PNKSA  65
+           P+K+ 
+Sbjct  66  PDKTC  70
+
+
+> gi|20178103|sp|P58778.1|SCX4_CENSC RecName: Full=Toxin CsEv4; 
+Short=CsE v4; AltName: Full=Neurotoxin 4 gi|102789|pir||B23727 
+neurotoxin V-4 - bark scorpion
+Length=66
+
+ Score = 86.9 bits (214),  Expect = 6e-16, Method: Composition-based stats.
+ Identities = 39/65 (60%), Positives = 44/65 (68%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY+V KS G  Y   K GE+  CD E KAKNQGGSYG+     CW EGLPESTPT+PL
+Sbjct  1   KEGYMVNKSTGCSYSCPKTGESVYCDKECKAKNQGGSYGFCQYSNCWCEGLPESTPTWPL  60
+
+Query  61  PNKSA  65
+            +K  
+Sbjct  61  DDKPC  65
+
+
+> gi|74908726|sp|Q68PG6.1|SCX9_CENEX RecName: Full=Neurotoxin Cex9; 
+Flags: Precursor gi|51234250|gb|AAT98000.1| Cex9 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=67
+
+ Score = 84.6 bits (208),  Expect = 3e-15, Method: Composition-based stats.
+ Identities = 38/65 (59%), Positives = 46/65 (71%), Gaps = 1/65 (1%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GY V+   G K    KLGEN+ C+ E K K++GGSYGY Y F C+ EGL ESTPT+PL
+Sbjct  1   KDGYPVEV-TGCKKSCYKLGENKFCNRECKMKHRGGSYGYCYFFGCYCEGLAESTPTWPL  59
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  60  PNKSC  64
+
+
+> gi|39932242|sp|P60163.1|SCX2_CENGR RecName: Full=Toxin Cg2
+Length=68
+
+ Score = 82.3 bits (202),  Expect = 2e-14, Method: Composition-based stats.
+ Identities = 28/65 (44%), Positives = 40/65 (62%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV KS G KY  ++   +  C+ E  +  + GSYGY Y F C+  G+P+ST  YP+
+Sbjct  1   KDGYLVNKSTGCKYSCIENINDSHCNEECISSIRKGSYGYCYKFYCYCIGMPDSTQVYPI  60
+
+Query  61  PNKSA  65
+           P K+ 
+Sbjct  61  PGKTC  65
+
+
+> gi|20140133|sp|Q95WD1.1|SCX8_CENSC RecName: Full=Toxin CsE8; 
+AltName: Full=Neurotoxin 8; Flags: Precursor gi|16444972|gb|AAL23418.1|AF338450_1 
+sodium-channel modifier toxin precursor 
+CsE8 [Centruroides exilicauda]
+Length=85
+
+ Score = 80.4 bits (197),  Expect = 6e-14, Method: Composition-based stats.
+ Identities = 28/65 (44%), Positives = 37/65 (57%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           ++GYLV +  G +Y     GEN  CD E K+  QGG  G   + AC+ +GLPE T T+PL
+Sbjct  20  EKGYLVHEDTGCRYKCTFSGENSYCDKECKS--QGGDSGICQSKACYCQGLPEDTKTWPL  77
+
+Query  61  PNKSA  65
+             K  
+Sbjct  78  IGKLC  82
+
+
+> gi|74908727|sp|Q68PG7.1|SCX8_CENEX RecName: Full=Toxin Cex8; 
+Flags: Precursor gi|51234248|gb|AAT97999.1| Cex8 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=67
+
+ Score = 78.4 bits (192),  Expect = 2e-13, Method: Composition-based stats.
+ Identities = 33/65 (51%), Positives = 36/65 (56%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G KY    LGENE C  E K    G  YGY + F CW E  PE+ P+YP 
+Sbjct  2   KEGYLVNIYTGCKYSCWLLGENEYCIAECK--EIGAGYGYCHGFGCWCEQFPENKPSYPY  59
+
+Query  61  PNKSA  65
+           P KS 
+Sbjct  60  PEKSC  64
+
+
+> gi|317412107|sp|P0CI57.1|SNAB6_LYCMC RecName: Full=Neurotoxin 
+LmNaTx11.6; Flags: Precursor
+Length=81
+
+ Score = 71.1 bits (173),  Expect = 4e-11, Method: Composition-based stats.
+ Identities = 30/65 (47%), Positives = 39/65 (60%), Gaps = 4/65 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLVKK +G  Y    L  +  C+ E KA     S+G  YAFAC+  GLP+S PTYP 
+Sbjct  19  KDGYLVKK-NGCAYDCTVLFGDSNCNGECKAF--KASWGSCYAFACYCRGLPDSVPTYP-  74
+
+Query  61  PNKSA  65
+            +K+ 
+Sbjct  75  SSKTC  79
+
+
+> gi|969192|gb|AAB34083.1| Cii-1=beta-toxin {N-terminal} [Centruroides 
+infamatus, spp. infamatus, venom, Peptide Partial, 48 
+aa]
+Length=48
+
+ Score = 65.3 bits (158),  Expect = 2e-09, Method: Composition-based stats.
+ Identities = 25/48 (53%), Positives = 29/48 (61%), Gaps = 0/48 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWD  48
+           KEGYLV  S G KY   KLG+N+ C  E K +   G+ GY YAF CW 
+Sbjct  1   KEGYLVNHSTGCKYECYKLGDNDYCLRECKQQYGKGAKGYKYAFGCWC  48
+
+
+> gi|161705285|gb|ABX76749.1| neurotoxin LmNaTx1 precursor [Lychas 
+mucronatus]
+Length=88
+
+ Score = 57.2 bits (137),  Expect = 5e-07, Method: Composition-based stats.
+ Identities = 21/68 (31%), Positives = 30/68 (45%), Gaps = 5/68 (7%)
+
+Query  1   KEGYLV---KKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K+GY +    KS G K   +    N+ CD E   K     Y Y +  AC+ EGLP+S   
+Sbjct  21  KDGYPIYSTGKSKGCKIECVI--NNKYCDKECTLKGGSSGYCYFWKLACYCEGLPDSVAV  78
+
+Query  58  YPLPNKSA  65
+           +     + 
+Sbjct  79  WTYAENTC  86
+
+
+> gi|16444974|gb|AAL23419.1|AF338451_1 sodium-channel modifier 
+toxin precursor CsE9 [Centruroides exilicauda]
+Length=84
+
+ Score = 56.9 bits (136),  Expect = 6e-07, Method: Composition-based stats.
+ Identities = 22/65 (34%), Positives = 32/65 (50%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           ++GYL  K        + +  ++ CD   K   +GGS+G    FACW +GLP  TP    
+Sbjct  20  EDGYLFDKRKRCTLECIDMTGDKNCDRNCK--KEGGSFGKCSYFACWCKGLPGITPISRT  77
+
+Query  61  PNKSA  65
+           P K+ 
+Sbjct  78  PGKTC  82
+
+
+> gi|37089118|sp|Q8WRY4.1|SCX9_CENLL RecName: Full=Toxin Cll9; 
+Flags: Precursor gi|18033943|gb|AAL57291.1|AF387171_1 Na+-channel 
+modifying toxin precursor [Centruroides limpidus limpidus]
+Length=84
+
+ Score = 54.2 bits (129),  Expect = 4e-06, Method: Composition-based stats.
+ Identities = 22/65 (34%), Positives = 32/65 (50%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           ++GYL  K        +    ++ CD   K   +GGS+G+    ACW +GLP STP    
+Sbjct  20  EDGYLFDKRKRCTLACIDKTGDKNCDRNCK--KEGGSFGHCSYSACWCKGLPGSTPISRT  77
+
+Query  61  PNKSA  65
+           P K+ 
+Sbjct  78  PGKTC  82
+
+
+> gi|56404744|sp|P68725.1|SX21_LEIQH RecName: Full=Insect toxin 
+2-13; AltName: Full=LqhIT2-13; Flags: Precursor
+Length=83
+
+ Score = 54.2 bits (129),  Expect = 4e-06, Method: Composition-based stats.
+ Identities = 22/60 (37%), Positives = 31/60 (52%), Gaps = 5/60 (8%)
+
+Query  6   VKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLPNKSA  65
+           +++ DG K        ++ CD E K+  +GGSYGY YAF CW EGLP     +     + 
+Sbjct  25  IRRHDGCKISCTV--NDKYCDNECKS--EGGSYGYCYAFGCWCEGLPNDK-AWKSETNTC  79
+
+
+> gi|300431719|gb|ADK12684.1| Acra-3 toxin [Androctonus crassicauda]
+Length=84
+
+ Score = 53.8 bits (128),  Expect = 5e-06, Method: Composition-based stats.
+ Identities = 21/58 (37%), Positives = 26/58 (45%), Gaps = 2/58 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTY  58
+           ++GY V      KY      + E C    K +N     GY YAFACW  GLP+    Y
+Sbjct  19  RDGYPVHDGTNCKYSCDIREKWEYCTPLCKRRNAKT--GYCYAFACWCIGLPDEVKVY  74
+
+
+> gi|317412112|sp|P0CI81.1|SNAY1_LYCMC RecName: Full=Neurotoxin 
+LmNaTx34.1; Flags: Precursor
+Length=86
+
+ Score = 52.6 bits (125),  Expect = 1e-05, Method: Composition-based stats.
+ Identities = 20/68 (30%), Positives = 31/68 (46%), Gaps = 6/68 (8%)
+
+Query  2   EGYLV---KKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTP-T  57
+           +GYL+       G K     +  N+ C+ + K K     Y Y +  AC+ EGLPES+P  
+Sbjct  19  DGYLMVRAGIEKGCK--IWCVINNDYCNRDCKLKGGTYGYCYFWKLACYCEGLPESSPDI  76
+
+Query  58  YPLPNKSA  65
+           +     + 
+Sbjct  77  WTYEKNTC  84
+
+
+> gi|317412115|sp|P0CI55.1|SNAZ2_LYCMC RecName: Full=Neurotoxin 
+LmNaTx35.2; Flags: Precursor
+Length=86
+
+ Score = 51.9 bits (123),  Expect = 2e-05, Method: Composition-based stats.
+ Identities = 22/65 (34%), Positives = 29/65 (45%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GY+V +    KY      + + C    + K  G   GY Y+FACW  GLPE T  Y  
+Sbjct  22  KDGYVVHEDTNCKYSCDVFKKWKYCSPLCQKK--GAETGYCYSFACWCVGLPEETLVYGD  79
+
+Query  61  PNKSA  65
+                
+Sbjct  80  KGTYC  84
+
+
+> gi|294863148|sp|C9X4K3.1|SCNA5_TITDI RecName: Full=Putative neurotoxin 
+Na5; Flags: Precursor gi|260207905|emb|CAY61935.1| 
+putative neurotoxin Na5 precursor [Tityus discrepans]
+Length=83
+
+ Score = 51.5 bits (122),  Expect = 3e-05, Method: Composition-based stats.
+ Identities = 23/65 (36%), Positives = 31/65 (48%), Gaps = 4/65 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GY+++   G KY     G N  C+TE   K   GS GY    ACW  GLP++   +  
+Sbjct  21  KDGYIIEHR-GCKYSCFF-GTNSWCNTECTLK--KGSSGYCAWPACWCYGLPDNVKIFDS  76
+
+Query  61  PNKSA  65
+            N   
+Sbjct  77  NNNKC  81
+
+
+> gi|317412113|sp|P0CI59.1|SNAY2_LYCMC RecName: Full=Neurotoxin 
+LmNaTx34.2; Flags: Precursor
+Length=86
+
+ Score = 49.9 bits (118),  Expect = 9e-05, Method: Composition-based stats.
+ Identities = 21/68 (31%), Positives = 31/68 (46%), Gaps = 6/68 (8%)
+
+Query  2   EGYLV---KKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTP-T  57
+           +GYL+    +  G K     +  NE CD + K K     Y Y +  AC+ EGLP S+P  
+Sbjct  19  DGYLMVRAGREKGCK--IWCVINNEYCDKDCKLKGGNYGYCYFWKLACYCEGLPTSSPDI  76
+
+Query  58  YPLPNKSA  65
+           +     + 
+Sbjct  77  WTYEKNTC  84
+
+
+> gi|149134014|gb|ABR21035.1| venom sodium channel toxin-2 [Mesobuthus 
+eupeus]
+Length=86
+
+ Score = 49.5 bits (117),  Expect = 9e-05, Method: Composition-based stats.
+ Identities = 19/52 (37%), Positives = 27/52 (52%), Gaps = 2/52 (3%)
+
+Query  3   GYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPES  54
+           GYL+ K  G K     +  NE C++E K +     Y Y +  AC+ EG P+S
+Sbjct  23  GYLLDKYTGCK--VWCVINNESCNSECKIRRGNYGYCYFWKLACYCEGAPKS  72
+
+
+> gi|158706342|sp|P0C5H3.1|SCB1_LEIQH RecName: Full=Beta-mammal/insect 
+toxin Lqhb1; AltName: Full=Lqh-beta-1; Flags: Precursor
+Length=85
+
+ Score = 49.5 bits (117),  Expect = 1e-04, Method: Composition-based stats.
+ Identities = 18/63 (29%), Positives = 28/63 (45%), Gaps = 3/63 (4%)
+
+Query  3   GYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLPN  62
+           GYL+ K+ G K     +  N  C++E K +     Y Y +  AC+ EG P+S   +    
+Sbjct  22  GYLLNKATGCK--VWCVINNASCNSECKLRRGNYGYCYFWKLACYCEGAPKS-ELWAYAT  78
+
+Query  63  KSA  65
+              
+Sbjct  79  NKC  81
+
+
+> gi|20140338|sp|Q9UAC8.1|SCAT_MESMA RecName: Full=Beta-toxin BmKAs1; 
+Short=BmK AS-1; AltName: Full=BmK activator of skeletal-muscle 
+ryanodine receptor; AltName: Full=Toxin BmP09; Flags: 
+Precursor gi|5712123|gb|AAD47375.1|AF079061_1 AS-1 neurotoxin 
+precursor [Mesobuthus martensii]
+Length=85
+
+ Score = 49.5 bits (117),  Expect = 1e-04, Method: Composition-based stats.
+ Identities = 19/52 (37%), Positives = 27/52 (52%), Gaps = 2/52 (3%)
+
+Query  3   GYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPES  54
+           GYL+ K  G K     +  NE C++E K +     Y Y +  AC+ EG P+S
+Sbjct  22  GYLLNKYTGCK--IWCVINNESCNSECKLRRGNYGYCYFWKLACYCEGAPKS  71
+
+
+> gi|317412099|sp|D9U2A1.1|SNA17_LYCMC RecName: Full=Neurotoxin 
+LmNaTx17; Flags: Precursor gi|161705317|gb|ABX76765.1| neurotoxin 
+LmNaTx17 precursor [Lychas mucronatus]
+Length=86
+
+ Score = 49.2 bits (116),  Expect = 2e-04, Method: Composition-based stats.
+ Identities = 21/68 (31%), Positives = 29/68 (43%), Gaps = 5/68 (7%)
+
+Query  1   KEGYLVKKS---DGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K GY V+ S    G K   +    N  CD E K +     Y Y +  AC+ E LP ++PT
+Sbjct  19  KHGYPVQYSGREKGCKIACVI--NNASCDGECKRRGGRAGYCYFWKLACFCEYLPNNSPT  76
+
+Query  58  YPLPNKSA  65
+           +       
+Sbjct  77  WDYKTGKC  84
+
+
+> gi|294863149|sp|C9X4K4.1|SCNA6_TITDI RecName: Full=Putative neurotoxin 
+Na6; Flags: Precursor gi|260207907|emb|CAY61937.1| 
+putative neurotoxin Na6 precursor [Tityus discrepans]
+Length=82
+
+ Score = 48.8 bits (115),  Expect = 2e-04, Method: Composition-based stats.
+ Identities = 19/65 (30%), Positives = 30/65 (47%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYL+ +S+G K      G    C+TE K+K+     GY    +C+  G  + +  + L
+Sbjct  21  KEGYLLDRSNGCKRSCFF-GSTSWCNTECKSKS--ADKGYCAWPSCYCYGFTDDSKMWHL  77
+
+Query  61  PNKSA  65
+                
+Sbjct  78  KTNKC  82
+
+
+> gi|37088131|sp|Q26292.1|SIX2_LEIQH RecName: Full=Beta-insect 
+depressant toxin LqhIT2; Short=Insect toxin 2; Short=Lqh IT2; 
+AltName: Full=LqhIT2-44; Flags: Precursor gi|265607|gb|AAB25386.1| 
+depressant insect neurotoxin [Leiurus quinquestriatus] 
+gi|740351|prf||2005232A insect selective neurotoxin
+Length=85
+
+ Score = 48.8 bits (115),  Expect = 2e-04, Method: Composition-based stats.
+ Identities = 28/66 (43%), Positives = 36/66 (55%), Gaps = 8/66 (12%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFA--CWDEGLPESTPTYP  59
+           +GY +K+ DG K     L  NEGCD E KA   GGSYGY + +   CW EGLP+   T+ 
+Sbjct  22  DGY-IKRRDGCKVAC--LIGNEGCDKECKA--YGGSYGYCWTWGLACWCEGLPDDK-TWK  75
+
+Query  60  LPNKSA  65
+               + 
+Sbjct  76  SETNTC  81
+
+
+> gi|149134008|gb|ABR21032.1| venom sodium channel toxin-1 [Mesobuthus 
+eupeus]
+Length=86
+
+ Score = 48.8 bits (115),  Expect = 2e-04, Method: Composition-based stats.
+ Identities = 22/63 (35%), Positives = 31/63 (50%), Gaps = 2/63 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           ++GYLV +S+G K        NE C+   K +     Y Y +  AC+ EG P+S   Y  
+Sbjct  21  EDGYLVDRSNGCKIACAV--NNEYCNHSCKQRGGNYGYCYFWKLACYCEGAPKSQYWYYE  78
+
+Query  61  PNK  63
+            NK
+Sbjct  79  TNK  81
+
+
+> gi|317412102|sp|P0CI58.1|SNA64_LYCMC RecName: Full=Neurotoxin 
+LmNaTx64.1; Flags: Precursor
+Length=87
+
+ Score = 48.8 bits (115),  Expect = 2e-04, Method: Composition-based stats.
+ Identities = 20/68 (30%), Positives = 28/68 (42%), Gaps = 5/68 (7%)
+
+Query  1   KEGYLV---KKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K GY +    +  G K   +    N+ CDTE K       Y Y +  AC+ E LP+  PT
+Sbjct  19  KHGYPIIRAGRDKGCKVSCVI--NNQYCDTECKQLKGRRGYCYFWRLACFCEYLPDYVPT  76
+
+Query  58  YPLPNKSA  65
+           +       
+Sbjct  77  WSRATNKC  84
+
+
+> gi|115311309|sp|P0C1X7.1|SCNA4_TITDI RecName: Full=Ardiscretin; 
+AltName: Full=Putative neurotoxin Na4; Flags: Precursor gi|260207887|emb|CAY61916.1| 
+ardiscretin precursor [Tityus discrepans] 
+gi|260207903|emb|CAY61933.1| putative neurotoxin Na4 
+precursor [Tityus discrepans]
+Length=83
+
+ Score = 48.8 bits (115),  Expect = 2e-04, Method: Composition-based stats.
+ Identities = 22/65 (34%), Positives = 30/65 (47%), Gaps = 4/65 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K GY+++   G KY     G +  C+ E K K   GS GY    ACW  GLP++   +  
+Sbjct  21  KNGYIIEPK-GCKYSCFW-GSSTWCNRECKFK--KGSSGYCAWPACWCYGLPDNVKIFDY  76
+
+Query  61  PNKSA  65
+            N   
+Sbjct  77  YNNKC  81
+
+
+> gi|337255706|gb|AEI61921.1| alpha-toxin [Centruroides vittatus]
+Length=97
+
+ Score = 47.6 bits (112),  Expect = 4e-04, Method: Composition-based stats.
+ Identities = 23/56 (42%), Positives = 27/56 (49%), Gaps = 5/56 (8%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTP  56
+           K+GY V+ S G KY   K   NE CD   K     G Y Y     CW  GLP++ P
+Sbjct  35  KDGYPVEHS-GCKYTCWK---NEYCDKVCKDLKGEGGYCYI-NLTCWCTGLPDNVP  85
+
+
+> gi|324497678|gb|ADY39489.1| beta-buthitoxin-Hj2a [Hottentotta 
+judaicus]
+Length=86
+
+ Score = 47.2 bits (111),  Expect = 5e-04, Method: Composition-based stats.
+ Identities = 16/64 (25%), Positives = 29/64 (46%), Gaps = 3/64 (4%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GYL+ K+ G K     +  N  C++  K +     Y Y +  AC+ EG+ +S   +   
+Sbjct  22  DGYLLNKATGCK--VWCVVNNASCNSSCKLRGGNYGYCYFWKLACYCEGVAKS-ELWAYE  78
+
+Query  62  NKSA  65
+             + 
+Sbjct  79  TNTC  82
+
+
+> gi|317412110|sp|P0CI51.1|SNAJ_LYCMC RecName: Full=Neurotoxin 
+LmNaTx19; Flags: Precursor
+Length=90
+
+ Score = 47.2 bits (111),  Expect = 5e-04, Method: Composition-based stats.
+ Identities = 19/57 (34%), Positives = 29/57 (51%), Gaps = 4/57 (7%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K+GYL    D  K+      +NE C    K+K   G Y + + F+C+  GLP++  T
+Sbjct  21  KDGYLYDDVD-CKFSCW---DNEYCRKLCKSKKAVGGYCWRWRFSCYCTGLPDNEKT  73
+
+
+> gi|212278283|gb|ACJ23126.1| putative depressant toxin Tx580 [Buthus 
+occitanus israelis]
+Length=83
+
+ Score = 46.8 bits (110),  Expect = 7e-04, Method: Composition-based stats.
+ Identities = 21/65 (33%), Positives = 29/65 (45%), Gaps = 5/65 (7%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K GY ++K DG K        N  C+   K K  G  Y Y +  ACW + LP+  PT+  
+Sbjct  21  KSGYPIQK-DGCK---FWCIANHFCERYCKYK-GGSGYCYKWKIACWCDDLPDWVPTWSY  75
+
+Query  61  PNKSA  65
+              + 
+Sbjct  76  ETNTC  80
+
+
+
+Lambda     K      H
+   0.305    0.147    0.546 
+
+Gapped
+Lambda     K      H
+   0.267   0.0463    0.140 
+
+Effective search space used: 84655169088
+Results from round 3
+
+
+Query= 2SN3-A
+
+Length=65
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+Sequences used in model and found again:
+
+  gi|20141091|sp|P01493.2|SCX2_CENSC RecName: Full=Toxin CsEv2; S...  93.8    5e-18
+  gi|1173398|sp|P45664.1|SCXX_CENNO RecName: Full=Toxin CngtIII; ...  92.6    1e-17
+  gi|20141665|sp|P01492.3|SCX1_CENSC RecName: Full=Toxin CsEv1; S...  92.2    1e-17
+  gi|74908731|sp|Q68PH1.1|SCX4_CENEX RecName: Full=Neurotoxin Cex...  92.2    1e-17
+  gi|74908734|sp|Q68PH4.1|SCX1_CENEX RecName: Full=Neurotoxin Cex...  88.4    2e-16
+  gi|46397719|sp|Q94435.2|SCXA_CENNO RecName: Full=Insect-toxin C...  87.6    3e-16
+  gi|39932334|sp|Q7Z1K4.1|SCX8_CENLL RecName: Full=Toxin Cll8; Fl...  84.1    4e-15
+  gi|20178111|sp|Q95WD2.1|SCE3_CENSC RecName: Full=Beta-toxin CsE...  84.1    5e-15
+  gi|2507369|sp|P01495.3|SCX2_CENNO RecName: Full=Beta-mammal tox...  83.4    7e-15
+  gi|20178267|sp|P01491.3|SCXI_CENSC RecName: Full=Beta-toxin CsE...  82.6    1e-14
+  gi|20178112|sp|Q95WD3.1|SCXX_CENSC RecName: Full=Neurotoxin E1x...  82.6    1e-14
+  gi|1173394|sp|P45662.1|SCX4_CENNO RecName: Full=Beta-toxin Cn4;...  82.2    1e-14
+  gi|1173400|sp|P45665.1|SCXY_CENNO RecName: Full=Toxin CngtIV; F...  80.7    5e-14
+  gi|39932339|sp|Q7Z1K9.1|SCX3_CENLL RecName: Full=Toxin Cll3; Fl...  79.9    7e-14
+  gi|37087994|sp|P59865.1|SCX7_CENLL RecName: Full=Toxin Cll7; Fl...  78.0    3e-13
+  gi|134350|sp|P08900.1|SCX2_CENSU RecName: Full=Beta-mammal toxi...  77.6    4e-13
+  gi|306531034|sp|P0CH41.1|CEII9_CENEL RecName: Full=Beta-mammal ...  76.8    7e-13
+  gi|39932335|sp|Q7Z1K5.1|SCX6_CENLL RecName: Full=Toxin Cll6; Fl...  76.1    1e-12
+  gi|134356|sp|P80076.1|SCX3_CENNO RecName: Full=Toxin Cn3; Short...  75.3    2e-12
+  gi|74908722|sp|Q68PG2.1|SCX13_CENEX RecName: Full=Neurotoxin Ce...  74.9    3e-12
+  gi|363548474|sp|Q9TWL0.2|SCX8_CENNO RecName: Full=Beta-toxin Cn...  73.7    6e-12
+  gi|20178103|sp|P58778.1|SCX4_CENSC RecName: Full=Toxin CsEv4; S...  73.4    8e-12
+  gi|39932242|sp|P60163.1|SCX2_CENGR RecName: Full=Toxin Cg2          73.0    1e-11
+  gi|161705285|gb|ABX76749.1| neurotoxin LmNaTx1 precursor [Lycha...  72.6    1e-11
+  gi|74908726|sp|Q68PG6.1|SCX9_CENEX RecName: Full=Neurotoxin Cex...  72.6    1e-11
+  gi|317412112|sp|P0CI81.1|SNAY1_LYCMC RecName: Full=Neurotoxin L...  69.9    7e-11
+  gi|317412102|sp|P0CI58.1|SNA64_LYCMC RecName: Full=Neurotoxin L...  69.5    1e-10
+  gi|317412113|sp|P0CI59.1|SNAY2_LYCMC RecName: Full=Neurotoxin L...  68.7    2e-10
+  gi|20140133|sp|Q95WD1.1|SCX8_CENSC RecName: Full=Toxin CsE8; Al...  68.0    3e-10
+  gi|74908727|sp|Q68PG7.1|SCX8_CENEX RecName: Full=Toxin Cex8; Fl...  67.6    4e-10
+  gi|158706342|sp|P0C5H3.1|SCB1_LEIQH RecName: Full=Beta-mammal/i...  67.6    4e-10
+  gi|317412099|sp|D9U2A1.1|SNA17_LYCMC RecName: Full=Neurotoxin L...  67.2    5e-10
+  gi|149134014|gb|ABR21035.1| venom sodium channel toxin-2 [Mesob...  66.8    7e-10
+  gi|20140338|sp|Q9UAC8.1|SCAT_MESMA RecName: Full=Beta-toxin BmK...  66.4    8e-10
+  gi|300431719|gb|ADK12684.1| Acra-3 toxin [Androctonus crassicauda]  66.4    8e-10
+  gi|324497678|gb|ADY39489.1| beta-buthitoxin-Hj2a [Hottentotta j...  66.4    9e-10
+  gi|149134008|gb|ABR21032.1| venom sodium channel toxin-1 [Mesob...  66.0    1e-09
+  gi|16444974|gb|AAL23419.1|AF338451_1 sodium-channel modifier to...  65.7    2e-09
+  gi|37088131|sp|Q26292.1|SIX2_LEIQH RecName: Full=Beta-insect de...  63.3    7e-09
+  gi|37089118|sp|Q8WRY4.1|SCX9_CENLL RecName: Full=Toxin Cll9; Fl...  63.0    1e-08
+  gi|212278283|gb|ACJ23126.1| putative depressant toxin Tx580 [Bu...  62.2    2e-08
+  gi|317412107|sp|P0CI57.1|SNAB6_LYCMC RecName: Full=Neurotoxin L...  61.4    3e-08
+  gi|294863148|sp|C9X4K3.1|SCNA5_TITDI RecName: Full=Putative neu...  60.6    5e-08
+  gi|317412115|sp|P0CI55.1|SNAZ2_LYCMC RecName: Full=Neurotoxin L...  59.1    1e-07
+  gi|294863149|sp|C9X4K4.1|SCNA6_TITDI RecName: Full=Putative neu...  58.3    3e-07
+  gi|115311309|sp|P0C1X7.1|SCNA4_TITDI RecName: Full=Ardiscretin;...  57.2    5e-07
+  gi|56404744|sp|P68725.1|SX21_LEIQH RecName: Full=Insect toxin 2...  57.2    5e-07
+  gi|317412110|sp|P0CI51.1|SNAJ_LYCMC RecName: Full=Neurotoxin Lm...  56.8    6e-07
+  gi|969192|gb|AAB34083.1| Cii-1=beta-toxin {N-terminal} [Centrur...  55.3    2e-06
+  gi|337255706|gb|AEI61921.1| alpha-toxin [Centruroides vittatus]     52.6    1e-05
+
+Sequences not found previously or not previously below threshold:
+
+  gi|324035394|gb|ADY17426.1| beta-neurotoxin CssIX precursor [Ce...  64.1    5e-09
+  gi|149134042|gb|ABR21049.1| venom sodium channel toxin-5 [Mesob...  63.3    8e-09
+  gi|324497841|gb|ADY39569.1| U2-buthitoxin-H1a [Hottentotta juda...  59.1    1e-07
+  gi|20140339|sp|Q9UAC9.1|SCAS_MESMA RecName: Full=Beta-toxin BmK...  59.1    1e-07
+  gi|212278271|gb|ACJ23120.1| putative depressant toxin Tx67 [But...  58.3    2e-07
+  gi|41018157|sp|Q9Y1U3.2|SIXC_MESMA RecName: Full=Toxin BmKITc; ...  57.6    4e-07
+  gi|160184880|sp|P0C5I3.1|SIX3A_LEIQH RecName: Full=Beta-insect ...  57.2    5e-07
+  gi|353678129|sp|E7CLP2.1|SX12F_RHOJU RecName: Full=Putative bet...  56.4    9e-07
+  gi|324497696|gb|ADY39498.1| iota-buthitoxin-Hj1b [Hottentotta j...  56.0    1e-06
+  gi|212278279|gb|ACJ23124.1| putative depressant toxin Tx492 [Bu...  55.6    2e-06
+  gi|39932433|sp|Q8T3T0.1|SIXA1_MESMA RecName: Full=Depressant in...  55.6    2e-06
+  gi|353678088|sp|E7CLP6.1|SCX2F_RHOJU RecName: Full=Putative bet...  55.3    2e-06
+  gi|20535852|sp|P58296.1|SCXB_CENNO RecName: Full=Toxin Cn11         54.1    4e-06
+  gi|28558122|sp|O77463.1|NTXP_TITSE RecName: Full=Non-toxic prot...  54.1    5e-06
+  gi|74901653|sp|Q5G8A8.1|SCX38_TITCO RecName: Full=Toxin-like Tc...  54.1    5e-06
+  gi|324497720|gb|ADY39510.1| beta-buthitoxin-Hj1b [Hottentotta j...  53.7    5e-06
+  gi|315189846|gb|ADT89767.1| antibacterial peptide MeuNaTx-15 [M...  53.7    6e-06
+  gi|212278265|gb|ACJ23117.1| putative depressant toxin Tx233 [Bu...  53.3    8e-06
+  gi|3914973|sp|P56612.1|SCX1_TITST RecName: Full=Toxin Tst1; Alt...  52.9    9e-06
+  gi|371779698|emb|CCD31436.1| scorpion toxin Tpa7 precursor [Tit...  52.6    1e-05
+  gi|14285770|sp|P81504.1|SIX5_ANDAU RecName: Full=Insect toxin A...  52.2    2e-05
+  gi|317412109|sp|P0CI50.1|SNAF_LYCMC RecName: Full=Neurotoxin Lm...  52.2    2e-05
+  gi|212278267|gb|ACJ23118.1| putative depressant toxin Tx273 [Bu...  51.8    2e-05
+  gi|294862465|sp|Q1I163.2|SCX8_TITDI RecName: Full=Putative beta...  51.0    4e-05
+  gi|116256073|sp|Q1I164.1|SCX7_TITDI RecName: Full=Putative beta...  50.6    4e-05
+  gi|265609|gb|AAB25388.1| depressant insect neurotoxin, LqqIT2 [...  50.6    5e-05
+  gi|6685942|sp|P56743.1|SCX6_ANDAU RecName: Full=Toxin Aah6; Alt...  50.6    5e-05
+  gi|294862463|sp|Q1I180.2|SCX1_TITDI RecName: Full=Putative beta...  50.2    6e-05
+  gi|371779662|emb|CCD31418.1| scorpion toxin Tc49b precursor [Ti...  49.9    8e-05
+  gi|371779682|emb|CCD31428.1| scorpion toxin To11 precursor [Tit...  49.9    9e-05
+  gi|306531033|sp|P0CH40.1|CEII8_CENEL RecName: Full=Beta-toxin C...  49.5    1e-04
+  gi|116256069|sp|Q2NME3.1|SCX1_TITZU RecName: Full=Beta-toxin Tz...  49.5    1e-04
+  gi|371779684|emb|CCD31429.1| scorpion toxin To12 precursor [Tit...  49.5    1e-04
+  gi|41017886|sp|P60275.1|SCXI_TITBA RecName: Full=Insect toxin T...  49.1    1e-04
+  gi|353678128|sp|E7CLP3.1|SX10F_RHOJU RecName: Full=Putative bet...  49.1    1e-04
+  gi|2500709|sp|P80950.1|SCXL_ANDAU RecName: Full=Neurotoxin-like...  49.1    2e-04
+  gi|371779664|emb|CCD31419.1| scorpion toxin Tc48a precursor [Ti...  48.7    2e-04
+  gi|353678131|sp|E7CLP4.1|SX15F_RHOJU RecName: Full=Putative bet...  48.7    2e-04
+  gi|294863150|sp|C9X4J8.1|SCNA7_TITDI RecName: Full=Putative neu...  48.7    2e-04
+  gi|371779668|emb|CCD31421.1| scorpion toxin To4 precursor [Tity...  48.3    2e-04
+  gi|17380307|sp|P82812.1|SIX2_BUTSI RecName: Full=Insect toxin B...  48.3    3e-04
+  gi|294862464|sp|Q1I179.2|SCX2_TITDI RecName: Full=Putative beta...  48.3    3e-04
+  gi|37089892|sp|Q9NBW2.1|SCBT_MESMA RecName: Full=Toxin BmKabT; ...  47.9    3e-04
+  gi|56404720|sp|O76963.1|SIXI_ORTSC RecName: Full=Insect toxin O...  47.9    3e-04
+  gi|1061042|emb|CAA63431.1| insect-toxin 4 [Mesobuthus martensii]    47.5    4e-04
+  gi|159162458|pdb|1I6F|A Chain A, Nmr Solution Structure Of The ...  47.5    4e-04
+  gi|371779688|emb|CCD31431.1| scorpion toxin To14 precursor [Tit...  47.2    5e-04
+  gi|59894804|gb|AAX11213.1| toxin1 [Hottentotta saulcyi]             47.2    5e-04
+  gi|371779690|emb|CCD31432.1| scorpion toxin To15 precursor [Tit...  47.2    5e-04
+  gi|317412104|sp|D9U2A0.1|SNAAA_LYCMC RecName: Full=Neurotoxin L...  47.2    5e-04
+  gi|17380309|sp|P82814.1|SIX4_BUTSI RecName: Full=Insect toxin B...  47.2    5e-04
+  gi|317412111|sp|P0CI52.1|SNAU_LYCMC RecName: Full=Neurotoxin Lm...  47.2    6e-04
+  gi|108860962|sp|P84631.1|SCX2_TITPA RecName: Full=Beta-mammal t...  46.8    6e-04
+  gi|37087984|sp|P59863.1|SIX2_BUTOC RecName: Full=Beta-toxin Bot...  46.4    9e-04
+  gi|324497666|gb|ADY39483.1| iota-buthitoxin-Hj1a [Hottentotta j...  46.4    0.001
+  gi|317412105|sp|P0CI53.1|SNAAL_LYCMC RecName: Full=Neurotoxin L...  46.4    0.001
+
+
+> gi|20141091|sp|P01493.2|SCX2_CENSC RecName: Full=Toxin CsEv2; 
+Short=CsE v2; AltName: Full=Neurotoxin 2; Flags: Precursor 
+gi|16444978|gb|AAL23421.1|AF338453_1 sodium-channel modifier 
+toxin precursor CsEv2a [Centruroides exilicauda]
+Length=87
+
+ Score = 93.8 bits (232),  Expect = 5e-18, Method: Composition-based stats.
+ Identities = 56/65 (87%), Positives = 56/65 (87%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KYG LKLGENEGCD E KAKNQGGSYGY YAFACW EGLPESTPTYPL
+Sbjct  20  KEGYLVNKSTGCKYGCLKLGENEGCDKECKAKNQGGSYGYCYAFACWCEGLPESTPTYPL  79
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  80  PNKSC  84
+
+
+> gi|1173398|sp|P45664.1|SCXX_CENNO RecName: Full=Toxin CngtIII; 
+Flags: Precursor gi|304569|gb|AAA28286.1| Na+-channel blocking 
+toxin [Centruroides noxius]
+Length=87
+
+ Score = 92.6 bits (229),  Expect = 1e-17, Method: Composition-based stats.
+ Identities = 51/65 (79%), Positives = 53/65 (82%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KYG   LG+NEGCD E KAKNQGGSYGY YAF CW EGLPESTPTYPL
+Sbjct  20  KEGYLVNKSTGCKYGCFWLGKNEGCDKECKAKNQGGSYGYCYAFGCWCEGLPESTPTYPL  79
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  80  PNKTC  84
+
+
+> gi|20141665|sp|P01492.3|SCX1_CENSC RecName: Full=Toxin CsEv1; 
+Short=CsE v1; AltName: Full=Neurotoxin 1; Flags: Precursor 
+gi|16444982|gb|AAL23423.1|AF338455_1 sodium-channel modifier 
+toxin precursor CsEv1b [Centruroides exilicauda]
+Length=87
+
+ Score = 92.2 bits (228),  Expect = 1e-17, Method: Composition-based stats.
+ Identities = 54/65 (84%), Positives = 55/65 (85%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLVKKSDG KY    LG+NE CDTE KAKNQGGSYGY YAFACW EGLPESTPTYPL
+Sbjct  20  KEGYLVKKSDGCKYDCFWLGKNEHCDTECKAKNQGGSYGYCYAFACWCEGLPESTPTYPL  79
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  80  PNKSC  84
+
+
+> gi|74908731|sp|Q68PH1.1|SCX4_CENEX RecName: Full=Neurotoxin Cex4; 
+Flags: Precursor gi|51234240|gb|AAT97995.1| Cex4 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=87
+
+ Score = 92.2 bits (228),  Expect = 1e-17, Method: Composition-based stats.
+ Identities = 49/65 (76%), Positives = 51/65 (79%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KY    LG+NE CD E KAKNQGGSYGY Y+FACW EGLPEST TYPL
+Sbjct  20  KEGYLVNKSTGCKYECFWLGKNEFCDKECKAKNQGGSYGYCYSFACWCEGLPESTSTYPL  79
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  80  PNKSC  84
+
+
+> gi|74908734|sp|Q68PH4.1|SCX1_CENEX RecName: Full=Neurotoxin Cex1; 
+Flags: Precursor gi|51234234|gb|AAT97992.1| Cex1 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=87
+
+ Score = 88.4 bits (218),  Expect = 2e-16, Method: Composition-based stats.
+ Identities = 46/65 (71%), Positives = 49/65 (76%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KY    LG+NEGCD E KA NQGG YGY +AFACW E LPESTPTYP+
+Sbjct  20  KEGYLVSKSTGCKYECFWLGKNEGCDKECKAPNQGGGYGYCHAFACWCENLPESTPTYPI  79
+
+Query  61  PNKSA  65
+           P KS 
+Sbjct  80  PGKSC  84
+
+
+> gi|46397719|sp|Q94435.2|SCXA_CENNO RecName: Full=Insect-toxin 
+Cn10; AltName: Full=CngtVIII; Flags: Precursor gi|1805721|emb|CAA69595.1| 
+toxin Cn10 [Centruroides noxius]
+Length=81
+
+ Score = 87.6 bits (216),  Expect = 3e-16, Method: Composition-based stats.
+ Identities = 47/65 (73%), Positives = 50/65 (77%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KY  L LGEN+ CD E KAKNQGGSYGY Y  ACW EGLPESTPTYP+
+Sbjct  14  KEGYLVNKSTGCKYNCLILGENKNCDMECKAKNQGGSYGYCYKLACWCEGLPESTPTYPI  73
+
+Query  61  PNKSA  65
+           P K+ 
+Sbjct  74  PGKTC  78
+
+
+> gi|39932334|sp|Q7Z1K4.1|SCX8_CENLL RecName: Full=Toxin Cll8; 
+Flags: Precursor gi|31376364|gb|AAP49509.1|AF491134_1 sodium-channel 
+modifier toxin Cll8 precursor [Centruroides limpidus 
+limpidus]
+Length=72
+
+ Score = 84.1 bits (207),  Expect = 4e-15, Method: Composition-based stats.
+ Identities = 50/65 (77%), Positives = 52/65 (80%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLVKKS+G KY   KLGENE CDTE KA NQGGSYGY   F CW EGLPESTPT+PL
+Sbjct  5   KEGYLVKKSNGCKYECFKLGENEHCDTECKAPNQGGSYGYCDTFECWCEGLPESTPTWPL  64
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  65  PNKSC  69
+
+
+> gi|20178111|sp|Q95WD2.1|SCE3_CENSC RecName: Full=Beta-toxin CsE3; 
+AltName: Full=Neurotoxin E3; Flags: Precursor gi|16444970|gb|AAL23417.1|AF338449_1 
+sodium-channel modifier toxin precursor 
+CsE3 [Centruroides exilicauda]
+Length=87
+
+ Score = 84.1 bits (207),  Expect = 5e-15, Method: Composition-based stats.
+ Identities = 30/65 (47%), Positives = 36/65 (56%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY+V    G KY   KLG+N+ C  E K ++  GS GY YAF CW   L E    +PL
+Sbjct  20  KEGYIVNYHTGCKYECFKLGDNDYCLRECKLRHGKGSGGYCYAFGCWCTHLYEQAVVWPL  79
+
+Query  61  PNKSA  65
+           P K  
+Sbjct  80  PKKKC  84
+
+
+> gi|2507369|sp|P01495.3|SCX2_CENNO RecName: Full=Beta-mammal toxin 
+Cn2; Short=Toxin 2; AltName: Full=Toxin II.9.2.2; Flags: 
+Precursor gi|1336782|gb|AAB36086.1| Na+ channel-specific toxin 
+2 [Centruroides noxius]
+Length=84
+
+ Score = 83.4 bits (205),  Expect = 7e-15, Method: Composition-based stats.
+ Identities = 34/65 (53%), Positives = 40/65 (62%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV K+ G KY  LKLG+N+ C  E K +   G+ GY YAFACW   L E    +PL
+Sbjct  17  KEGYLVDKNTGCKYECLKLGDNDYCLRECKQQYGKGAGGYCYAFACWCTHLYEQAIVWPL  76
+
+Query  61  PNKSA  65
+           PNK  
+Sbjct  77  PNKRC  81
+
+
+> gi|20178267|sp|P01491.3|SCXI_CENSC RecName: Full=Beta-toxin CsEI; 
+Short=CsE-I; AltName: Full=Neurotoxin I; Flags: Precursor
+Length=86
+
+ Score = 82.6 bits (203),  Expect = 1e-14, Method: Composition-based stats.
+ Identities = 38/65 (59%), Positives = 47/65 (73%), Gaps = 1/65 (1%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV+K  G K    KLGEN+ C+ E K K+ GGSYGY Y F C+ EGLP+ST T+PL
+Sbjct  20  KDGYLVEK-TGCKKTCYKLGENDFCNRECKWKHIGGSYGYCYGFGCYCEGLPDSTQTWPL  78
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  79  PNKTC  83
+
+
+> gi|20178112|sp|Q95WD3.1|SCXX_CENSC RecName: Full=Neurotoxin E1x; 
+AltName: Full=CsE1x; Flags: Precursor gi|16444968|gb|AAL23416.1|AF338448_1 
+sodium-channel modifier toxin precursor CsE1x 
+[Centruroides exilicauda]
+Length=86
+
+ Score = 82.6 bits (203),  Expect = 1e-14, Method: Composition-based stats.
+ Identities = 37/65 (57%), Positives = 45/65 (70%), Gaps = 1/65 (1%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G K    KLG+N+ C+ E K K+ GGSYGY Y F C+ EGLP+ST T+PL
+Sbjct  20  KEGYLVDV-KGCKKNCWKLGDNDYCNRECKWKHIGGSYGYCYGFGCYCEGLPDSTQTWPL  78
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  79  PNKTC  83
+
+
+> gi|1173394|sp|P45662.1|SCX4_CENNO RecName: Full=Beta-toxin Cn4; 
+Short=Toxin 4; AltName: Full=Toxin CngtV; AltName: Full=Toxin 
+II-10; Flags: Precursor gi|304573|gb|AAA28288.1| Na+-channel 
+blocking toxin [Centruroides noxius]
+Length=87
+
+ Score = 82.2 bits (202),  Expect = 1e-14, Method: Composition-based stats.
+ Identities = 30/65 (47%), Positives = 36/65 (56%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G KY   KLG+N+ C  E K +   G+ GY YAF CW   L E    +PL
+Sbjct  20  KEGYLVNSYTGCKYECFKLGDNDYCLRECKQQYGKGAGGYCYAFGCWCTHLYEQAVVWPL  79
+
+Query  61  PNKSA  65
+            NK+ 
+Sbjct  80  KNKTC  84
+
+
+> gi|1173400|sp|P45665.1|SCXY_CENNO RecName: Full=Toxin CngtIV; 
+Flags: Precursor
+Length=86
+
+ Score = 80.7 bits (198),  Expect = 5e-14, Method: Composition-based stats.
+ Identities = 37/65 (57%), Positives = 45/65 (70%), Gaps = 1/65 (1%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV    G K    KLGEN+ C+ E K K++GGSYGY Y F C+ EGL +STPT+PL
+Sbjct  20  KDGYLVD-VKGCKKNCYKLGENDYCNRECKMKHRGGSYGYCYGFGCYCEGLSDSTPTWPL  78
+
+Query  61  PNKSA  65
+           PNK  
+Sbjct  79  PNKRC  83
+
+
+> gi|39932339|sp|Q7Z1K9.1|SCX3_CENLL RecName: Full=Toxin Cll3; 
+Flags: Precursor gi|31376350|gb|AAP49502.1|AF491127_1 sodium-channel 
+modifier toxin Cll3 precursor [Centruroides limpidus 
+limpidus]
+Length=87
+
+ Score = 79.9 bits (196),  Expect = 7e-14, Method: Composition-based stats.
+ Identities = 34/65 (53%), Positives = 40/65 (62%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY+V   DG KY  LKLGEN+ C  E KA+    + GY YAFACW   L E    +PL
+Sbjct  20  KEGYIVNYYDGCKYACLKLGENDYCLRECKARYYKSAGGYCYAFACWCTHLYEQAVVWPL  79
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  80  PNKTC  84
+
+
+> gi|37087994|sp|P59865.1|SCX7_CENLL RecName: Full=Toxin Cll7; 
+Flags: Precursor gi|31376362|gb|AAP49508.1|AF491133_1 sodium-channel 
+modifier toxin Cll7 precursor [Centruroides limpidus 
+limpidus]
+Length=85
+
+ Score = 78.0 bits (191),  Expect = 3e-13, Method: Composition-based stats.
+ Identities = 35/65 (54%), Positives = 40/65 (62%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G KY   KLGEN+ C  E K    G  YGY Y F C+ EG PE+ PT+PL
+Sbjct  20  KEGYLVNTYTGCKYICWKLGENKYCIDECK--EIGAGYGYCYGFGCYCEGFPENKPTWPL  77
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  78  PNKTC  82
+
+
+> gi|134350|sp|P08900.1|SCX2_CENSU RecName: Full=Beta-mammal toxin 
+Css2; AltName: Full=Css II; Short=CssII
+Length=66
+
+ Score = 77.6 bits (190),  Expect = 4e-13, Method: Composition-based stats.
+ Identities = 35/65 (54%), Positives = 40/65 (62%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV KS G KY  LKLG+N+ C  E K +    S GY YAFACW   L E    +PL
+Sbjct  1   KEGYLVSKSTGCKYECLKLGDNDYCLRECKQQYGKSSGGYCYAFACWCTHLYEQAVVWPL  60
+
+Query  61  PNKSA  65
+           PNK+ 
+Sbjct  61  PNKTC  65
+
+
+> gi|306531034|sp|P0CH41.1|CEII9_CENEL RecName: Full=Beta-mammal 
+toxin CeII9
+Length=67
+
+ Score = 76.8 bits (188),  Expect = 7e-13, Method: Composition-based stats.
+ Identities = 30/65 (47%), Positives = 36/65 (56%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV  S G KY   KLG+N+ C  E +     G+ GY YAF CW   L E    +PL
+Sbjct  1   KEGYLVNHSTGCKYECFKLGDNDYCLRECRQGYGKGAGGYCYAFGCWCTHLYEQAVVWPL  60
+
+Query  61  PNKSA  65
+           P K+ 
+Sbjct  61  PKKTC  65
+
+
+> gi|39932335|sp|Q7Z1K5.1|SCX6_CENLL RecName: Full=Toxin Cll6; 
+Flags: Precursor gi|31376360|gb|AAP49507.1|AF491132_1 sodium-channel 
+modifier toxin Cll6 precursor [Centruroides limpidus 
+limpidus]
+Length=85
+
+ Score = 76.1 bits (186),  Expect = 1e-12, Method: Composition-based stats.
+ Identities = 36/65 (56%), Positives = 42/65 (65%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G KYG  +LG+N  CD + KA  + G+YGY Y   CW EGLP S PT+PL
+Sbjct  20  KEGYLVNMKTGCKYGCYELGDNGYCDRKCKA--ESGNYGYCYTVGCWCEGLPNSKPTWPL  77
+
+Query  61  PNKSA  65
+           P KS 
+Sbjct  78  PGKSC  82
+
+
+> gi|134356|sp|P80076.1|SCX3_CENNO RecName: Full=Toxin Cn3; Short=Toxin 
+3; AltName: Full=Toxin II.9.2.3 gi|245683|gb|AAB21462.1| 
+toxin 3, Cn3 [Centruroides noxius=scorpions, Hoffmann, 
+venom, Peptide, 66 aa]
+Length=66
+
+ Score = 75.3 bits (184),  Expect = 2e-12, Method: Composition-based stats.
+ Identities = 31/65 (48%), Positives = 38/65 (59%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV+   G KY   KLG+N+ C  E KA+   G+ GY YAF CW   L E    +PL
+Sbjct  1   KEGYLVELGTGCKYECFKLGDNDYCLRECKARYGKGAGGYCYAFGCWCTQLYEQAVVWPL  60
+
+Query  61  PNKSA  65
+            NK+ 
+Sbjct  61  KNKTC  65
+
+
+> gi|74908722|sp|Q68PG2.1|SCX13_CENEX RecName: Full=Neurotoxin 
+Cex13; Flags: Precursor gi|51234258|gb|AAT98004.1| Cex13 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=73
+
+ Score = 74.9 bits (183),  Expect = 3e-12, Method: Composition-based stats.
+ Identities = 35/65 (54%), Positives = 43/65 (67%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV    G KY    LG+N+ C++E K    G  YGY YAF CW EGLPES PT+PL
+Sbjct  8   KDGYLVIIKTGCKYNCYILGKNKYCNSECK--EVGAGYGYCYAFGCWCEGLPESIPTWPL  65
+
+Query  61  PNKSA  65
+           P+K+ 
+Sbjct  66  PDKTC  70
+
+
+> gi|363548474|sp|Q9TWL0.2|SCX8_CENNO RecName: Full=Beta-toxin 
+Cn8; Short=Toxin-8; AltName: Full=Toxin II-13.4
+Length=67
+
+ Score = 73.7 bits (180),  Expect = 6e-12, Method: Composition-based stats.
+ Identities = 29/65 (45%), Positives = 36/65 (56%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY+V    G K+   KLG+N+ C  E KA+   G+ GY YAF CW   L E    +PL
+Sbjct  1   KEGYIVNYYTGCKFACAKLGDNDYCLRECKARYGKGAGGYCYAFGCWCTHLYEQAVVWPL  60
+
+Query  61  PNKSA  65
+           P K  
+Sbjct  61  PKKKC  65
+
+
+> gi|20178103|sp|P58778.1|SCX4_CENSC RecName: Full=Toxin CsEv4; 
+Short=CsE v4; AltName: Full=Neurotoxin 4 gi|102789|pir||B23727 
+neurotoxin V-4 - bark scorpion
+Length=66
+
+ Score = 73.4 bits (179),  Expect = 8e-12, Method: Composition-based stats.
+ Identities = 39/65 (60%), Positives = 44/65 (68%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY+V KS G  Y   K GE+  CD E KAKNQGGSYG+     CW EGLPESTPT+PL
+Sbjct  1   KEGYMVNKSTGCSYSCPKTGESVYCDKECKAKNQGGSYGFCQYSNCWCEGLPESTPTWPL  60
+
+Query  61  PNKSA  65
+            +K  
+Sbjct  61  DDKPC  65
+
+
+> gi|39932242|sp|P60163.1|SCX2_CENGR RecName: Full=Toxin Cg2
+Length=68
+
+ Score = 73.0 bits (178),  Expect = 1e-11, Method: Composition-based stats.
+ Identities = 28/65 (44%), Positives = 40/65 (62%), Gaps = 0/65 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV KS G KY  ++   +  C+ E  +  + GSYGY Y F C+  G+P+ST  YP+
+Sbjct  1   KDGYLVNKSTGCKYSCIENINDSHCNEECISSIRKGSYGYCYKFYCYCIGMPDSTQVYPI  60
+
+Query  61  PNKSA  65
+           P K+ 
+Sbjct  61  PGKTC  65
+
+
+> gi|161705285|gb|ABX76749.1| neurotoxin LmNaTx1 precursor [Lychas 
+mucronatus]
+Length=88
+
+ Score = 72.6 bits (177),  Expect = 1e-11, Method: Composition-based stats.
+ Identities = 21/68 (31%), Positives = 30/68 (45%), Gaps = 5/68 (7%)
+
+Query  1   KEGYLV---KKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K+GY +    KS G K     +  N+ CD E   K     Y Y +  AC+ EGLP+S   
+Sbjct  21  KDGYPIYSTGKSKGCKIE--CVINNKYCDKECTLKGGSSGYCYFWKLACYCEGLPDSVAV  78
+
+Query  58  YPLPNKSA  65
+           +     + 
+Sbjct  79  WTYAENTC  86
+
+
+> gi|74908726|sp|Q68PG6.1|SCX9_CENEX RecName: Full=Neurotoxin Cex9; 
+Flags: Precursor gi|51234250|gb|AAT98000.1| Cex9 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=67
+
+ Score = 72.6 bits (177),  Expect = 1e-11, Method: Composition-based stats.
+ Identities = 38/65 (59%), Positives = 46/65 (71%), Gaps = 1/65 (1%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GY V+   G K    KLGEN+ C+ E K K++GGSYGY Y F C+ EGL ESTPT+PL
+Sbjct  1   KDGYPVEV-TGCKKSCYKLGENKFCNRECKMKHRGGSYGYCYFFGCYCEGLAESTPTWPL  59
+
+Query  61  PNKSA  65
+           PNKS 
+Sbjct  60  PNKSC  64
+
+
+> gi|317412112|sp|P0CI81.1|SNAY1_LYCMC RecName: Full=Neurotoxin 
+LmNaTx34.1; Flags: Precursor
+Length=86
+
+ Score = 69.9 bits (170),  Expect = 7e-11, Method: Composition-based stats.
+ Identities = 20/68 (30%), Positives = 31/68 (46%), Gaps = 6/68 (8%)
+
+Query  2   EGYLV---KKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTP-T  57
+           +GYL+       G K     +  N+ C+ + K K     Y Y +  AC+ EGLPES+P  
+Sbjct  19  DGYLMVRAGIEKGCKI--WCVINNDYCNRDCKLKGGTYGYCYFWKLACYCEGLPESSPDI  76
+
+Query  58  YPLPNKSA  65
+           +     + 
+Sbjct  77  WTYEKNTC  84
+
+
+> gi|317412102|sp|P0CI58.1|SNA64_LYCMC RecName: Full=Neurotoxin 
+LmNaTx64.1; Flags: Precursor
+Length=87
+
+ Score = 69.5 bits (169),  Expect = 1e-10, Method: Composition-based stats.
+ Identities = 20/68 (30%), Positives = 28/68 (42%), Gaps = 5/68 (7%)
+
+Query  1   KEGYLV---KKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K GY +    +  G K     +  N+ CDTE K       Y Y +  AC+ E LP+  PT
+Sbjct  19  KHGYPIIRAGRDKGCKVS--CVINNQYCDTECKQLKGRRGYCYFWRLACFCEYLPDYVPT  76
+
+Query  58  YPLPNKSA  65
+           +       
+Sbjct  77  WSRATNKC  84
+
+
+> gi|317412113|sp|P0CI59.1|SNAY2_LYCMC RecName: Full=Neurotoxin 
+LmNaTx34.2; Flags: Precursor
+Length=86
+
+ Score = 68.7 bits (167),  Expect = 2e-10, Method: Composition-based stats.
+ Identities = 21/68 (31%), Positives = 31/68 (46%), Gaps = 6/68 (8%)
+
+Query  2   EGYLV---KKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTP-T  57
+           +GYL+    +  G K     +  NE CD + K K     Y Y +  AC+ EGLP S+P  
+Sbjct  19  DGYLMVRAGREKGCKI--WCVINNEYCDKDCKLKGGNYGYCYFWKLACYCEGLPTSSPDI  76
+
+Query  58  YPLPNKSA  65
+           +     + 
+Sbjct  77  WTYEKNTC  84
+
+
+> gi|20140133|sp|Q95WD1.1|SCX8_CENSC RecName: Full=Toxin CsE8; 
+AltName: Full=Neurotoxin 8; Flags: Precursor gi|16444972|gb|AAL23418.1|AF338450_1 
+sodium-channel modifier toxin precursor 
+CsE8 [Centruroides exilicauda]
+Length=85
+
+ Score = 68.0 bits (165),  Expect = 3e-10, Method: Composition-based stats.
+ Identities = 28/65 (44%), Positives = 37/65 (57%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           ++GYLV +  G +Y     GEN  CD E K+  QGG  G   + AC+ +GLPE T T+PL
+Sbjct  20  EKGYLVHEDTGCRYKCTFSGENSYCDKECKS--QGGDSGICQSKACYCQGLPEDTKTWPL  77
+
+Query  61  PNKSA  65
+             K  
+Sbjct  78  IGKLC  82
+
+
+> gi|74908727|sp|Q68PG7.1|SCX8_CENEX RecName: Full=Toxin Cex8; 
+Flags: Precursor gi|51234248|gb|AAT97999.1| Cex8 neurotoxin 
+precursor [Centruroides exilicauda]
+Length=67
+
+ Score = 67.6 bits (164),  Expect = 4e-10, Method: Composition-based stats.
+ Identities = 33/65 (51%), Positives = 36/65 (56%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV    G KY    LGENE C  E K    G  YGY + F CW E  PE+ P+YP 
+Sbjct  2   KEGYLVNIYTGCKYSCWLLGENEYCIAECK--EIGAGYGYCHGFGCWCEQFPENKPSYPY  59
+
+Query  61  PNKSA  65
+           P KS 
+Sbjct  60  PEKSC  64
+
+
+> gi|158706342|sp|P0C5H3.1|SCB1_LEIQH RecName: Full=Beta-mammal/insect 
+toxin Lqhb1; AltName: Full=Lqh-beta-1; Flags: Precursor
+Length=85
+
+ Score = 67.6 bits (164),  Expect = 4e-10, Method: Composition-based stats.
+ Identities = 18/64 (29%), Positives = 28/64 (44%), Gaps = 3/64 (4%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+            GYL+ K+ G K     +  N  C++E K +     Y Y +  AC+ EG P+S   +   
+Sbjct  21  NGYLLNKATGCKV--WCVINNASCNSECKLRRGNYGYCYFWKLACYCEGAPKS-ELWAYA  77
+
+Query  62  NKSA  65
+               
+Sbjct  78  TNKC  81
+
+
+> gi|317412099|sp|D9U2A1.1|SNA17_LYCMC RecName: Full=Neurotoxin 
+LmNaTx17; Flags: Precursor gi|161705317|gb|ABX76765.1| neurotoxin 
+LmNaTx17 precursor [Lychas mucronatus]
+Length=86
+
+ Score = 67.2 bits (163),  Expect = 5e-10, Method: Composition-based stats.
+ Identities = 21/68 (31%), Positives = 29/68 (43%), Gaps = 5/68 (7%)
+
+Query  1   KEGYLVKKS---DGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K GY V+ S    G K     +  N  CD E K +     Y Y +  AC+ E LP ++PT
+Sbjct  19  KHGYPVQYSGREKGCKIA--CVINNASCDGECKRRGGRAGYCYFWKLACFCEYLPNNSPT  76
+
+Query  58  YPLPNKSA  65
+           +       
+Sbjct  77  WDYKTGKC  84
+
+
+> gi|149134014|gb|ABR21035.1| venom sodium channel toxin-2 [Mesobuthus 
+eupeus]
+Length=86
+
+ Score = 66.8 bits (162),  Expect = 7e-10, Method: Composition-based stats.
+ Identities = 19/64 (30%), Positives = 28/64 (44%), Gaps = 3/64 (4%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+            GYL+ K  G K     +  NE C++E K +     Y Y +  AC+ EG P+S   +   
+Sbjct  22  NGYLLDKYTGCKV--WCVINNESCNSECKIRRGNYGYCYFWKLACYCEGAPKS-ELWHCE  78
+
+Query  62  NKSA  65
+               
+Sbjct  79  TNKC  82
+
+
+> gi|20140338|sp|Q9UAC8.1|SCAT_MESMA RecName: Full=Beta-toxin BmKAs1; 
+Short=BmK AS-1; AltName: Full=BmK activator of skeletal-muscle 
+ryanodine receptor; AltName: Full=Toxin BmP09; Flags: 
+Precursor gi|5712123|gb|AAD47375.1|AF079061_1 AS-1 neurotoxin 
+precursor [Mesobuthus martensii]
+Length=85
+
+ Score = 66.4 bits (161),  Expect = 8e-10, Method: Composition-based stats.
+ Identities = 19/64 (30%), Positives = 28/64 (44%), Gaps = 3/64 (4%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+            GYL+ K  G K     +  NE C++E K +     Y Y +  AC+ EG P+S   +   
+Sbjct  21  NGYLLNKYTGCKI--WCVINNESCNSECKLRRGNYGYCYFWKLACYCEGAPKS-ELWAYE  77
+
+Query  62  NKSA  65
+               
+Sbjct  78  TNKC  81
+
+
+> gi|300431719|gb|ADK12684.1| Acra-3 toxin [Androctonus crassicauda]
+Length=84
+
+ Score = 66.4 bits (161),  Expect = 8e-10, Method: Composition-based stats.
+ Identities = 20/65 (31%), Positives = 25/65 (39%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           ++GY V      KY      + E C    K +N    Y Y  AFACW  GLP+    Y  
+Sbjct  19  RDGYPVHDGTNCKYSCDIREKWEYCTPLCKRRNAKTGYCY--AFACWCIGLPDEVKVYGD  76
+
+Query  61  PNKSA  65
+                
+Sbjct  77  DGIFC  81
+
+
+> gi|324497678|gb|ADY39489.1| beta-buthitoxin-Hj2a [Hottentotta 
+judaicus]
+Length=86
+
+ Score = 66.4 bits (161),  Expect = 9e-10, Method: Composition-based stats.
+ Identities = 16/64 (25%), Positives = 29/64 (46%), Gaps = 3/64 (4%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GYL+ K+ G K     +  N  C++  K +     Y Y +  AC+ EG+ +S   +   
+Sbjct  22  DGYLLNKATGCKV--WCVVNNASCNSSCKLRGGNYGYCYFWKLACYCEGVAKS-ELWAYE  78
+
+Query  62  NKSA  65
+             + 
+Sbjct  79  TNTC  82
+
+
+> gi|149134008|gb|ABR21032.1| venom sodium channel toxin-1 [Mesobuthus 
+eupeus]
+Length=86
+
+ Score = 66.0 bits (160),  Expect = 1e-09, Method: Composition-based stats.
+ Identities = 19/65 (30%), Positives = 29/65 (45%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           ++GYLV +S+G K        NE C+   K +     Y Y +  AC+ EG P+S   +  
+Sbjct  21  EDGYLVDRSNGCKIA--CAVNNEYCNHSCKQRGGNYGYCYFWKLACYCEGAPKSQY-WYY  77
+
+Query  61  PNKSA  65
+                
+Sbjct  78  ETNKC  82
+
+
+> gi|16444974|gb|AAL23419.1|AF338451_1 sodium-channel modifier 
+toxin precursor CsE9 [Centruroides exilicauda]
+Length=84
+
+ Score = 65.7 bits (159),  Expect = 2e-09, Method: Composition-based stats.
+ Identities = 22/65 (34%), Positives = 32/65 (50%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           ++GYL  K        + +  ++ CD   K   +GGS+G    FACW +GLP  TP    
+Sbjct  20  EDGYLFDKRKRCTLECIDMTGDKNCDRNCK--KEGGSFGKCSYFACWCKGLPGITPISRT  77
+
+Query  61  PNKSA  65
+           P K+ 
+Sbjct  78  PGKTC  82
+
+
+> gi|324035394|gb|ADY17426.1| beta-neurotoxin CssIX precursor [Centruroides 
+suffusus suffusus]
+Length=82
+
+ Score = 64.1 bits (155),  Expect = 5e-09, Method: Composition-based stats.
+ Identities = 17/66 (26%), Positives = 25/66 (38%), Gaps = 4/66 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTED-KAKNQGGSYGYXYAFACWDEGLPESTPTYP  59
+           K+GY +    G K     +  N+ C+TE          Y Y +  AC+ EGLP     + 
+Sbjct  18  KDGYPMDH-KGCKIS--CVINNKYCETECVTVLKGKKGYCYFWKLACYCEGLPNWAKVWD  74
+
+Query  60  LPNKSA  65
+                 
+Sbjct  75  RATNKC  80
+
+
+> gi|37088131|sp|Q26292.1|SIX2_LEIQH RecName: Full=Beta-insect 
+depressant toxin LqhIT2; Short=Insect toxin 2; Short=Lqh IT2; 
+AltName: Full=LqhIT2-44; Flags: Precursor gi|265607|gb|AAB25386.1| 
+depressant insect neurotoxin [Leiurus quinquestriatus] 
+gi|740351|prf||2005232A insect selective neurotoxin
+Length=85
+
+ Score = 63.3 bits (153),  Expect = 7e-09, Method: Composition-based stats.
+ Identities = 24/64 (38%), Positives = 32/64 (50%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY +K+ DG K     L  NEGCD E KA      Y + +  ACW EGLP+   T+   
+Sbjct  22  DGY-IKRRDGCKVA--CLIGNEGCDKECKAYGGSYGYCWTWGLACWCEGLPDD-KTWKSE  77
+
+Query  62  NKSA  65
+             + 
+Sbjct  78  TNTC  81
+
+
+> gi|149134042|gb|ABR21049.1| venom sodium channel toxin-5 [Mesobuthus 
+eupeus]
+Length=86
+
+ Score = 63.3 bits (153),  Expect = 8e-09, Method: Composition-based stats.
+ Identities = 16/65 (25%), Positives = 26/65 (40%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           + GYL+ K  G       +  NE C+ E K +     Y Y +  AC+ +G  +S   +  
+Sbjct  21  EHGYLLDKYTGC--EVWCVINNESCNGECKRRGGYYGYCYFWKLACFCQGARKS-ELWHY  77
+
+Query  61  PNKSA  65
+                
+Sbjct  78  ETNKC  82
+
+
+> gi|37089118|sp|Q8WRY4.1|SCX9_CENLL RecName: Full=Toxin Cll9; 
+Flags: Precursor gi|18033943|gb|AAL57291.1|AF387171_1 Na+-channel 
+modifying toxin precursor [Centruroides limpidus limpidus]
+Length=84
+
+ Score = 63.0 bits (152),  Expect = 1e-08, Method: Composition-based stats.
+ Identities = 22/65 (34%), Positives = 32/65 (50%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           ++GYL  K        +    ++ CD   K   +GGS+G+    ACW +GLP STP    
+Sbjct  20  EDGYLFDKRKRCTLACIDKTGDKNCDRNCK--KEGGSFGHCSYSACWCKGLPGSTPISRT  77
+
+Query  61  PNKSA  65
+           P K+ 
+Sbjct  78  PGKTC  82
+
+
+> gi|212278283|gb|ACJ23126.1| putative depressant toxin Tx580 [Buthus 
+occitanus israelis]
+Length=83
+
+ Score = 62.2 bits (150),  Expect = 2e-08, Method: Composition-based stats.
+ Identities = 21/65 (33%), Positives = 29/65 (45%), Gaps = 5/65 (7%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K GY ++K DG K        N  C+   K K  G  Y Y +  ACW + LP+  PT+  
+Sbjct  21  KSGYPIQK-DGCK---FWCIANHFCERYCKYK-GGSGYCYKWKIACWCDDLPDWVPTWSY  75
+
+Query  61  PNKSA  65
+              + 
+Sbjct  76  ETNTC  80
+
+
+> gi|317412107|sp|P0CI57.1|SNAB6_LYCMC RecName: Full=Neurotoxin 
+LmNaTx11.6; Flags: Precursor
+Length=81
+
+ Score = 61.4 bits (148),  Expect = 3e-08, Method: Composition-based stats.
+ Identities = 30/65 (47%), Positives = 39/65 (60%), Gaps = 4/65 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLVKK +G  Y    L  +  C+ E KA     S+G  YAFAC+  GLP+S PTYP 
+Sbjct  19  KDGYLVKK-NGCAYDCTVLFGDSNCNGECKAF--KASWGSCYAFACYCRGLPDSVPTYP-  74
+
+Query  61  PNKSA  65
+            +K+ 
+Sbjct  75  SSKTC  79
+
+
+> gi|294863148|sp|C9X4K3.1|SCNA5_TITDI RecName: Full=Putative neurotoxin 
+Na5; Flags: Precursor gi|260207905|emb|CAY61935.1| 
+putative neurotoxin Na5 precursor [Tityus discrepans]
+Length=83
+
+ Score = 60.6 bits (146),  Expect = 5e-08, Method: Composition-based stats.
+ Identities = 23/65 (36%), Positives = 31/65 (48%), Gaps = 4/65 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GY+++   G KY     G N  C+TE   K   GS GY    ACW  GLP++   +  
+Sbjct  21  KDGYIIEHR-GCKYSCFF-GTNSWCNTECTLK--KGSSGYCAWPACWCYGLPDNVKIFDS  76
+
+Query  61  PNKSA  65
+            N   
+Sbjct  77  NNNKC  81
+
+
+> gi|324497841|gb|ADY39569.1| U2-buthitoxin-H1a [Hottentotta judaicus]
+Length=81
+
+ Score = 59.1 bits (142),  Expect = 1e-07, Method: Composition-based stats.
+ Identities = 20/64 (32%), Positives = 31/64 (49%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+            GY ++ ++G K   + L  N GC+TE KA      Y Y +  AC+ E LP+   T+   
+Sbjct  21  HGY-IRLANGCK--MMCLIGNAGCNTECKAYGGTYGYCYAWKLACFCEDLPDDV-TWKSE  76
+
+Query  62  NKSA  65
+             + 
+Sbjct  77  TNTC  80
+
+
+> gi|317412115|sp|P0CI55.1|SNAZ2_LYCMC RecName: Full=Neurotoxin 
+LmNaTx35.2; Flags: Precursor
+Length=86
+
+ Score = 59.1 bits (142),  Expect = 1e-07, Method: Composition-based stats.
+ Identities = 20/65 (31%), Positives = 27/65 (42%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GY+V +    KY      + + C    + K     Y Y  +FACW  GLPE T  Y  
+Sbjct  22  KDGYVVHEDTNCKYSCDVFKKWKYCSPLCQKKGAETGYCY--SFACWCVGLPEETLVYGD  79
+
+Query  61  PNKSA  65
+                
+Sbjct  80  KGTYC  84
+
+
+> gi|20140339|sp|Q9UAC9.1|SCAS_MESMA RecName: Full=Beta-toxin BmKAS; 
+Short=BmK AS; Short=BmK-AS; AltName: Full=BmK-PL; Flags: 
+Precursor gi|5712121|gb|AAD47374.1|AF079060_1 AS neurotoxin 
+precursor [Mesobuthus martensii]
+Length=85
+
+ Score = 59.1 bits (142),  Expect = 1e-07, Method: Composition-based stats.
+ Identities = 17/64 (27%), Positives = 27/64 (43%), Gaps = 3/64 (4%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+            GYL+ K  G K     +  NE C++E K +     Y Y +  AC+ +G  +S   +   
+Sbjct  21  NGYLLDKYTGCKV--WCVINNESCNSECKIRGGYYGYCYFWKLACFCQGARKS-ELWNYN  77
+
+Query  62  NKSA  65
+               
+Sbjct  78  TNKC  81
+
+
+> gi|212278271|gb|ACJ23120.1| putative depressant toxin Tx67 [Buthus 
+occitanus israelis]
+Length=84
+
+ Score = 58.3 bits (140),  Expect = 2e-07, Method: Composition-based stats.
+ Identities = 19/64 (30%), Positives = 28/64 (44%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GYL    DG K     +  N+ C+ E +A+     Y Y +  AC+ EGL E   T+   
+Sbjct  22  DGYLKGH-DGCKLA--CVVNNKYCNKECQAEGGNYGYCYKWKLACYCEGLSE-KKTWKPE  77
+
+Query  62  NKSA  65
+               
+Sbjct  78  TNKC  81
+
+
+> gi|294863149|sp|C9X4K4.1|SCNA6_TITDI RecName: Full=Putative neurotoxin 
+Na6; Flags: Precursor gi|260207907|emb|CAY61937.1| 
+putative neurotoxin Na6 precursor [Tityus discrepans]
+Length=82
+
+ Score = 58.3 bits (140),  Expect = 3e-07, Method: Composition-based stats.
+ Identities = 19/65 (30%), Positives = 30/65 (47%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYL+ +S+G K      G    C+TE K+K+     GY    +C+  G  + +  + L
+Sbjct  21  KEGYLLDRSNGCKRSCFF-GSTSWCNTECKSKS--ADKGYCAWPSCYCYGFTDDSKMWHL  77
+
+Query  61  PNKSA  65
+                
+Sbjct  78  KTNKC  82
+
+
+> gi|41018157|sp|Q9Y1U3.2|SIXC_MESMA RecName: Full=Toxin BmKITc; 
+Short=BmK ITc; Flags: Precursor gi|8469173|gb|AAD41648.2|AF073899_1 
+depressant insect neurotoxin precursor [Mesobuthus 
+martensii]
+Length=85
+
+ Score = 57.6 bits (138),  Expect = 4e-07, Method: Composition-based stats.
+ Identities = 19/64 (30%), Positives = 30/64 (47%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY ++ SDG K   L    N+ CD   K       Y + +  ACW EGLP++   +   
+Sbjct  22  DGY-IRGSDGCKVSCLW--GNDFCDKVCKKSGGSYGYCWTWGLACWCEGLPDNEK-WKYE  77
+
+Query  62  NKSA  65
+           + + 
+Sbjct  78  SNTC  81
+
+
+> gi|115311309|sp|P0C1X7.1|SCNA4_TITDI RecName: Full=Ardiscretin; 
+AltName: Full=Putative neurotoxin Na4; Flags: Precursor gi|260207887|emb|CAY61916.1| 
+ardiscretin precursor [Tityus discrepans] 
+gi|260207903|emb|CAY61933.1| putative neurotoxin Na4 
+precursor [Tityus discrepans]
+Length=83
+
+ Score = 57.2 bits (137),  Expect = 5e-07, Method: Composition-based stats.
+ Identities = 22/65 (34%), Positives = 30/65 (47%), Gaps = 4/65 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K GY+++   G KY     G +  C+ E K K   GS GY    ACW  GLP++   +  
+Sbjct  21  KNGYIIEP-KGCKYSCFW-GSSTWCNRECKFK--KGSSGYCAWPACWCYGLPDNVKIFDY  76
+
+Query  61  PNKSA  65
+            N   
+Sbjct  77  YNNKC  81
+
+
+> gi|56404744|sp|P68725.1|SX21_LEIQH RecName: Full=Insect toxin 
+2-13; AltName: Full=LqhIT2-13; Flags: Precursor
+Length=83
+
+ Score = 57.2 bits (137),  Expect = 5e-07, Method: Composition-based stats.
+ Identities = 22/60 (37%), Positives = 31/60 (52%), Gaps = 5/60 (8%)
+
+Query  6   VKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLPNKSA  65
+           +++ DG K        ++ CD E K+  +GGSYGY YAF CW EGLP     +     + 
+Sbjct  25  IRRHDGCKIS--CTVNDKYCDNECKS--EGGSYGYCYAFGCWCEGLPND-KAWKSETNTC  79
+
+
+> gi|160184880|sp|P0C5I3.1|SIX3A_LEIQH RecName: Full=Beta-insect 
+depressant toxin Lqh-dprIT3a; Flags: Precursor
+Length=85
+
+ Score = 57.2 bits (137),  Expect = 5e-07, Method: Composition-based stats.
+ Identities = 18/64 (29%), Positives = 27/64 (43%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY ++  DG K     +  +  CD E KA      Y + +  ACW EGLP     +   
+Sbjct  22  DGY-IRGGDGCKVS--CVINHVFCDNECKAAGGSYGYCWAWGLACWCEGLPADRE-WDYE  77
+
+Query  62  NKSA  65
+             + 
+Sbjct  78  TNTC  81
+
+
+> gi|317412110|sp|P0CI51.1|SNAJ_LYCMC RecName: Full=Neurotoxin 
+LmNaTx19; Flags: Precursor
+Length=90
+
+ Score = 56.8 bits (136),  Expect = 6e-07, Method: Composition-based stats.
+ Identities = 19/57 (34%), Positives = 29/57 (51%), Gaps = 4/57 (7%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K+GYL    D  K+      +NE C    K+K   G Y + + F+C+  GLP++  T
+Sbjct  21  KDGYLYDDVD-CKFSCW---DNEYCRKLCKSKKAVGGYCWRWRFSCYCTGLPDNEKT  73
+
+
+> gi|353678129|sp|E7CLP2.1|SX12F_RHOJU RecName: Full=Putative beta-neurotoxin 
+RjAa12f; Flags: Precursor gi|317375483|gb|ADV16829.1| 
+venom toxin [Rhopalurus junceus]
+Length=83
+
+ Score = 56.4 bits (135),  Expect = 9e-07, Method: Composition-based stats.
+ Identities = 19/66 (29%), Positives = 27/66 (41%), Gaps = 4/66 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAK-NQGGSYGYXYAFACWDEGLPESTPTYP  59
+           KEGY + + DG K     +  N  C  E +AK  Q   Y Y +  +C+   LPE    + 
+Sbjct  19  KEGYPMGR-DGCKIS--CVINNNFCKVECQAKWRQSDGYCYFWGLSCYCTNLPEDAQVWD  75
+
+Query  60  LPNKSA  65
+                 
+Sbjct  76  SSTNKC  81
+
+
+> gi|324497696|gb|ADY39498.1| iota-buthitoxin-Hj1b [Hottentotta 
+judaicus]
+Length=82
+
+ Score = 56.0 bits (134),  Expect = 1e-06, Method: Composition-based stats.
+ Identities = 18/65 (28%), Positives = 25/65 (39%), Gaps = 5/65 (7%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K GY  +  DG K        N  C+    A  +G  Y Y +  ACW + +P   PT+  
+Sbjct  20  KSGYPTQH-DGCK---FWCVFNHFCERYC-AGYKGTGYCYFWKLACWCDNIPNWVPTWSY  74
+
+Query  61  PNKSA  65
+                
+Sbjct  75  ATNKC  79
+
+
+> gi|212278279|gb|ACJ23124.1| putative depressant toxin Tx492 [Buthus 
+occitanus israelis]
+Length=85
+
+ Score = 55.6 bits (133),  Expect = 2e-06, Method: Composition-based stats.
+ Identities = 22/64 (35%), Positives = 33/64 (52%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY ++KSDG K     +  N GC+TE +A      Y + +  ACW EGLP+   T+   
+Sbjct  22  DGY-IRKSDGCKVS--CVFGNAGCNTECRAYGASYGYCWTWGLACWCEGLPDD-KTWKSE  77
+
+Query  62  NKSA  65
+             + 
+Sbjct  78  TNTC  81
+
+
+> gi|39932433|sp|Q8T3T0.1|SIXA1_MESMA RecName: Full=Depressant 
+insect toxin BmK ITa1; Flags: Precursor gi|20135656|gb|AAM09097.1| 
+depressant insect toxin BmK ITa1 precursor [Mesobuthus 
+martensii]
+Length=85
+
+ Score = 55.6 bits (133),  Expect = 2e-06, Method: Composition-based stats.
+ Identities = 21/64 (33%), Positives = 32/64 (50%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY ++ S+G K   L    NEGC+ E  A      Y + +  ACW EGLP+   T+   
+Sbjct  22  DGY-IRGSNGCKVSCLW--GNEGCNKECGAYGASYGYCWTWGLACWCEGLPDD-KTWKSE  77
+
+Query  62  NKSA  65
+           + + 
+Sbjct  78  SNTC  81
+
+
+> gi|969192|gb|AAB34083.1| Cii-1=beta-toxin {N-terminal} [Centruroides 
+infamatus, spp. infamatus, venom, Peptide Partial, 48 
+aa]
+Length=48
+
+ Score = 55.3 bits (132),  Expect = 2e-06, Method: Composition-based stats.
+ Identities = 25/48 (53%), Positives = 29/48 (61%), Gaps = 0/48 (0%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWD  48
+           KEGYLV  S G KY   KLG+N+ C  E K +   G+ GY YAF CW 
+Sbjct  1   KEGYLVNHSTGCKYECYKLGDNDYCLRECKQQYGKGAKGYKYAFGCWC  48
+
+
+> gi|353678088|sp|E7CLP6.1|SCX2F_RHOJU RecName: Full=Putative beta-neurotoxin 
+RjAa2f; Flags: Precursor gi|317375491|gb|ADV16833.1| 
+venom toxin [Rhopalurus junceus] gi|317375493|gb|ADV16834.1| 
+venom toxin [Rhopalurus junceus]
+Length=90
+
+ Score = 55.3 bits (132),  Expect = 2e-06, Method: Composition-based stats.
+ Identities = 20/73 (28%), Positives = 27/73 (37%), Gaps = 11/73 (15%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTED--------KAKNQGGSYGYXYAFACWDEGLP  52
+           KEGY +  SDG K     +  NE C  +         K       Y Y +  AC+  GLP
+Sbjct  19  KEGYPMG-SDGCKIS--CVVNNEYCKGQCSYISTQEDKKWKGSDGYCYFWGLACYCTGLP  75
+
+Query  53  ESTPTYPLPNKSA  65
+           E+   +       
+Sbjct  76  ENAKVWDSKTNKC  88
+
+
+> gi|20535852|sp|P58296.1|SCXB_CENNO RecName: Full=Toxin Cn11
+Length=63
+
+ Score = 54.1 bits (129),  Expect = 4e-06, Method: Composition-based stats.
+ Identities = 13/65 (20%), Positives = 28/65 (44%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           ++GY V +  G K     L  ++ C++   ++     Y Y    AC+ E +P++   +  
+Sbjct  2   RDGYPVDE-KGCKLS--CLINDKWCNSACHSRGGKYGYCYTGGLACYCEAVPDNVKVWTY  58
+
+Query  61  PNKSA  65
+              + 
+Sbjct  59  ETNTC  63
+
+
+> gi|28558122|sp|O77463.1|NTXP_TITSE RecName: Full=Non-toxic protein 
+TsNTxP; Short=NTxP; Flags: Precursor gi|3293263|gb|AAC25688.1| 
+immunogenic venom protein TsnTxp [Tityus serrulatus] 
+gi|3293265|gb|AAC25689.1| immunogenic protein NTxp [Tityus 
+serrulatus]
+Length=84
+
+ Score = 54.1 bits (129),  Expect = 5e-06, Method: Composition-based stats.
+ Identities = 21/65 (33%), Positives = 26/65 (40%), Gaps = 4/65 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           +EGY    S G K     L     C+TE   K   GS GY    AC+  GLP+S   +  
+Sbjct  21  REGYPAD-SKGCKITCF-LTAAGYCNTECTLK--KGSSGYCAWPACYCYGLPDSVKIWTS  76
+
+Query  61  PNKSA  65
+                
+Sbjct  77  ETNKC  81
+
+
+> gi|74901653|sp|Q5G8A8.1|SCX38_TITCO RecName: Full=Toxin-like 
+TcoNTxP1; AltName: Full=Insect-like toxic peptide Tco 38.32-2; 
+Flags: Precursor gi|58379083|gb|AAW72463.1| putative long-chain 
+toxin precursor [Tityus costatus]
+Length=84
+
+ Score = 54.1 bits (129),  Expect = 5e-06, Method: Composition-based stats.
+ Identities = 22/65 (34%), Positives = 26/65 (40%), Gaps = 4/65 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY    S G K     L     C+TE K   Q  S GY    AC+  GLP+S   +  
+Sbjct  21  KEGYPAD-SKGCKVTCF-LTAAGYCNTECKL--QKASSGYCAWPACYCYGLPDSASVWDS  76
+
+Query  61  PNKSA  65
+                
+Sbjct  77  ATNKC  81
+
+
+> gi|324497720|gb|ADY39510.1| beta-buthitoxin-Hj1b [Hottentotta 
+judaicus]
+Length=88
+
+ Score = 53.7 bits (128),  Expect = 5e-06, Method: Composition-based stats.
+ Identities = 20/64 (32%), Positives = 30/64 (47%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY ++K DG K     +  NEGC  E  A      Y + +  ACW E LP++  T+   
+Sbjct  25  DGY-IRKKDGCKVS--CVIGNEGCRKECVAHGGSFGYCWTWGLACWCENLPDAV-TWKSS  80
+
+Query  62  NKSA  65
+             + 
+Sbjct  81  TNTC  84
+
+
+> gi|315189846|gb|ADT89767.1| antibacterial peptide MeuNaTx-15 
+[Mesobuthus eupeus]
+Length=84
+
+ Score = 53.7 bits (128),  Expect = 6e-06, Method: Composition-based stats.
+ Identities = 15/64 (24%), Positives = 24/64 (38%), Gaps = 3/64 (4%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+            GYL+ K  G K     +  N+ C++          Y Y +  AC+ +G P S   +   
+Sbjct  22  NGYLLDKYTGCKI--WCVINNDSCNSHCIGSGGYYGYCYFWKLACYCQGAPRS-ELWHYE  78
+
+Query  62  NKSA  65
+               
+Sbjct  79  TNRC  82
+
+
+> gi|212278265|gb|ACJ23117.1| putative depressant toxin Tx233 [Buthus 
+occitanus israelis]
+Length=85
+
+ Score = 53.3 bits (127),  Expect = 8e-06, Method: Composition-based stats.
+ Identities = 17/64 (27%), Positives = 28/64 (44%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY +++ DG K     L  N  C++  K       Y + +  ACW EGLP+    +   
+Sbjct  22  DGY-IRELDGCKIS--CLFNNNWCNSVCKTAGGFYGYCWTWGLACWCEGLPDERK-WKSE  77
+
+Query  62  NKSA  65
+             + 
+Sbjct  78  TNTC  81
+
+
+> gi|3914973|sp|P56612.1|SCX1_TITST RecName: Full=Toxin Tst1; AltName: 
+Full=Tst-gamma; Flags: Precursor
+Length=84
+
+ Score = 52.9 bits (126),  Expect = 9e-06, Method: Composition-based stats.
+ Identities = 19/65 (30%), Positives = 22/65 (34%), Gaps = 4/65 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYL+    G K           C  E   K   GS GY    AC+  GLP     +  
+Sbjct  21  KEGYLMDHE-GCKLSCFIRPS-GYCGRECTLK--KGSSGYCAWPACYCYGLPNWVKVWDR  76
+
+Query  61  PNKSA  65
+                
+Sbjct  77  ATNKC  81
+
+
+> gi|337255706|gb|AEI61921.1| alpha-toxin [Centruroides vittatus]
+Length=97
+
+ Score = 52.6 bits (125),  Expect = 1e-05, Method: Composition-based stats.
+ Identities = 23/57 (41%), Positives = 27/57 (48%), Gaps = 5/57 (8%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K+GY V+ S G KY   K   NE CD   K     G Y Y     CW  GLP++ P 
+Sbjct  35  KDGYPVEHS-GCKYTCWK---NEYCDKVCKDLKGEGGYCYI-NLTCWCTGLPDNVPL  86
+
+
+> gi|371779698|emb|CCD31436.1| scorpion toxin Tpa7 precursor [Tityus 
+pachyurus]
+Length=82
+
+ Score = 52.6 bits (125),  Expect = 1e-05, Method: Composition-based stats.
+ Identities = 16/65 (25%), Positives = 26/65 (40%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY +   +G K G    G N  C+ + K+K     Y      +C+  G  + +  + L
+Sbjct  21  KEGYPLDTLNGCKVGCFF-GTNSWCNDKCKSKTAAKGYC--AWPSCYCYGFTDDSKIWDL  77
+
+Query  61  PNKSA  65
+                
+Sbjct  78  KKNKC  82
+
+
+> gi|14285770|sp|P81504.1|SIX5_ANDAU RecName: Full=Insect toxin 
+AaHIT5; Short=AaH IT5; Short=AaIT5; Short=Insect toxin 5
+Length=61
+
+ Score = 52.2 bits (124),  Expect = 2e-05, Method: Composition-based stats.
+ Identities = 22/64 (35%), Positives = 30/64 (47%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY +K+ DG K     L  +  CDTE K +     Y Y   FACW EGLP+    +   
+Sbjct  1   DGY-IKRHDGCKVT--CLINDNYCDTECKREGGSYGYCYSVGFACWCEGLPDD-KAWKSE  56
+
+Query  62  NKSA  65
+             + 
+Sbjct  57  TNTC  60
+
+
+> gi|317412109|sp|P0CI50.1|SNAF_LYCMC RecName: Full=Neurotoxin 
+LmNaTx15.1; Flags: Precursor
+Length=81
+
+ Score = 52.2 bits (124),  Expect = 2e-05, Method: Composition-based stats.
+ Identities = 20/57 (36%), Positives = 28/57 (50%), Gaps = 4/57 (7%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K+GYL   S   KY      +N+ C  E K+K     Y Y +  +C+ EGLP+   T
+Sbjct  21  KDGYLYD-SKNCKYA---CVDNDYCLKECKSKGGYYGYCYRWYSSCYCEGLPDKVKT  73
+
+
+> gi|212278267|gb|ACJ23118.1| putative depressant toxin Tx273 [Buthus 
+occitanus israelis]
+Length=86
+
+ Score = 51.8 bits (123),  Expect = 2e-05, Method: Composition-based stats.
+ Identities = 18/64 (29%), Positives = 27/64 (43%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY  K+ +G KY    +  N+ C+   K       Y + +  ACW EGLPE    +   
+Sbjct  22  DGYP-KQKNGCKYD--CIINNKWCNGICKMHGGYYGYCWGWGLACWCEGLPEDKK-WKYE  77
+
+Query  62  NKSA  65
+               
+Sbjct  78  TNKC  81
+
+
+> gi|294862465|sp|Q1I163.2|SCX8_TITDI RecName: Full=Putative beta-neurotoxin 
+Td8; Flags: Precursor gi|260207893|emb|CAY61922.1| 
+putative beta-neurotoxin Td8 precursor [Tityus discrepans]
+Length=86
+
+ Score = 51.0 bits (121),  Expect = 4e-05, Method: Composition-based stats.
+ Identities = 16/65 (25%), Positives = 22/65 (34%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV   DG K           C +E         Y Y +  AC+   +P   P +  
+Sbjct  21  KDGYLVG-DDGCKMHCFTRPG-HYCASECSRVKGKDGYCYAW-LACYCYNMPNWAPIWNS  77
+
+Query  61  PNKSA  65
+                
+Sbjct  78  ATNRC  82
+
+
+> gi|116256073|sp|Q1I164.1|SCX7_TITDI RecName: Full=Putative beta-neurotoxin 
+Td7; Flags: Precursor gi|71277003|gb|AAZ29721.1| 
+putative neurotoxin Td7 precursor [Tityus discrepans]
+Length=73
+
+ Score = 50.6 bits (120),  Expect = 4e-05, Method: Composition-based stats.
+ Identities = 20/65 (31%), Positives = 27/65 (42%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV  +DG KYG         C +E         Y Y +  AC+   LP+S P +  
+Sbjct  8   KDGYLVG-ADGCKYGCFTRPG-HFCASECSLLKGKDGYCYAW-LACYCYNLPDSVPVWDS  64
+
+Query  61  PNKSA  65
+                
+Sbjct  65  ATNRC  69
+
+
+> gi|265609|gb|AAB25388.1| depressant insect neurotoxin, LqqIT2 
+[Leiurus quinquestriatus, quinquestriatus, Peptide, 61 aa]
+Length=61
+
+ Score = 50.6 bits (120),  Expect = 5e-05, Method: Composition-based stats.
+ Identities = 22/64 (35%), Positives = 32/64 (50%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY ++K DG K     L  NEGC+ E K+      Y + +  ACW EGLP+   T+   
+Sbjct  1   DGY-IRKRDGCKLS--CLFGNEGCNKECKSYGGSYGYCWTWGLACWCEGLPDE-KTWKSE  56
+
+Query  62  NKSA  65
+             + 
+Sbjct  57  TNTC  60
+
+
+> gi|6685942|sp|P56743.1|SCX6_ANDAU RecName: Full=Toxin Aah6; AltName: 
+Full=AaH VI; Short=AaHVI; AltName: Full=Neurotoxin 6; 
+AltName: Full=Neurotoxin VI
+Length=66
+
+ Score = 50.6 bits (120),  Expect = 5e-05, Method: Composition-based stats.
+ Identities = 21/65 (33%), Positives = 26/65 (40%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           ++GY+VK     KY      E E C    K KN    Y Y  AFACW   +P+    Y  
+Sbjct  2   RDGYVVKNGTNCKYSCEIGSEYEYCGPLCKRKNAKTGYCY--AFACWCIDVPDDVKLYGD  59
+
+Query  61  PNKSA  65
+                
+Sbjct  60  DGTYC  64
+
+
+> gi|294862463|sp|Q1I180.2|SCX1_TITDI RecName: Full=Putative beta-neurotoxin 
+Td1; Flags: Precursor gi|260207891|emb|CAY61920.1| 
+putative beta-neurotoxin Td1 precursor [Tityus discrepans]
+Length=86
+
+ Score = 50.2 bits (119),  Expect = 6e-05, Method: Composition-based stats.
+ Identities = 18/65 (28%), Positives = 26/65 (40%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYL++  +G K G L       C  E         Y Y +  AC+   +PES P +  
+Sbjct  21  KDGYLMEP-NGCKRGCLTRPA-RYCPNECSRLKGKDGYCYLW-LACYCYNMPESAPVWER  77
+
+Query  61  PNKSA  65
+                
+Sbjct  78  ATNRC  82
+
+
+> gi|371779662|emb|CCD31418.1| scorpion toxin Tc49b precursor [Tityus 
+cambridgei]
+Length=86
+
+ Score = 49.9 bits (118),  Expect = 8e-05, Method: Composition-based stats.
+ Identities = 20/65 (31%), Positives = 28/65 (44%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV  +DG KYG +     + C  E + K     Y   Y  AC+   +P+   T+  
+Sbjct  22  KEGYLVG-NDGCKYGCITRPH-QYCVHECELKKGTDGYC-AYWLACYCYNMPDWVKTWSS  78
+
+Query  61  PNKSA  65
+                
+Sbjct  79  ATNKC  83
+
+
+> gi|371779682|emb|CCD31428.1| scorpion toxin To11 precursor [Tityus 
+cambridgei]
+Length=86
+
+ Score = 49.9 bits (118),  Expect = 9e-05, Method: Composition-based stats.
+ Identities = 18/65 (28%), Positives = 24/65 (37%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV  +DG KY  L       C  E         Y Y +  AC+   +P    T+  
+Sbjct  21  KDGYLVG-NDGCKYNCLTRPG-HYCANECSRVKGKDGYCYAW-MACYCYNMPNWVKTWSR  77
+
+Query  61  PNKSA  65
+                
+Sbjct  78  ATNKC  82
+
+
+> gi|306531033|sp|P0CH40.1|CEII8_CENEL RecName: Full=Beta-toxin 
+CeII8
+Length=64
+
+ Score = 49.5 bits (117),  Expect = 1e-04, Method: Composition-based stats.
+ Identities = 20/57 (36%), Positives = 27/57 (48%), Gaps = 4/57 (7%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K+GY V   +  +Y   K   N  CD   K K     Y Y +  +CW  GLP++T T
+Sbjct  2   KDGYPVNMEE-CRYNCWK---NAYCDKLCKEKKGQSGYCYGWNLSCWCIGLPDNTNT  54
+
+
+> gi|116256069|sp|Q2NME3.1|SCX1_TITZU RecName: Full=Beta-toxin 
+Tz1; Flags: Precursor gi|62002564|gb|AAX58773.1| beta-neurotoxin 
+Tz1 precursor [Tityus zulianus]
+Length=86
+
+ Score = 49.5 bits (117),  Expect = 1e-04, Method: Composition-based stats.
+ Identities = 17/65 (27%), Positives = 23/65 (36%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYLV  +DG KY          C  E         Y Y +  AC+   +P    T+  
+Sbjct  21  KDGYLVG-NDGCKYSCFTRPGT-YCANECSRVKGKDGYCYAW-MACYCYSMPNWVKTWDR  77
+
+Query  61  PNKSA  65
+                
+Sbjct  78  ATNRC  82
+
+
+> gi|371779684|emb|CCD31429.1| scorpion toxin To12 precursor [Tityus 
+cambridgei]
+Length=83
+
+ Score = 49.5 bits (117),  Expect = 1e-04, Method: Composition-based stats.
+ Identities = 16/65 (25%), Positives = 24/65 (37%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY +    G K+          C+   K  +   S GY    AC+  G+P +   +  
+Sbjct  20  KEGYPMDHE-GCKFSCFIRPS-GFCERYCKT-HLSASTGYCAWPACYCYGVPANQKVWDY  76
+
+Query  61  PNKSA  65
+            N   
+Sbjct  77  YNNKC  81
+
+
+> gi|41017886|sp|P60275.1|SCXI_TITBA RecName: Full=Insect toxin 
+TbIT-1; AltName: Full=TbIT-I
+Length=63
+
+ Score = 49.1 bits (116),  Expect = 1e-04, Method: Composition-based stats.
+ Identities = 25/65 (39%), Positives = 28/65 (44%), Gaps = 4/65 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY V  S G K      G    CD E K K    S GY    AC+  GLP+S P Y  
+Sbjct  2   KEGYPVD-SRGCKVTCFFTGA-GYCDKECKLK--KASSGYCAWPACYCYGLPDSVPVYDN  57
+
+Query  61  PNKSA  65
+            +   
+Sbjct  58  ASNKC  62
+
+
+> gi|353678128|sp|E7CLP3.1|SX10F_RHOJU RecName: Full=Putative beta-neurotoxin 
+RjAa10f; Flags: Precursor gi|317375485|gb|ADV16830.1| 
+venom toxin [Rhopalurus junceus]
+Length=83
+
+ Score = 49.1 bits (116),  Expect = 1e-04, Method: Composition-based stats.
+ Identities = 20/66 (31%), Positives = 30/66 (46%), Gaps = 4/66 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGG-SYGYXYAFACWDEGLPESTPTYP  59
+           KEGY + + DG K        ++ C TE +AK +G   Y Y    +C+   LPE+   + 
+Sbjct  19  KEGYPMGR-DGCKI--PCALNHKFCKTECQAKWKGSDGYCYSTGMSCYCTNLPENAEVWD  75
+
+Query  60  LPNKSA  65
+             N   
+Sbjct  76  PNNNKC  81
+
+
+> gi|2500709|sp|P80950.1|SCXL_ANDAU RecName: Full=Neurotoxin-like 
+protein STR1; AltName: Full=Anatoxin AaH STR1; Short=AaHSTR1
+Length=66
+
+ Score = 49.1 bits (116),  Expect = 2e-04, Method: Composition-based stats.
+ Identities = 15/65 (24%), Positives = 23/65 (36%), Gaps = 2/65 (3%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           ++GY+V      KY      E + C    + K     Y Y   FACW   +P+    +  
+Sbjct  2   RDGYIVHDGTNCKYSCEFGSEYKYCGPLCEKKKAKTGYCYL--FACWCIEVPDEVRVWGE  59
+
+Query  61  PNKSA  65
+                
+Sbjct  60  DGFMC  64
+
+
+> gi|371779664|emb|CCD31419.1| scorpion toxin Tc48a precursor [Tityus 
+cambridgei]
+Length=87
+
+ Score = 48.7 bits (115),  Expect = 2e-04, Method: Composition-based stats.
+ Identities = 17/65 (27%), Positives = 27/65 (42%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYL++  DG K G L       C  + K       Y Y +  +C+   +P+S   +  
+Sbjct  22  KDGYLME-GDGCKMGCLTRKA-SYCVDQCKEVGGKDGYCYAW-LSCYCYNMPDSVEIWDS  78
+
+Query  61  PNKSA  65
+            N   
+Sbjct  79  KNNKC  83
+
+
+> gi|353678131|sp|E7CLP4.1|SX15F_RHOJU RecName: Full=Putative beta-neurotoxin 
+RjAa15f; Flags: Precursor gi|317375487|gb|ADV16831.1| 
+venom toxin [Rhopalurus junceus]
+Length=83
+
+ Score = 48.7 bits (115),  Expect = 2e-04, Method: Composition-based stats.
+ Identities = 17/66 (26%), Positives = 26/66 (40%), Gaps = 4/66 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAK-NQGGSYGYXYAFACWDEGLPESTPTYP  59
+           KEGY + + +G K        +  C  E +AK  Q   Y Y +  +C+   L E    + 
+Sbjct  19  KEGYPMGR-NGCKI--PCAINDNICKVECQAKWKQSDGYCYSWGLSCYCTNLLEDAEVWD  75
+
+Query  60  LPNKSA  65
+             N   
+Sbjct  76  SSNNKC  81
+
+
+> gi|294863150|sp|C9X4J8.1|SCNA7_TITDI RecName: Full=Putative neurotoxin 
+Na7; Flags: Precursor gi|260207895|emb|CAY61924.1| 
+putative beta-neurotoxin precursor [Tityus discrepans] gi|260207909|emb|CAY61939.1| 
+putative neurotoxin Na7 precursor [Tityus 
+discrepans]
+Length=86
+
+ Score = 48.7 bits (115),  Expect = 2e-04, Method: Composition-based stats.
+ Identities = 15/65 (24%), Positives = 24/65 (37%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYL+   DG K   L       C      +     Y Y +  AC+   +P+   T+  
+Sbjct  21  KDGYLMGP-DGCKLDCLMRKGT-FCAETCSLRKGKDGYCYAW-LACYCYNMPDWVKTWER  77
+
+Query  61  PNKSA  65
+              + 
+Sbjct  78  ATNTC  82
+
+
+> gi|371779668|emb|CCD31421.1| scorpion toxin To4 precursor [Tityus 
+cambridgei]
+Length=86
+
+ Score = 48.3 bits (114),  Expect = 2e-04, Method: Composition-based stats.
+ Identities = 14/65 (22%), Positives = 24/65 (37%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GYL++   G K   L + +   C  E         Y Y +  AC+   +P+    +  
+Sbjct  21  KDGYLMEYG-GCKMSCL-MKKGTFCAEECTRMKGKDGYCYAW-LACYCYNMPDWVKIWNR  77
+
+Query  61  PNKSA  65
+                
+Sbjct  78  ATNKC  82
+
+
+> gi|17380307|sp|P82812.1|SIX2_BUTSI RecName: Full=Insect toxin 
+BsIT2; Short=Insect toxin 2; AltName: Full=Bs-dprIT2
+Length=61
+
+ Score = 48.3 bits (114),  Expect = 3e-04, Method: Composition-based stats.
+ Identities = 20/64 (32%), Positives = 30/64 (47%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY +KKS G K     +  N  C++  K+      Y + Y  ACW EGLP +   +   
+Sbjct  1   DGY-IKKSKGCKVS--CVINNVYCNSMCKSLGGSYGYCWTYGLACWCEGLP-NAKRWKYE  56
+
+Query  62  NKSA  65
+            K+ 
+Sbjct  57  TKTC  60
+
+
+> gi|294862464|sp|Q1I179.2|SCX2_TITDI RecName: Full=Putative beta-neurotoxin 
+Td2; Flags: Precursor gi|260207889|emb|CAY61918.1| 
+putative beta-neurotoxin Td2 precursor [Tityus discrepans]
+Length=86
+
+ Score = 48.3 bits (114),  Expect = 3e-04, Method: Composition-based stats.
+ Identities = 17/65 (27%), Positives = 24/65 (37%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYL+  +DG K   L       C  E         Y Y +  AC+   +P    T+  
+Sbjct  21  KEGYLMG-ADGCKRSCLTRPG-HYCANECSRVKGTDGYCYAW-LACYCYNMPNWVKTWDR  77
+
+Query  61  PNKSA  65
+              + 
+Sbjct  78  ATNTC  82
+
+
+> gi|37089892|sp|Q9NBW2.1|SCBT_MESMA RecName: Full=Toxin BmKabT; 
+Short=BmK BT; Short=BmK abT; Flags: Precursor gi|9664268|gb|AAF97048.1| 
+beta toxin precursor [Mesobuthus martensii] gi|21359760|gb|AAM49598.1| 
+beta toxin [Mesobuthus martensii]
+Length=83
+
+ Score = 47.9 bits (113),  Expect = 3e-04, Method: Composition-based stats.
+ Identities = 15/65 (24%), Positives = 20/65 (31%), Gaps = 5/65 (7%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K GY      G K        N  C    +    G  Y Y +  ACW + +    PT+  
+Sbjct  21  KSGYPTDHE-GCKN---WCVLNHSCGILCE-GYGGSGYCYFWKLACWCDDIHNWVPTWSR  75
+
+Query  61  PNKSA  65
+                
+Sbjct  76  ATNKC  80
+
+
+> gi|56404720|sp|O76963.1|SIXI_ORTSC RecName: Full=Insect toxin 
+OsI1; AltName: Full=Insecticidal toxin OsI-1 gi|3273105|emb|CAA07277.1| 
+insecticidal toxin [Orthochirus scrobiculosus]
+Length=64
+
+ Score = 47.9 bits (113),  Expect = 3e-04, Method: Composition-based stats.
+ Identities = 17/64 (27%), Positives = 30/64 (47%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY  K+ DG KY       ++ C++  K+      Y + +  ACW EGLP++   +   
+Sbjct  1   DGYP-KQKDGCKYS--CTINHKFCNSVCKSNGGDYGYCWFWGLACWCEGLPDN-KMWKYE  56
+
+Query  62  NKSA  65
+             + 
+Sbjct  57  TNTC  60
+
+
+> gi|1061042|emb|CAA63431.1| insect-toxin 4 [Mesobuthus martensii]
+Length=65
+
+ Score = 47.5 bits (112),  Expect = 4e-04, Method: Composition-based stats.
+ Identities = 21/64 (33%), Positives = 32/64 (50%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY ++ S+G K   L    NEGC+ E K       Y + +  ACW EGLP+   T+   
+Sbjct  2   DGY-IRGSNGCKISCLW--GNEGCNKECKGFGAYYGYCWTWGLACWCEGLPDD-KTWKSE  57
+
+Query  62  NKSA  65
+           + + 
+Sbjct  58  SNTC  61
+
+
+> gi|159162458|pdb|1I6F|A Chain A, Nmr Solution Structure Of The 
+Insect-Specific Neurotoxin Variant 5 (Cse-V5) From The Scorpion 
+Centruroides Sculpturatus Ewing gi|159162459|pdb|1I6G|A 
+Chain A, Nmr Solution Structure Of The Insect-Specific Neurotoxin 
+Variant 5 (Cse-V5) From The Scorpion Centruroides Sculpturatus 
+Ewing
+Length=60
+
+ Score = 47.5 bits (112),  Expect = 4e-04, Method: Composition-based stats.
+ Identities = 21/65 (33%), Positives = 27/65 (42%), Gaps = 6/65 (9%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K+GY V  S G K        N  CD + K K   G + Y  A +C+ EGLPE+      
+Sbjct  1   KDGYPVD-SKGCKLS---CVANNYCDNQCKMKKASGGHCY--AMSCYCEGLPENAKVSDS  54
+
+Query  61  PNKSA  65
+                
+Sbjct  55  ATNIC  59
+
+
+> gi|371779688|emb|CCD31431.1| scorpion toxin To14 precursor [Tityus 
+cambridgei]
+Length=89
+
+ Score = 47.2 bits (111),  Expect = 5e-04, Method: Composition-based stats.
+ Identities = 15/58 (26%), Positives = 22/58 (38%), Gaps = 1/58 (1%)
+
+Query  1   KEGYLVKKSD-GAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K+ Y V  +            +   CD   K +     Y Y    AC+  GLP+ +PT
+Sbjct  21  KDDYPVDTAKRNCMLDCNVWDDEGYCDKFCKGRKADSGYCYKLKAACYCYGLPDDSPT  78
+
+
+> gi|59894804|gb|AAX11213.1| toxin1 [Hottentotta saulcyi]
+Length=64
+
+ Score = 47.2 bits (111),  Expect = 5e-04, Method: Composition-based stats.
+ Identities = 19/65 (30%), Positives = 29/65 (45%), Gaps = 3/65 (4%)
+
+Query  2   EGYLVKKSDGAKYGX-LKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           +GY ++K DG K    L   +NE C  E  +      Y + +  ACW E LP+   T+  
+Sbjct  1   DGY-IRKRDGCKLSCSLAWLDNENCRQECISYGGTYGYCWFWGLACWCENLPDE-KTWKS  58
+
+Query  61  PNKSA  65
+              + 
+Sbjct  59  ETNTC  63
+
+
+> gi|371779690|emb|CCD31432.1| scorpion toxin To15 precursor [Tityus 
+cambridgei]
+Length=83
+
+ Score = 47.2 bits (111),  Expect = 5e-04, Method: Composition-based stats.
+ Identities = 17/65 (27%), Positives = 25/65 (39%), Gaps = 4/65 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY +  S G K G    G N  C+TE K K+    Y      +C+     + +  +  
+Sbjct  21  KEGYPLD-SSGCKAGCFF-GTNSWCNTECKRKSAAKGYC--AWPSCYCYEFTDDSKIWNA  76
+
+Query  61  PNKSA  65
+                
+Sbjct  77  KTNKC  81
+
+
+> gi|317412104|sp|D9U2A0.1|SNAAA_LYCMC RecName: Full=Neurotoxin 
+LmNaTx10; Flags: Precursor gi|161705303|gb|ABX76758.1| neurotoxin 
+LmNaTx10 precursor [Lychas mucronatus]
+Length=83
+
+ Score = 47.2 bits (111),  Expect = 5e-04, Method: Composition-based stats.
+ Identities = 17/61 (28%), Positives = 25/61 (41%), Gaps = 4/61 (6%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGY     +  +Y       N+ CD   K       Y Y +  +C+  GLP++  T P 
+Sbjct  21  KEGYPYD-GNNCRY---ICFRNQYCDDLCKKLKGESGYCYGWNQSCYCYGLPDTEKTKPD  76
+
+Query  61  P  61
+            
+Sbjct  77  K  77
+
+
+> gi|17380309|sp|P82814.1|SIX4_BUTSI RecName: Full=Insect toxin 
+BsIT4; Short=Insect toxin 4; AltName: Full=Bs-dprIT4
+Length=62
+
+ Score = 47.2 bits (111),  Expect = 5e-04, Method: Composition-based stats.
+ Identities = 16/64 (25%), Positives = 27/64 (43%), Gaps = 3/64 (4%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY +K + G K     +  N  C++  K+      Y + +  ACW EGLP +       
+Sbjct  1   DGY-IKGNKGCKVS--CVINNVFCNSMCKSSGGSYGYCWSWGLACWCEGLPAAKKWLYAA  57
+
+Query  62  NKSA  65
+             + 
+Sbjct  58  TNTC  61
+
+
+> gi|317412111|sp|P0CI52.1|SNAU_LYCMC RecName: Full=Neurotoxin 
+LmNaTx30; Flags: Precursor
+Length=83
+
+ Score = 47.2 bits (111),  Expect = 6e-04, Method: Composition-based stats.
+ Identities = 18/57 (32%), Positives = 24/57 (43%), Gaps = 4/57 (7%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K+GY     +  KY   K   N+ CD   K K     Y Y    +C+  GLP+   T
+Sbjct  21  KDGYPYD-GNNCKYDCWK---NQYCDDLCKKKKGASGYCYALNLSCYCYGLPDKEKT  73
+
+
+> gi|108860962|sp|P84631.1|SCX2_TITPA RecName: Full=Beta-mammal 
+toxin Tpa2; AltName: Full=TpNNX
+Length=65
+
+ Score = 46.8 bits (110),  Expect = 6e-04, Method: Composition-based stats.
+ Identities = 18/65 (28%), Positives = 27/65 (42%), Gaps = 3/65 (4%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           KEGYLV  +DG KY        + C  E + +     Y Y +  AC+   +P+   T+  
+Sbjct  2   KEGYLVG-NDGCKYSCFTRPA-QYCVHECELRKGTDGYCYAW-LACYCYNMPDHVRTWSR  58
+
+Query  61  PNKSA  65
+                
+Sbjct  59  ATNRC  63
+
+
+> gi|37087984|sp|P59863.1|SIX2_BUTOC RecName: Full=Beta-toxin BotIT2; 
+Short=Bot IT2; AltName: Full=Insect toxin 2
+Length=60
+
+ Score = 46.4 bits (109),  Expect = 9e-04, Method: Composition-based stats.
+ Identities = 18/64 (29%), Positives = 29/64 (46%), Gaps = 4/64 (6%)
+
+Query  2   EGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPLP  61
+           +GY +K   G K     +  ++ CDTE KA+     Y + +  ACW E LP+    +   
+Sbjct  1   DGY-IKGYKGCKIT--CVINDDYCDTECKAEGGTYGYCWKWGLACWCEDLPDEKR-WKSE  56
+
+Query  62  NKSA  65
+             + 
+Sbjct  57  TNTC  60
+
+
+> gi|324497666|gb|ADY39483.1| iota-buthitoxin-Hj1a [Hottentotta 
+judaicus]
+Length=77
+
+ Score = 46.4 bits (109),  Expect = 0.001, Method: Composition-based stats.
+ Identities = 14/65 (22%), Positives = 20/65 (31%), Gaps = 7/65 (10%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPTYPL  60
+           K GY +    G K   +    N  C             GY Y   CW + + +  PT+  
+Sbjct  20  KNGYPIDH-TGCK---IWCVFNHYCSRFCSNYK---GSGYCYLLHCWCDNIQDWVPTWKK  72
+
+Query  61  PNKSA  65
+                
+Sbjct  73  ETNKC  77
+
+
+> gi|317412105|sp|P0CI53.1|SNAAL_LYCMC RecName: Full=Neurotoxin 
+LmNaTx21.1; Flags: Precursor
+Length=77
+
+ Score = 46.4 bits (109),  Expect = 0.001, Method: Composition-based stats.
+ Identities = 16/57 (29%), Positives = 25/57 (44%), Gaps = 3/57 (5%)
+
+Query  1   KEGYLVKKSDGAKYGXLKLGENEGCDTEDKAKNQGGSYGYXYAFACWDEGLPESTPT  57
+           K+GY V   +   Y      +N  C+   K K     Y Y +  +C+ EGLP++   
+Sbjct  16  KDGYPVD-WNNCMYD--CGYDNAYCEKICKEKGGESGYCYFWKISCYCEGLPDNVEI  69
+
+
+
+Lambda     K      H
+   0.315    0.154    0.625 
+
+Gapped
+Lambda     K      H
+   0.267   0.0462    0.140 
+
+Effective search space used: 84655169088
+
+
+  Database: nr90
+    Posted date:  Jan 24, 2012  1:04 PM
+  Number of letters in database: 3,383,841,944
+  Number of sequences in database:  9,741,704
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40

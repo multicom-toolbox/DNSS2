@@ -1,0 +1,18 @@
+
+
+[05/12/2019 21:30:32]  Running PredictSS.pl
+[05/12/2019 21:30:33]  Calling CPU to run prediction!!!
+[05/12/2019 21:30:33]  0 % complete!
+[05/12/2019 21:30:33]  Predicting 1GNY-A...
+[05/12/2019 21:30:33]  Generating PSSM...
+/storage/htc/bdm/jh7x3/DNSS2_github/DNSS2//scripts/generate-pssm_withDB.sh test/1GNY-A.fasta test/1GNY-A//temp/pssm/1GNY-A.pssm test/1GNY-A//temp/pssm/1GNY-A.log /storage/htc/bdm/Collaboration/jh7x3/DeepCov_SS_SA_project/DNSS2.0/database/uniref90_20180920/uniref90.fasta
+
+[05/12/2019 21:44:38]  Generating HHBLITS...
+/storage/htc/bdm/jh7x3/DNSS2_github/DNSS2//scripts/generate-hmm_withDB.sh test/1GNY-A.fasta test/1GNY-A//temp/hmm/1GNY-A /storage/htc/bdm/Collaboration/jh7x3/DeepCov_SS_SA_project/DNSS2.0/database/uniclust30_2017_10/uniclust30_2017_10
+
+[05/12/2019 21:48:10]  Generating Alignment Probability...
+perl /storage/htc/bdm/jh7x3/DNSS2_github/DNSS2//scripts/msa2profile_sspro.pl test/1GNY-A.fasta test/1GNY-A//temp/hmm/1GNY-A.aln  test/1GNY-A//temp/hmm/ /storage/htc/bdm/jh7x3/DNSS2_github/DNSS2//scripts/msa2profile_sspro /storage/htc/bdm/jh7x3/DNSS2_github/DNSS2//scripts/sspro.model
+
+[05/12/2019 21:48:11]  Generating HMM Probability...
+perl /storage/htc/bdm/jh7x3/DNSS2_github/DNSS2//scripts/gen_transition_prob_fromhmm.pl  test/1GNY-A.fasta test/1GNY-A//temp/hmm/1GNY-A.hmm
+

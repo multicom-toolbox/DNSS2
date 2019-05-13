@@ -1,0 +1,179 @@
+PSIBLAST 2.2.25+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+
+Reference for compositional score matrix adjustment: Stephen F.
+Altschul, John C. Wootton, E. Michael Gertz, Richa Agarwala,
+Aleksandr Morgulis, Alejandro A. Schaffer, and Yi-Kuo Yu (2005)
+"Protein database searches using compositionally adjusted
+substitution matrices", FEBS J. 272:5101-5109.
+
+
+
+Reference for composition-based statistics starting in round 2:
+Alejandro A. Schaffer, L. Aravind, Thomas L. Madden, Sergei
+Shavirin, John L. Spouge, Yuri I. Wolf, Eugene V. Koonin, and
+Stephen F. Altschul (2001), "Improving the accuracy of PSI-BLAST
+protein database searches with composition-based statistics and
+other refinements", Nucleic Acids Res. 29:2994-3005.
+
+
+
+Database: nr90
+           9,741,704 sequences; 3,383,841,944 total letters
+
+Results from round 1
+
+
+Query= 1GNY-A
+
+Length=153
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+  gi|192360972|ref|YP_001983520.1| endo-1,4-beta-xylanase [Cellvi...   259    6e-68
+  gi|757809|emb|CAA88762.1| endo-beta-1,4-xylanase [Cellvibrio mi...   142    9e-33
+
+
+> gi|192360972|ref|YP_001983520.1| endo-1,4-beta-xylanase [Cellvibrio 
+japonicus Ueda107] gi|38323070|emb|CAA88764.2| endo-beta-1,4-xylanase 
+[Cellvibrio japonicus] gi|190687137|gb|ACE84815.1| 
+endo-beta-1,4-xylanase, xyn10C [Cellvibrio japonicus 
+Ueda107]
+Length=606
+
+ Score =  259 bits (662),  Expect = 6e-68, Method: Compositional matrix adjust.
+ Identities = 150/153 (99%), Positives = 150/153 (99%), Gaps = 0/153 (0%)
+
+Query  1    GNVVIEVDMANGWRGNASGSTSHSGITYSADGVTFAALGDGVGAVFDIARPTTLEDAVIA  60
+            GNVVIEVDMANGWRGNASGSTSHSGITYSADGVTFAALGDGVGAVFDIARPTTLEDAVIA
+Sbjct  91   GNVVIEVDMANGWRGNASGSTSHSGITYSADGVTFAALGDGVGAVFDIARPTTLEDAVIA  150
+
+Query  61   MVVNVSAEFKASEANLQIFAQLKEDWSKGEWDALAGSSELTADTDLTLTATIDEDDDKFN  120
+            MVVNVSAEFKASEANLQIFAQLKEDWSKGEWD LA SSELTADTDLTLT TIDEDDDKFN
+Sbjct  151  MVVNVSAEFKASEANLQIFAQLKEDWSKGEWDCLAASSELTADTDLTLTCTIDEDDDKFN  210
+
+Query  121  QTARDVQVGIQAKGTPAGTITIKSVTITLAQEA  153
+            QTARDVQVGIQAKGTPAGTITIKSVTITLAQEA
+Sbjct  211  QTARDVQVGIQAKGTPAGTITIKSVTITLAQEA  243
+
+
+> gi|757809|emb|CAA88762.1| endo-beta-1,4-xylanase [Cellvibrio 
+mixtus]
+Length=621
+
+ Score =  142 bits (359),  Expect = 9e-33, Method: Compositional matrix adjust.
+ Identities = 82/146 (57%), Positives = 105/146 (72%), Gaps = 3/146 (2%)
+
+Query  4    VIEVDMANGWRGNASGSTSHSGITYSADGVTFAALGDGVGAVFDIARPTTLEDAVIAMVV  63
+            V+ +DM +GWRGN +G   +SG+T ++DGV+F A GD +GAV D+ +P  LEDA+I MVV
+Sbjct  104  VLTLDMTSGWRGNGTG---NSGVTLNSDGVSFTASGDNIGAVTDMLKPIQLEDAIITMVV  160
+
+Query  64   NVSAEFKASEANLQIFAQLKEDWSKGEWDALAGSSELTADTDLTLTATIDEDDDKFNQTA  123
+            NVS+EFKAS A+LQ   Q+K     GEW   AG+   TA  D T++ T+ E D KFNQT 
+Sbjct  161  NVSSEFKASGASLQPIVQIKGGSYPGEWGCWAGNELFTAGEDATISCTVTEGDKKFNQTE  220
+
+Query  124  RDVQVGIQAKGTPAGTITIKSVTITL  149
+             DVQVG+QAKGTP G +TIKSVT+TL
+Sbjct  221  FDVQVGVQAKGTPTGVVTIKSVTVTL  246
+
+
+
+Lambda     K      H
+   0.312    0.127    0.357 
+
+Gapped
+Lambda     K      H
+   0.267   0.0410    0.140 
+
+Effective search space used: 83390758360
+Results from round 2
+
+
+Query= 1GNY-A
+
+Length=153
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+Sequences used in model and found again:
+
+  gi|192360972|ref|YP_001983520.1| endo-1,4-beta-xylanase [Cellvi...   235    1e-60
+  gi|757809|emb|CAA88762.1| endo-beta-1,4-xylanase [Cellvibrio mi...   196    5e-49
+
+Sequences not found previously or not previously below threshold:
+
+
+
+> gi|192360972|ref|YP_001983520.1| endo-1,4-beta-xylanase [Cellvibrio 
+japonicus Ueda107] gi|38323070|emb|CAA88764.2| endo-beta-1,4-xylanase 
+[Cellvibrio japonicus] gi|190687137|gb|ACE84815.1| 
+endo-beta-1,4-xylanase, xyn10C [Cellvibrio japonicus 
+Ueda107]
+Length=606
+
+ Score =  235 bits (600),  Expect = 1e-60, Method: Composition-based stats.
+ Identities = 150/153 (99%), Positives = 150/153 (99%), Gaps = 0/153 (0%)
+
+Query  1    GNVVIEVDMANGWRGNASGSTSHSGITYSADGVTFAALGDGVGAVFDIARPTTLEDAVIA  60
+            GNVVIEVDMANGWRGNASGSTSHSGITYSADGVTFAALGDGVGAVFDIARPTTLEDAVIA
+Sbjct  91   GNVVIEVDMANGWRGNASGSTSHSGITYSADGVTFAALGDGVGAVFDIARPTTLEDAVIA  150
+
+Query  61   MVVNVSAEFKASEANLQIFAQLKEDWSKGEWDALAGSSELTADTDLTLTATIDEDDDKFN  120
+            MVVNVSAEFKASEANLQIFAQLKEDWSKGEWD LA SSELTADTDLTLT TIDEDDDKFN
+Sbjct  151  MVVNVSAEFKASEANLQIFAQLKEDWSKGEWDCLAASSELTADTDLTLTCTIDEDDDKFN  210
+
+Query  121  QTARDVQVGIQAKGTPAGTITIKSVTITLAQEA  153
+            QTARDVQVGIQAKGTPAGTITIKSVTITLAQEA
+Sbjct  211  QTARDVQVGIQAKGTPAGTITIKSVTITLAQEA  243
+
+
+> gi|757809|emb|CAA88762.1| endo-beta-1,4-xylanase [Cellvibrio 
+mixtus]
+Length=621
+
+ Score =  196 bits (499),  Expect = 5e-49, Method: Composition-based stats.
+ Identities = 82/146 (57%), Positives = 105/146 (72%), Gaps = 3/146 (2%)
+
+Query  4    VIEVDMANGWRGNASGSTSHSGITYSADGVTFAALGDGVGAVFDIARPTTLEDAVIAMVV  63
+            V+ +DM +GWRGN +G   +SG+T ++DGV+F A GD +GAV D+ +P  LEDA+I MVV
+Sbjct  104  VLTLDMTSGWRGNGTG---NSGVTLNSDGVSFTASGDNIGAVTDMLKPIQLEDAIITMVV  160
+
+Query  64   NVSAEFKASEANLQIFAQLKEDWSKGEWDALAGSSELTADTDLTLTATIDEDDDKFNQTA  123
+            NVS+EFKAS A+LQ   Q+K     GEW   AG+   TA  D T++ T+ E D KFNQT 
+Sbjct  161  NVSSEFKASGASLQPIVQIKGGSYPGEWGCWAGNELFTAGEDATISCTVTEGDKKFNQTE  220
+
+Query  124  RDVQVGIQAKGTPAGTITIKSVTITL  149
+             DVQVG+QAKGTP G +TIKSVT+TL
+Sbjct  221  FDVQVGVQAKGTPTGVVTIKSVTVTL  246
+
+
+
+Lambda     K      H
+   0.311    0.131    0.366 
+
+Gapped
+Lambda     K      H
+   0.267   0.0384    0.140 
+
+Effective search space used: 83390758360
+
+Search has CONVERGED!
+
+
+  Database: nr90
+    Posted date:  Jan 24, 2012  1:04 PM
+  Number of letters in database: 3,383,841,944
+  Number of sequences in database:  9,741,704
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40

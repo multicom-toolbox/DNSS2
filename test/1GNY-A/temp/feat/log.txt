@@ -1,0 +1,142 @@
+[05/12/2019 21:48:11]  Performing SS train & test using the parameters:
+Outdir: test/1GNY-A/
+Iterations: 1
+Reduced: 0
+Skip X: 0
+
+Window: 1
+Pssm: 1
+Pssm_uniref50: 0
+HMMEM: 1
+HMMTR: 1
+aln_sspro: 0
+aln_sspro_unif50: 0
+aln_sspro_unif90: 0
+aln_hhblits: 1
+Atch: 1
+Seq: 0
+Arch: X,X,0
+Boost: 0
+Bound: 0
+
+[05/12/2019 21:48:11]  Generating Testing File...
+[05/12/2019 21:48:11]  Accessing model deepss_1dconv
+[05/12/2019 21:48:14]  Accessing model deepss_1dCRMN
+[05/12/2019 21:48:15]  Accessing model deepss_1dFrac
+[05/12/2019 21:48:15]  Accessing model deepss_1dInception
+[05/12/2019 21:48:15]  Accessing model deepss_1dRCNN
+[05/12/2019 21:48:16]  Accessing model deepss_1dResnet
+[05/12/2019 21:48:16]  Ensemble predictions ...
+[05/12/2019 21:51:12]  Performing SS train & test using the parameters:
+Outdir: test/1GNY-A/
+Iterations: 1
+Reduced: 0
+Skip X: 0
+
+Window: 1
+Pssm: 1
+Pssm_uniref50: 0
+HMMEM: 1
+HMMTR: 1
+aln_sspro: 0
+aln_sspro_unif50: 0
+aln_sspro_unif90: 0
+aln_hhblits: 1
+Atch: 1
+Seq: 0
+Arch: X,X,0
+Boost: 0
+Bound: 0
+
+[05/12/2019 21:51:12]  Generating Testing File...
+[05/12/2019 21:51:12]  Accessing model deepss_1dconv
+[05/12/2019 21:51:13]  Accessing model deepss_1dCRMN
+[05/12/2019 21:51:13]  Accessing model deepss_1dFrac
+[05/12/2019 21:51:13]  Accessing model deepss_1dInception
+[05/12/2019 21:51:14]  Accessing model deepss_1dRCNN
+[05/12/2019 21:51:14]  Accessing model deepss_1dResnet
+[05/12/2019 21:51:14]  Ensemble predictions ...
+[05/12/2019 21:53:02]  Performing SS train & test using the parameters:
+Outdir: test/1GNY-A/
+Iterations: 1
+Reduced: 0
+Skip X: 0
+
+Window: 1
+Pssm: 1
+Pssm_uniref50: 0
+HMMEM: 1
+HMMTR: 1
+aln_sspro: 0
+aln_sspro_unif50: 0
+aln_sspro_unif90: 0
+aln_hhblits: 1
+Atch: 1
+Seq: 0
+Arch: X,X,0
+Boost: 0
+Bound: 0
+
+[05/12/2019 21:53:02]  Generating Testing File...
+[05/12/2019 21:53:02]  Accessing model deepss_1dconv
+[05/12/2019 21:53:02]  Accessing model deepss_1dCRMN
+[05/12/2019 21:53:03]  Accessing model deepss_1dFrac
+[05/12/2019 21:53:03]  Accessing model deepss_1dInception
+[05/12/2019 21:53:03]  Accessing model deepss_1dRCNN
+[05/12/2019 21:53:04]  Accessing model deepss_1dResnet
+[05/12/2019 21:53:04]  Ensemble predictions ...
+[05/12/2019 21:55:52]  Performing SS train & test using the parameters:
+Outdir: test/1GNY-A/
+Iterations: 1
+Reduced: 0
+Skip X: 0
+
+Window: 1
+Pssm: 1
+Pssm_uniref50: 0
+HMMEM: 1
+HMMTR: 1
+aln_sspro: 0
+aln_sspro_unif50: 0
+aln_sspro_unif90: 0
+aln_hhblits: 1
+Atch: 1
+Seq: 0
+Arch: X,X,0
+Boost: 0
+Bound: 0
+
+[05/12/2019 21:55:52]  Generating Testing File...
+[05/12/2019 21:55:52]  Accessing model deepss_1dconv
+[05/12/2019 21:55:53]  Accessing model deepss_1dCRMN
+[05/12/2019 21:55:54]  Accessing model deepss_1dFrac
+[05/12/2019 21:55:54]  Accessing model deepss_1dInception
+[05/12/2019 21:55:55]  Accessing model deepss_1dRCNN
+[05/12/2019 21:55:56]  Accessing model deepss_1dResnet
+[05/12/2019 21:55:56]  Ensemble predictions ...
+[05/12/2019 21:56:13]  Performing SS train & test using the parameters:
+Outdir: test/1GNY-A/
+Iterations: 1
+Reduced: 0
+Skip X: 0
+
+Window: 1
+Pssm: 1
+Pssm_uniref50: 0
+HMMEM: 1
+HMMTR: 1
+aln_sspro: 0
+aln_sspro_unif50: 0
+aln_sspro_unif90: 0
+aln_hhblits: 1
+Atch: 1
+Seq: 0
+Arch: X,X,0
+Boost: 0
+Bound: 0
+
+[05/12/2019 21:56:13]  Generating Testing File...
+[05/12/2019 21:56:13]  Accessing model deepss_1dconv
+[05/12/2019 21:56:13]  Accessing model deepss_1dCRMN
+[05/12/2019 21:56:14]  Accessing model deepss_1dFrac
+[05/12/2019 21:56:14]  Accessing model deepss_1dInception
