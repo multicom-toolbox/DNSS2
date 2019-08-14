@@ -3,7 +3,7 @@ Deep learning architectures for protein secondary structure prediction (version 
 
 Test Environment
 --------------------------------------------------------------------------------------
-Red Hat Enterprise Linux Server release 6.4 (Santiago)
+Red Hat Enterprise Linux Server release 6.4 (Santiago), perl 5, version 16, subversion 3 (v5.16.3)
 
 Installation Steps
 --------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ pip install h5py
 ```
 
 
-(f) Add the entry [ìimage_dim_ordering": "tfî,] to your keras..json file at ~/.keras/keras.json. After the update, your keras.json should look like the one below:  
+(f) Add the entry [‚Äúimage_dim_ordering": "tf‚Äù,] to your keras..json file at ~/.keras/keras.json. After the update, your keras.json should look like the one below:  
 ```
 {
     "epsilon": 1e-07,
