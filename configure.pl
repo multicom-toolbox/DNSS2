@@ -3,8 +3,8 @@ use Cwd;
 use Cwd 'abs_path';
 
 ################ provide the path for databases
-$uniref90db = '~/DNSS2.0/database/uniref90_20180920/uniref90.fasta';
-$uniclust30db = '~/database/uniclust30_2017_10/uniclust30_2017_10';
+$uniref90db = '/storage/htc/bdm/Collaboration/jh7x3/DeepCov_SS_SA_project/DNSS2.0/database/uniref90_20180920/uniref90.fasta';
+$uniclust30db = '/storage/htc/bdm/tools/multicom_db_tools/databases/uniprot30/uniclust30_2017_10/uniclust30_2017_10';
 
 
 

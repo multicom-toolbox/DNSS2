@@ -64,7 +64,7 @@ tar -zxf hhsuite-3.0-beta.3-Linux.tar.gz
 
 ```
 
-**(D) Download programs**
+**(D) Download database**
 
 * DNSS2 requires non-redundent sequence database formated by blast(i.e., uniref90) and hhblits database(i.e., uniclust30_2017_10). If the two databases haven't been downloaded and formated, please try following steps:
 
