@@ -2850,7 +2850,7 @@ sub sort_scores {
 	for (my $ii=0; $ii<@input; $ii++){
 		my @scores = @{ $input[$ii] };
 		for (my $jj=0; $jj<@scores; $jj++){
-			push ($data[$jj], $scores[$jj]);
+			push (@{$data[$jj]}, $scores[$jj]);
 		}
 	}
 	for (my $ii=0; $ii<@data; $ii++){

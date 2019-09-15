@@ -152,6 +152,7 @@ print TMPFILE "1 20 3\n$name\n$sequence\n$sstructure";
 close TMPFILE; 
 
 #predict the secondary structure with 3-line format
+print("$ss_predictor $sspro_model $align_dir/$name.tmp $align_dir 0 > $align_dir/$name.msa2profile\n");
 system("$ss_predictor $sspro_model $align_dir/$name.tmp $align_dir 0 > $align_dir/$name.msa2profile"); 
 
 open(RES, "$align_dir/$name.msa2profile") || die "can't open prediction result file $align_dir/$name.msa2profile.\n"; 

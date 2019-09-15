@@ -3,8 +3,8 @@ use Cwd;
 use Cwd 'abs_path';
 
 ################ provide the path for databases
-$uniref90db = '/storage/htc/bdm/Collaboration/jh7x3/DeepCov_SS_SA_project/DNSS2.0/database/uniref90_20180920/uniref90.fasta';
-$uniclust30db = '/storage/htc/bdm/tools/multicom_db_tools/databases/uniprot30/uniclust30_2017_10/uniclust30_2017_10';
+$uniref90db = '/mnt/data/shawn/DNSS2/database/uniref90/uniref90.fasta';
+$uniclust30db = '/mnt/data/shawn/DNSS2/database/uniclust30_2017_10/uniclust30_2017_10/uniclust30_2017_10';
 
 
 
@@ -148,7 +148,24 @@ foreach my $file (@updatelist) {
 
 }
 
+open(IN1,"$install_dir/scripts/sspro.model.default") || die "Failed to open file $install_dir/scripts/sspro.model.default\n";
+open(OUT1,">$install_dir/scripts/sspro.model") || die "Failed to open file $install_dir/scripts/sspro.model\n";
+while(<IN1>)
+{
+	$line = $_;
+	chomp $line;
 
+	if(index($line,'SOFTWARE_PATH')>=0)
+	{
+		$line =~ s/SOFTWARE_PATH/$install_dir/g;
+		$line =~ s/\/\//\//g;
+		print OUT1 $line."\n";
+	}else{
+		print OUT1 $line."\n";
+	}
+}
+close IN1;
+close OUT1;
 
 
 print "\n!!! Installation finished!\n";
@@ -165,3 +182,5 @@ sub prompt {
   chomp(my $answer = <STDIN>);
   return $answer;
 }
+
+
