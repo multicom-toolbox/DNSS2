@@ -110,6 +110,7 @@ perl configure.pl
 
    Example:
    $ source ~/python_virtualenv_DNSS2/bin/activate
+   $ mkdir -p ./output/2SN3-A
    $ perl run_DNSS2.pl -seq test/2SN3-A.fasta -file -out ./output/2SN3-A
 ```
 
@@ -121,6 +122,7 @@ perl configure.pl
 
    Example:
    $ source ~/python_virtualenv_DNSS2/bin/activate
+   $ mkdir ./output/
    $ perl run_DNSS2.pl -indir ./test/ -out ./output/
 ```
 
