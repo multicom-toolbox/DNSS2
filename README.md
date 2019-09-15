@@ -76,7 +76,7 @@ mkdir uniref90
 cd uniref90
 wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/uniref90.fasta.gz
 gzip -d uniref90.fasta.gz
-../programs/ncbi-blast-2.2.25+/bin/makeblastdb -in  uniref90.fasta
+../../programs/ncbi-blast-2.2.25+/bin/makeblastdb -in  uniref90.fasta
 
 
 mkdir uniclust30_2017_10
