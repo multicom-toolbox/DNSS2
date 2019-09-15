@@ -54,6 +54,7 @@ pip install h5py
 ```
 **(C) Download programs**
 ```
+mkdir programs
 cd programs
 wget http://mirrors.vbi.vt.edu/mirrors/ftp.ncbi.nih.gov/blast/executables/blast%2B/2.2.25/ncbi-blast-2.2.25%2B-x64-linux.tar.gz
 tar -zxf ncbi-blast-2.2.25%2B-x64-linux.tar.gz
@@ -69,12 +70,13 @@ tar -zxf hhsuite-3.0-beta.3-Linux.tar.gz
 * DNSS2 requires non-redundent sequence database formated by blast(i.e., uniref90) and hhblits database(i.e., uniclust30_2017_10). If the two databases haven't been downloaded and formated, please try following steps:
 
 ```
+mkdir database
 cd database
 mkdir uniref90
 cd uniref90
 wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/uniref90.fasta.gz
 gzip -d uniref90.fasta.gz
-../programs/ncbi-blast-2.2.25+/bin/makeblastdb -in  uniref90.fasta
+../../programs/ncbi-blast-2.2.25+/bin/makeblastdb -in  uniref90.fasta
 
 
 mkdir uniclust30_2017_10
