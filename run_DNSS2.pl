@@ -6,7 +6,7 @@
 # Lastest Modified: 11/2/2016 by Jie Hou
 my $GLOBAL_PATH;
 BEGIN { 
-$GLOBAL_PATH='/mnt/data/shawn/DNSS2/';
+$GLOBAL_PATH='/mnt/data/shawn/test/DNSS2/';
 }
 
 use strict;
@@ -28,8 +28,8 @@ my $opt = GetOptions(    '-out:s', \$outdir,
 print_help() if ($help || (!@seq && !$indir));
 
 
-my $uniclust30db='/mnt/data/shawn/DNSS2/database/uniclust30_2017_10/uniclust30_2017_10/uniclust30_2017_10';
-my $uniref90db='/mnt/data/shawn/DNSS2/database/uniref90/uniref90.fasta';
+my $uniclust30db='/mnt/data/shawn/test/DNSS2/database/uniclust30_2017_10/uniclust30_2017_10/uniclust30_2017_10';
+my $uniref90db='/mnt/data/shawn/test/DNSS2/database/uniref90/uniref90.fasta';
 
 ##################################################
 ##  Setting up directory architecture

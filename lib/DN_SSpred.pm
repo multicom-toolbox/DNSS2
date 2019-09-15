@@ -78,7 +78,7 @@ use vars qw(@ISA @EXPORT @EXPORT_OK);
 
 my $GLOBAL_PATH;
 BEGIN { 
-$GLOBAL_PATH='/mnt/data/shawn/DNSS2/';
+$GLOBAL_PATH='/mnt/data/shawn/test/DNSS2/';
 }
 
 #############################

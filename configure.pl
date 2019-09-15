@@ -3,8 +3,8 @@ use Cwd;
 use Cwd 'abs_path';
 
 ################ provide the path for databases
-$uniref90db = '/mnt/data/shawn/DNSS2/database/uniref90/uniref90.fasta';
-$uniclust30db = '/mnt/data/shawn/DNSS2/database/uniclust30_2017_10/uniclust30_2017_10/uniclust30_2017_10';
+$uniref90db = '/mnt/data/shawn/test/DNSS2/database/uniref90/uniref90.fasta';
+$uniclust30db = '/mnt/data/shawn/test/DNSS2/database/uniclust30_2017_10/uniclust30_2017_10/uniclust30_2017_10';
 
 
 
@@ -167,6 +167,25 @@ while(<IN1>)
 close IN1;
 close OUT1;
 
+
+open(IN1,"$install_dir/lib/DN_SSpred2.pm.default") || die "Failed to open file $install_dir/lib/DN_SSpred2.pm.default\n";
+open(OUT1,">$install_dir/lib/DN_SSpred2.pm") || die "Failed to open file $install_dir/lib/DN_SSpred2.pm\n";
+while(<IN1>)
+{
+	$line = $_;
+	chomp $line;
+
+	if(index($line,'SOFTWARE_PATH')>=0)
+	{
+		$line =~ s/SOFTWARE_PATH/$install_dir/g;
+		$line =~ s/\/\//\//g;
+		print OUT1 $line."\n";
+	}else{
+		print OUT1 $line."\n";
+	}
+}
+close IN1;
+close OUT1;
 
 print "\n!!! Installation finished!\n";
 
