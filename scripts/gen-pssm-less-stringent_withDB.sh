@@ -44,5 +44,5 @@ else
 	echo "Try psedp."
   $BLAST_PATH/makeblastdb -in $FASTA
 	$BLAST_PATH/psiblast -query "$FASTA" -db "$FASTA" -num_iterations 3 -outfmt "0"\
-  -out $REPORT -seg yes -out_ascii_pssm $PSSM
+  -out $REPORT  -out_ascii_pssm $PSSM
 fi
