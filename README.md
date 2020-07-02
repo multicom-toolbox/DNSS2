@@ -56,7 +56,7 @@ pip install h5py
 ```
 mkdir programs
 cd programs
-wget http://mirrors.vbi.vt.edu/mirrors/ftp.ncbi.nih.gov/blast/executables/blast%2B/2.2.25/ncbi-blast-2.2.25%2B-x64-linux.tar.gz
+wget https://ftp.ncbi.nih.gov/blast/executables/blast+/2.2.25/ncbi-blast-2.2.25+-x64-linux.tar.gz
 tar -zxf ncbi-blast-2.2.25+-x64-linux.tar.gz
 
 
