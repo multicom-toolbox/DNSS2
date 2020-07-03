@@ -23,7 +23,7 @@ cd DNSS2
 
 (a) Create python2 virtual environment (if not installed)
 ```
-virtualenv ~/python_virtualenv_DNSS2
+virtualenv -p /usr/bin/python2 ~/python_virtualenv_DNSS2
 source ~/python_virtualenv_DNSS2/bin/activate
 pip install --upgrade pip
 ```
