@@ -23,7 +23,7 @@ cd DNSS2
 
 (a) Create python2 virtual environment (if not installed)
 ```
-virtualenv ~/python_virtualenv_DNSS2
+virtualenv -p /usr/bin/python2 ~/python_virtualenv_DNSS2
 source ~/python_virtualenv_DNSS2/bin/activate
 pip install --upgrade pip
 ```
@@ -56,7 +56,7 @@ pip install h5py
 ```
 mkdir programs
 cd programs
-wget http://mirrors.vbi.vt.edu/mirrors/ftp.ncbi.nih.gov/blast/executables/blast%2B/2.2.25/ncbi-blast-2.2.25%2B-x64-linux.tar.gz
+wget https://ftp.ncbi.nih.gov/blast/executables/blast+/2.2.25/ncbi-blast-2.2.25+-x64-linux.tar.gz
 tar -zxf ncbi-blast-2.2.25+-x64-linux.tar.gz
 
 
@@ -78,7 +78,7 @@ wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/uniref90.fasta.
 gzip -d uniref90.fasta.gz
 ../../programs/ncbi-blast-2.2.25+/bin/makeblastdb -in  uniref90.fasta
 
-
+cd database
 mkdir uniclust30_2017_10
 cd uniclust30_2017_10
 wget http://wwwuser.gwdg.de/~compbiol/uniclust/2017_10/uniclust30_2017_10_hhsuite.tar.gz
