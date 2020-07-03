@@ -11,7 +11,7 @@
 # Date: Wed Jan 25 2012
 # Latest Modified Date: 11/02/2016 by Jie Hou
 ###############################################################################
-GLOBAL_PATH='/mnt/data/shawn/test/DNSS2/';
+GLOBAL_PATH='/faculty/jhou4/tools/DNSS2/';
 
 if [[ $# -ne 4 ]]; then
   echo "Usage: $0 <seq.fasta> <out_fname1(pssm)> <out_fname2(report)>";

@@ -58,7 +58,7 @@ package DN_SSpred2;
 #	check_err : tests for an error message and probably prints it
 #	get_targsize : Returns parameter size of target
 my $GLOBAL_PATH;
-BEGIN { $GLOBAL_PATH='/mnt/data/shawn/test/DNSS2/'};
+BEGIN { $GLOBAL_PATH='/faculty/jhou4/tools/DNSS2/'};
 use lib "$GLOBAL_PATH/lib/";
 use strict;
 use PDBUtils;
