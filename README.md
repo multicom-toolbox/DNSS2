@@ -78,7 +78,7 @@ wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/uniref90.fasta.
 gzip -d uniref90.fasta.gz
 ../../programs/ncbi-blast-2.2.25+/bin/makeblastdb -in  uniref90.fasta
 
-
+cd database
 mkdir uniclust30_2017_10
 cd uniclust30_2017_10
 wget http://wwwuser.gwdg.de/~compbiol/uniclust/2017_10/uniclust30_2017_10_hhsuite.tar.gz
