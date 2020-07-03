@@ -70,8 +70,8 @@ use vars qw(@ISA @EXPORT @EXPORT_OK);
 
 @ISA = qw(Exporter);
 @EXPORT = ();
-@EXPORT_OK = qw(generate_feature_for_convolution generate_feature_for_convolution_DNSS2_exp  generate_testfeature_for_convolution_DNSS2 newDN make_features all_testfeatures make_testfeatures print_features
-	train_DN test_DN all_dnss_files predict_SS  predict_SS2 make_dnss_file
+@EXPORT_OK = qw(generate_feature_for_convolution generate_feature_for_convolution_DNSS2_exp generate_feature_for_convolution_DNSS2_exp_8class  generate_testfeature_for_convolution_DNSS2 newDN make_features  make_features_8class all_testfeatures make_testfeatures print_features
+	train_DN test_DN all_dnss_files predict_SS  predict_SS2 predict_SS2_8c make_dnss_file
 	score_probs score_dnss sort_scores all_score
 	calc_confusion_matrix print_matrix
 	import_ssa import_dnss
@@ -281,6 +281,112 @@ sub generate_feature_for_convolution_DNSS2_exp {
 		}
 
 		my @features = make_features(\@files, $featopts);
+		unless (check_err($features[0], $logfile)){
+       $TFfile = $outdir . "$_.fea";
+       open (OUT, ">$TFfile") or return "err: newDN: Couldn't open file $TFfile\n";
+      	foreach (@features){
+      		print OUT $_;
+      	}
+      	close OUT or return "err: newDN: Couldn't close file $TFfile\n";
+		}
+	}
+	#print STDERR "100% testing data completed.\n";
+}
+
+
+sub generate_feature_for_convolution_DNSS2_exp_8class { 
+	my ($logfile, $outdir, $trlist_ref, $telist_ref, $featdirs, $featopts) = @_;
+
+	################################################################
+	##	Generating Training File
+	################################################################
+
+	$outdir .= "/" unless ($outdir =~ m/\/$/);
+	my $TFfile;
+	my ($ssadir, $pssmdir, $pssm_uniref50dir, $hmmEmdir, $hmmTrdir, $msa2profile_ssprodir, $msa2profile_sspro_uniref50_dir, $msa2profile_sspro_uniref90_dir, $msa2profile_hhblitsdir, @predirs) = @{ $featdirs };
+
+	timeprint($logfile, "Generating Training File...");
+
+	my $count = 0;
+	my $percent = 0;
+
+	#Get feature lines from each file, compile into array
+	my @TFlines;
+	my @trainlist = @{ $trlist_ref };
+	foreach (@trainlist){
+		if ($count/@trainlist*100 > $percent){
+			#print STDERR "$percent % completed (train).\n";
+			$percent += 50;
+		}
+		$count++;
+
+		my $ssafile = $ssadir . "$_.8class.ssa";
+		my $pssmfile = $pssmdir . "$_.pssm";
+		my $pssm_uniref50file = $pssm_uniref50dir . "$_.pssm";
+		my $hmmEmfile = $hmmEmdir . "$_.hmm2prob";
+		my $hmmTrfile = $hmmTrdir . "$_.hmm2prob";
+		my $msa2profile_ssprofile = $msa2profile_ssprodir . "$_.align2profile";
+		my $msa2profile_sspro_uniref50file = $msa2profile_sspro_uniref50_dir . "$_.align2profile";
+		my $msa2profile_sspro_uniref90file = $msa2profile_sspro_uniref90_dir . "$_.align2profile";
+		my $msa2profile_hhblitfile = $msa2profile_hhblitsdir . "$_.align2profile";
+		my @files = ($ssafile, $pssmfile,$pssm_uniref50file,$hmmEmfile,$hmmTrfile,$msa2profile_ssprofile,$msa2profile_sspro_uniref50file,$msa2profile_sspro_uniref90file,$msa2profile_hhblitfile);
+
+		my $prot = $_;
+		foreach my $dir (@predirs){
+			next unless (-d $dir);
+			my $probfile = $dir . "$prot.prob";
+			push (@files, $probfile) if (-f $probfile);
+		}
+
+		my @features = make_features_8class(\@files, $featopts);
+		unless (check_err($features[0], $logfile)){
+       $TFfile = $outdir . "$_.fea";
+       open (OUT, ">$TFfile") or return "err: newDN: Couldn't open file $TFfile\n";
+      	foreach (@features){
+      		print OUT $_;
+      	}
+      	close OUT or return "err: newDN: Couldn't close file $TFfile\n";
+		}
+	}
+	#print STDERR "100% training data completed.\n";
+
+	################################################################
+	##	Generating Testing File
+	################################################################
+	timeprint($logfile, "Generating Testing File...");
+
+	$count = 0;
+	$percent = 0;
+
+	#Get feature lines from each file, compile into array
+	@TFlines;
+	my @testlist = @{ $telist_ref };
+	foreach (@testlist){
+		if ($count/@testlist*100 > $percent){
+			#print STDERR "$percent % completed (test).\n";
+			$percent += 50;
+		}
+		$count++;
+
+		my $ssafile = $ssadir . "$_.8class.ssa";
+		my $pssmfile = $pssmdir . "$_.pssm";
+		my $pssm_uniref50file = $pssm_uniref50dir . "$_.pssm";
+		my $hmmEmfile = $hmmEmdir . "$_.hmm2prob";
+		my $hmmTrfile = $hmmTrdir . "$_.hmm2prob";
+		my $msa2profile_ssprofile = $msa2profile_ssprodir . "$_.align2profile";
+		my $msa2profile_sspro_uniref50file = $msa2profile_sspro_uniref50_dir . "$_.align2profile";
+		my $msa2profile_sspro_uniref90file = $msa2profile_sspro_uniref90_dir . "$_.align2profile";
+		my $msa2profile_hhblitfile = $msa2profile_hhblitsdir . "$_.align2profile";
+		my @files = ($ssafile, $pssmfile,$pssm_uniref50file,$hmmEmfile,$hmmTrfile,$msa2profile_ssprofile,$msa2profile_sspro_uniref50file,$msa2profile_sspro_uniref90file,$msa2profile_hhblitfile);
+
+		my $prot = $_;
+		foreach my $dir (@predirs){
+			next unless (-d $dir);
+			my $probfile = $dir . "$prot.prob";
+			push (@files, $probfile) if (-f $probfile);
+		}
+
+		my @features = make_features_8class(\@files, $featopts);
 		unless (check_err($features[0], $logfile)){
        $TFfile = $outdir . "$_.fea";
        open (OUT, ">$TFfile") or return "err: newDN: Couldn't open file $TFfile\n";
@@ -581,6 +687,13 @@ sub make_features {
 	return features(@_);
 }
 
+
+sub make_features_8class {
+	push (@_, 0);
+	return features_8class(@_);
+}
+
+
 sub make_testfeatures {
 	push (@_, 1); # Safeguard in case want test but input ssa file anyway
 	return features(@_);
@@ -777,6 +890,757 @@ sub features {
 	# Collect MSA2PROFILE information
 	#################################
   open (PROFILE, $msa2profile_sspro_uniref90file) or die ("err: features: Couldn't open $msa2profile_sspro_uniref90file file");
+  my @msa2profilelines_uniref90 = <PROFILE>;
+  close PROFILE;
+  
+  shift @msa2profilelines_uniref90;
+  
+  my @msa2profileseq_sspro_uniref90;
+  my @msa2profile_sspro_prob_uniref90;
+  my $i;
+  foreach $line (@msa2profilelines_uniref90)
+  {
+    chomp $line;
+    my @tmp = split(/\t/,$line);
+    my ($res) = $tmp[1];
+    push (@msa2profileseq_sspro_uniref90,$res);
+    
+    #### Emission prob
+    my $msa2profile_prob_uniref90_tmp = $tmp[2];
+    for($i=3;$i<22;$i++)
+    {
+     #print $tmp[$i]." ";
+      $msa2profile_prob_uniref90_tmp .= " ".$tmp[$i];
+    }
+    #print "\n";
+    push (@msa2profile_sspro_prob_uniref90,$msa2profile_prob_uniref90_tmp);
+    
+  }
+	
+	#################################
+	# Collect MSA2PROFILE information
+	#################################
+  open (PROFILE, $msa2profile_hhblitfile) or die ("err: features: Couldn't open msa2profile_hhblitfile file");
+  my @msa2profilelines = <PROFILE>;
+  close PROFILE;
+  
+  shift @msa2profilelines;
+  
+  my @msa2profileseq_hhblit;
+  my @msa2profile_hhblit_prob;
+  my $i;
+  foreach $line (@msa2profilelines)
+  {
+    chomp $line;
+    my @tmp = split(/\t/,$line);
+    my ($res) = $tmp[1];
+    push (@msa2profileseq_hhblit,$res);
+    
+    #### Emission prob
+    my $msa2profile_prob_tmp = $tmp[2];
+    for($i=3;$i<22;$i++)
+    {
+     #print $tmp[$i]." ";
+      $msa2profile_prob_tmp .= " ".$tmp[$i];
+    }
+    #print "\n";
+    push (@msa2profile_hhblit_prob,$msa2profile_prob_tmp);
+    
+  }
+
+	# The following decides what method will be used to transform the
+	# information to the range [0, 1]. Other methods could be better.
+#	my ($odds_ref, $inf_ref) = scaled_log_odds_n_inf(@lines);
+	my ($odds_ref, $inf_ref) = linearize(@lines);
+
+	my @odds = @{$odds_ref};
+	my @inf = @{$inf_ref};
+
+	for (my $ii=0; $ii<@inf; $ii++){
+		$inf[$ii] = abs($inf[$ii]);
+	}
+
+	my @blankpssm;
+	foreach (1..20){
+		push (@blankpssm, "0.0");
+	}
+	push (@blankpssm, "0.0000");
+
+	my @blankhmmEm;
+	foreach (1..20){
+		push (@blankhmmEm, "0.0");
+	}
+ 
+	my @blankhmmTr;
+	foreach (1..7){
+		push (@blankhmmTr, "0.0");
+	}
+ 
+	my @blankmsa2profile_sspro;
+	foreach (1..20){
+		push (@blankmsa2profile_sspro, "0.0");
+	}
+ 
+	my @blankmsa2profile_sspro_uniref50;
+	foreach (1..20){
+		push (@blankmsa2profile_sspro_uniref50, "0.0");
+	}
+ 
+	my @blankmsa2profile_sspro_uniref90;
+	foreach (1..20){
+		push (@blankmsa2profile_sspro_uniref90, "0.0");
+	}
+ 
+	my @blankmsa2profile_hhblit;
+	foreach (1..20){
+		push (@blankmsa2profile_hhblit, "0.0");
+	}
+ 
+	#################################
+	# Calculate scalars and acthley factors
+	#################################
+
+	my $aas = "ACDEFGHIKLMNPQRSTVWY";
+	my @scalar = ();
+	my @offset = ();
+	my @res = split(//, $aas);
+		
+	# In this loop, scalars and offsets are calculated for each of the 5
+	# Atchley factors, which are later used to transform the factors to be
+	# in the range [0, 1], required for DN training
+	for(my $ii = 1; $ii <= 5; $ii++) {
+		my $min = 15;
+		my $max = - 15;
+		for(my $jj = 0; $jj < @res; $jj++) {
+		
+			if(atchley_factor($res[$jj],$ii) < $min) {
+				$min = atchley_factor($res[$jj], $ii);
+			}
+			if(atchley_factor($res[$jj],$ii) > $max) {
+				$max = atchley_factor($res[$jj], $ii);
+			}
+
+		}
+
+		$scalar[$ii] = (1/($max-$min));
+		$offset[$ii] = ($min/($min-$max));
+	}
+
+	my %factors = ();
+
+	# 5 factors for all residues are calculated and transformed by the above
+	# scalar and offset before being saved to the hash.
+	for (my $ii = 0; $ii < @res; $ii++) {
+		my @thisatch;
+		for(my $jj = 1; $jj <= 5; $jj++) {
+			my $atch = atchley_factor($res[$ii], $jj) * $scalar[$jj] + $offset[$jj];
+			$atch = sprintf("%.4f", $atch);
+			push (@thisatch, $atch);
+		}
+		$factors{$res[$ii]} =  \@thisatch;
+	}
+
+	my @blankatch = (0, 0, 0, 0, 0);
+	foreach (@blankatch){
+		$_ = sprintf("%.4f", $_);
+	}
+	$factors{"-"} = \@blankatch;
+	$factors{"X"} = \@blankatch;
+
+	#################################
+	# Get prob information, if given
+	#################################
+
+	# Prob files contain previously predicted probabilities for each secondary
+	# structure for this protein. Due to the layered design of the prediction
+	# process, the initial prediction will be performed, and the resulting prob
+	# files will be used in a refinement prediction.
+	my @probs;
+	my @fileinfo;
+
+	# Loop is deliberately implemented to handle an unknown number of prob files
+	foreach my $file (@probfiles){
+		open (PROB, $file) or return ("err: features: Coudln't open file $file.");
+
+		my @lines;
+		while (my $probline = <PROB>){
+			# Normalization occurs to ensure probabilities sum to 1
+			my @nums = normalize($probline);
+			push (@lines, \@nums);
+		}
+		close PROB or return ("err: features: Coudln't close file $file.");
+		push (@fileinfo, \@lines);		
+	}
+
+	# When multiple prob files are given, the average probability of each 
+	# structure at each residue is calculated, giving equal weight to all
+	# given prob files (a simple way to adjust weight would be to input
+	# prob files for higher priority predictions twice)
+	@probs = get_avg($pfilelen, \@fileinfo);
+	check_probs("err", @probs);
+
+	my @blankprob;
+	for (my $ii=0; $ii<get_targsize(); $ii++){
+		 push (@blankprob, "0.000000");
+	}
+
+	#################################
+	# Collect SSA information and align
+	#################################
+
+	# SSA files contain an abbreviated version of the known data of a prot
+	# Thus, ssa files are only used for training, since the testing procedure
+	# predicts as if there was no known information, and prediction of new
+	# proteins will not have the known information.
+	my @ssalines;
+	if ($ssafile && (!$test || $reduced)){
+		open (SSA, $ssafile) or return ("err: features: Couldn't open ssa file");
+		@ssalines = <SSA>;
+		chomp(@ssalines);
+		shift(@ssalines);
+		close SSA;
+
+		# Adds lines to SSA info when pssm seq is longer than ssa
+		for (my $ii=@ssalines; $ii<@pssmlines; $ii++){
+			my $index = $ii+1;
+			my $line = "$index\t-\t-\t-";
+			push (@ssalines, $line);
+		}
+
+		# SSA and PSSM seqs are aligned to be sure information is applied to
+		# the correct feature lines
+		my @lines = (\@pssmlines, \@ssalines);
+		my @ssa_sequence = load_ssa($ssafile);
+		my (@align_refs) = get_align_arrays(\@pssmlines, \@ssa_sequence);
+		my ($new_pssm_ref, $new_ssa_ref) = apply_alignment(\@lines, \@align_refs);
+		@pssmlines = @{ $new_pssm_ref };
+		@ssalines = @{ $new_ssa_ref };
+
+		for (my $ii=0; $ii<@ssalines; $ii++){
+			$ssalines[$ii] = "-\t-\t-\t-" if ($ssalines[$ii] eq "-");
+		}
+
+		# PSSM data is adjusted according to above sequence alignment
+		my @data = (\@odds, \@ssalines);
+		my ($new_odds, $junk) = apply_alignment(\@data, \@align_refs);
+		@odds = @{ $new_odds };
+
+		my @data = (\@inf, \@ssalines);
+		my ($new_inf, $junk) = apply_alignment(\@data, \@align_refs);
+		@inf = @{ $new_inf };
+
+
+    # hmmEm data is adjusted according to above sequence alignment
+    # hmmTr data is adjusted according to above sequence alignment
+    # aln_sspro data is adjusted according to above sequence alignment
+    open (SSA, $ssafile) or return ("err: features: Couldn't open ssa file");
+		my @ssalines2 = <SSA>;
+		chomp(@ssalines2);
+		shift(@ssalines2);
+		close SSA;
+
+		# Adds lines to SSA info when pssm seq is longer than ssa
+		for (my $ii=@ssalines2; $ii<@hmmseq; $ii++){
+			my $index = $ii+1;
+			my $line = "$index\t-\t-\t-";
+			push (@ssalines2, $line);
+		}
+    my @lines2 = (\@hmmseq, \@ssalines2);
+    my @ssa_sequence2 = load_ssa($ssafile);
+    my (@align_refs2) = get_align_arrays(\@hmmseq, \@ssa_sequence2);
+    my ($new_hmmEm_ref2, $new_ssa_ref2) = apply_alignment(\@lines2, \@align_refs2);
+    @hmmseq = @{ $new_hmmEm_ref2 };
+    my @ssalines2 = @{ $new_ssa_ref2 };
+    
+    my @data2 = (\@hmmEm_prob, \@ssalines2);
+    my ($new_hmmEm_prob2, $junk2) = apply_alignment(\@data2, \@align_refs2);
+    @hmmEm_prob = @{ $new_hmmEm_prob2 };
+    
+    # hmmTr data is adjusted according to above sequence alignment
+    my @data2 = (\@hmmTr_prob, \@ssalines2);
+    my ($new_hmmTr_prob2, $junk2) = apply_alignment(\@data2, \@align_refs2);
+    @hmmTr_prob = @{ $new_hmmTr_prob2 };
+
+     
+    # aln_sspro data is adjusted according to above sequence alignment
+    open (SSA, $ssafile) or return ("err: features: Couldn't open ssa file");
+		my @ssalines3 = <SSA>;
+		chomp(@ssalines3);
+		shift(@ssalines3);
+		close SSA;
+
+		# Adds lines to SSA info when pssm seq is longer than ssa
+		for (my $ii=@ssalines3; $ii<@msa2profileseq_sspro; $ii++){
+			my $index = $ii+1;
+			my $line = "$index\t-\t-\t-";
+			push (@ssalines3, $line);
+		}
+    my @lines3 = (\@msa2profileseq_sspro, \@ssalines3);
+    my @ssa_sequence3 = load_ssa($ssafile);
+    my (@align_refs3) = get_align_arrays(\@msa2profileseq_sspro, \@ssa_sequence3);
+    my ($new_msa2profileseq_sspro_ref, $new_ssa_ref3) = apply_alignment(\@lines3, \@align_refs3);
+    @msa2profileseq_sspro= @{ $new_msa2profileseq_sspro_ref };
+    @ssalines3 = @{ $new_ssa_ref3 };
+    
+    my @data3 = (\@msa2profile_sspro_prob, \@ssalines3);
+    my ($new_msa2profilesspro_prob, $junk3) = apply_alignment(\@data3, \@align_refs3);
+    @msa2profile_sspro_prob = @{ $new_msa2profilesspro_prob };
+
+    # aln_sspro data is adjusted according to above sequence alignment
+    open (SSA, $ssafile) or return ("err: features: Couldn't open ssa file");
+		my @ssalines4 = <SSA>;
+		chomp(@ssalines4);
+		shift(@ssalines4);
+		close SSA;
+
+		# Adds lines to SSA info when pssm seq is longer than ssa
+		for (my $ii=@ssalines4; $ii<@msa2profileseq_sspro_uniref50; $ii++){
+			my $index = $ii+1;
+			my $line = "$index\t-\t-\t-";
+			push (@ssalines4, $line);
+		}
+    my @lines4 = (\@msa2profileseq_sspro_uniref50, \@ssalines4);
+    my @ssa_sequence4 = load_ssa($ssafile);
+    my (@align_refs4) = get_align_arrays(\@msa2profileseq_sspro_uniref50, \@ssa_sequence4);
+    my ($new_msa2profileseq_sspro_uniref50_ref, $new_ssa_ref4) = apply_alignment(\@lines4, \@align_refs4);
+    @msa2profileseq_sspro_uniref50= @{ $new_msa2profileseq_sspro_uniref50_ref };
+    @ssalines4 = @{ $new_ssa_ref4 };
+    
+    my @data4 = (\@msa2profile_sspro_prob_uniref50, \@ssalines4);
+    my ($new_msa2profilesspro_prob_uniref50, $junk4) = apply_alignment(\@data4, \@align_refs4);
+    @msa2profile_sspro_prob_uniref50 = @{ $new_msa2profilesspro_prob_uniref50 };
+ 
+ 
+    # aln_sspro data is adjusted according to above sequence alignment
+    open (SSA, $ssafile) or return ("err: features: Couldn't open ssa file");
+		my @ssalines5 = <SSA>;
+		chomp(@ssalines5);
+		shift(@ssalines5);
+		close SSA;
+
+		# Adds lines to SSA info when pssm seq is longer than ssa
+		for (my $ii=@ssalines5; $ii<@msa2profileseq_sspro_uniref90; $ii++){
+			my $index = $ii+1;
+			my $line = "$index\t-\t-\t-";
+			push (@ssalines5, $line);
+		}
+    my @lines5 = (\@msa2profileseq_sspro_uniref90, \@ssalines5);
+    my @ssa_sequence5 = load_ssa($ssafile);
+    my (@align_refs5) = get_align_arrays(\@msa2profileseq_sspro_uniref90, \@ssa_sequence5);
+    my ($new_msa2profileseq_sspro_uniref90_ref, $new_ssa_ref5) = apply_alignment(\@lines5, \@align_refs5);
+    @msa2profileseq_sspro_uniref90= @{ $new_msa2profileseq_sspro_uniref90_ref };
+    @ssalines5 = @{ $new_ssa_ref5 };
+    
+    my @data5 = (\@msa2profile_sspro_prob_uniref90, \@ssalines5);
+    my ($new_msa2profilesspro_prob_uniref90, $junk5) = apply_alignment(\@data5, \@align_refs5);
+    @msa2profile_sspro_prob_uniref90 = @{ $new_msa2profilesspro_prob_uniref90 };
+ 
+ 
+       
+    # aln_hhblit data is adjusted according to above sequence alignment
+    open (SSA, $ssafile) or return ("err: features: Couldn't open ssa file");
+		my @ssalines4 = <SSA>;
+		chomp(@ssalines4);
+		shift(@ssalines4);
+		close SSA;
+
+		# Adds lines to SSA info when pssm seq is longer than ssa
+		for (my $ii=@ssalines4; $ii<@msa2profileseq_hhblit; $ii++){
+			my $index = $ii+1;
+			my $line = "$index\t-\t-\t-";
+			push (@ssalines4, $line);
+		}
+    my @lines4 = (\@msa2profileseq_hhblit, \@ssalines4);
+    my @ssa_sequence4 = load_ssa($ssafile);
+    my (@align_refs4) = get_align_arrays(\@msa2profileseq_hhblit, \@ssa_sequence4);
+    my ($new_msa4profileseq_hhblit_ref, $new_ssa_ref4) = apply_alignment(\@lines4, \@align_refs4);
+    @msa2profileseq_hhblit= @{ $new_msa4profileseq_hhblit_ref };
+    @ssalines4 = @{ $new_ssa_ref4 };
+    
+    my @data4 = (\@msa2profile_hhblit_prob, \@ssalines4);
+    my ($new_msa2profilehhblit_prob, $junk4) = apply_alignment(\@data4, \@align_refs4);
+    @msa2profile_hhblit_prob = @{ $new_msa2profilehhblit_prob };
+    
+         
+		# Prior prediction data is adjusted according to seq alignment
+		for (my $ii=@probs; $ii<@pssmlines; $ii++){
+			$probs[$ii] = \@blankprob;
+		}
+
+		my @info = (\@probs, \@ssalines);
+		my ($prob_ref, $junk) = apply_alignment(\@info, \@align_refs);
+		@probs = @{ $prob_ref };
+	}
+
+	#################################
+	# Loop to generate features
+	#################################
+
+	my @TFlines;
+	my $halfwindow = ($window-1)/2;
+	my $hBW = ($boost_wind-1)/2;
+	my $min = 0;
+	my $max = $#pssmlines;
+  
+  
+	for (my $jj=0; $jj<@pssmlines; $jj++){
+
+		# While making normal features, skip residues that have no native
+		# structure, as these have no information to help train the DN.
+		if (!$test || $reduced){
+			my $ssainfo = $ssalines[$jj];
+			my ($ssnum, $ssaa, $thisss, $thisrsa) = split(/\t/, $ssainfo);
+			next if ($ssaa eq "-");
+		}
+
+		# Lines with X as target residue skipped if specified
+		next if ($pssmlines[$jj] eq "X" && $skipx > 0);
+		
+		# Adds window residue features and builds PSSM feature array
+		# Each of these arrays is built out of a single feature type
+		# over the span of the whole window. Later, the arrays will be
+		# concatenated together into a single string feature line
+		my @printarray;
+		my @targetfeat;
+		my @boundfeat; # 1 if out-of-bounds
+		my @seqfeat;
+		my @pssmfeat;
+		my @hmmEmfeat;
+		my @hmmTrfeat;
+		my @atchley;
+		my @prob;
+		my @hmmEmfeat;
+		my @hmmTrfeat;
+		my @msa2profile_ssprofeat;
+		my @msa2profile_sspro_uniref50feat;
+		my @msa2profile_sspro_uniref90feat;
+		my @msa2profile_hhblitfeat;
+	
+		# For each line of the PSSM, loop indices spanning the specified window
+		for (my $ii=$jj-$halfwindow; $ii<=$jj+$halfwindow; $ii++){
+
+			# Generic information is printed when the window spans past 
+			# the terminal residues on either side, or if the structure is
+			# known to break the residue sequence of the protein in window
+			if ($ii<$min || $ii>$max || $pssmlines[$ii] eq "-"){ 
+				push (@targetfeat, @{$SSHotCode{"-"}}) if (abs($ii-$jj)<=$hBW);
+				push (@boundfeat, 1);
+				push (@seqfeat, @{$AAHotCode{"-"}});
+				push (@pssmfeat, @blankpssm);
+				push (@hmmEmfeat, @blankhmmEm);
+				push (@hmmTrfeat, @blankhmmTr);
+				push (@msa2profile_ssprofeat, @blankmsa2profile_sspro);
+				push (@msa2profile_sspro_uniref50feat, @blankmsa2profile_sspro_uniref50);
+				push (@msa2profile_sspro_uniref90feat, @blankmsa2profile_sspro_uniref90);
+				push (@msa2profile_hhblitfeat, @blankmsa2profile_hhblit);
+				push (@atchley, @blankatch);
+				push (@prob, @blankprob);
+				next;
+			}
+
+			# Residue value of X is given to all unexpected residue names
+			# Windows including X are skipped if specified
+			my $aa = $pssmlines[$ii];
+			$aa = "X" unless ($aas =~ m/$aa/);
+			goto SKIP if ($aa eq "X" && $skipx == 2);
+
+#push (@targetfeat, $jj, $aa) if (abs($ii-$jj)<=$hBW);
+		
+			# Only check for SSA information if not testfeatures,
+			# because SSA file is not required for test
+			unless ($test) {
+				my $ssainfo = $ssalines[$ii];
+				my ($ssnum, $ssaa, $thisss, $thisrsa) = split(/\t/, $ssainfo);
+				push (@targetfeat, @{$SSHotCode{$thisss}}) if (abs($ii-$jj)<=$hBW);
+			}
+
+			if (!$odds[$ii]){
+				my $message = "err: features: Unexpected PSSM format at line $ii"; 
+				return $message;
+			}
+      
+      my @hmmEm_prob_arr = split(' ', $hmmEm_prob[$ii]);
+      my @hmmTr_prob_arr = split(' ', $hmmTr_prob[$ii]);
+      my @msa2profile_sspro_arr = split(' ', $msa2profile_sspro_prob[$ii]);
+      my @msa2profile_sspro_uniref50_arr = split(' ', $msa2profile_sspro_prob_uniref50[$ii]);
+      my @msa2profile_sspro_uniref90_arr = split(' ', $msa2profile_sspro_prob_uniref90[$ii]);
+      my @msa2profile_hhblit_arr = split(' ', $msa2profile_hhblit_prob[$ii]);
+      
+            
+			push (@seqfeat, @{$AAHotCode{$aa}});
+			push (@boundfeat, 0);
+			push (@pssmfeat, @{$odds[$ii]}, $inf[$ii]);
+			push (@hmmEmfeat, @hmmEm_prob_arr);
+			push (@hmmTrfeat, @hmmTr_prob_arr);
+			push (@msa2profile_ssprofeat, @msa2profile_sspro_arr);
+			push (@msa2profile_sspro_uniref50feat, @msa2profile_sspro_uniref50_arr);
+			push (@msa2profile_sspro_uniref90feat, @msa2profile_sspro_uniref90_arr);
+			push (@msa2profile_hhblitfeat, @msa2profile_hhblit_arr);
+			push (@atchley, @{ $factors{$aa} });
+			push (@prob, @{ $probs[$ii] });
+		}
+
+		# Adds debugging line. Do not activate for actual trial
+		#push (@printarray, "Line $jj: $pssmlines[$jj]\n");
+
+		# Adds target related features
+		push (@printarray, @targetfeat) unless ($test);
+
+		# Adds boundary and gap features
+		push (@printarray, @boundfeat) if ($bound);
+
+		# Adds prob related features
+		push (@printarray, @prob) if (@probfiles);
+
+		# Adds seq related features
+		push (@printarray, @seqfeat) if ($seq);
+
+		# Adds PSSM related features
+    #print "Length of pssm: ",@pssmfeat."\n";
+		push (@printarray, @pssmfeat) if ($pssm);
+   
+		push (@printarray, @pssmfeat) if ($pssm_uniref50);
+   
+		# Adds atchley features
+		push (@printarray, @atchley) if ($atch);
+   
+		# Adds HMM Emission related features
+    #print "Length of pssm: ",@pssmfeat."\n";
+		push (@printarray, @hmmEmfeat) if ($hmmEm);
+   
+		# Adds HMM Transition related features
+    #print "Length of pssm: ",@pssmfeat."\n";
+		push (@printarray, @hmmTrfeat) if ($hmmTr);
+   
+		# Adds sspro msa profile related features
+    #print "Length of pssm: ",@pssmfeat."\n";
+		push (@printarray, @msa2profile_ssprofeat) if ($aln_sspro);
+   
+		# Adds sspro msa profile related features
+    #print "Length of pssm: ",@pssmfeat."\n";
+		push (@printarray, @msa2profile_sspro_uniref50feat) if ($aln_sspro_unif50);
+   
+		# Adds sspro msa profile related features
+    #print "Length of pssm: ",@pssmfeat."\n";
+		push (@printarray, @msa2profile_sspro_uniref90feat) if ($aln_sspro_unif90);
+   
+		# Adds hhblit msa profile related features
+    #print "Length of pssm: ",@pssmfeat."\n";
+		push (@printarray, @msa2profile_hhblitfeat) if ($aln_hhblits);
+
+
+		# Concatenates features onto a feature line
+		my $line;
+		for (@printarray){
+			$line .= "$_ ";
+		}
+		$line .= "\n";
+		push (@TFlines, $line);
+		SKIP:
+	}
+
+	return @TFlines;
+}
+
+
+
+sub features_8class { 
+	my ($file_ref, $opt_ref, $test) = @_;
+	my ($ssafile, $pssmfile,$pssm_uniref50file,$hmmEmfile,$hmmTrfile,$msa2profile_ssprofile,$msa2profile_sspro_uniref50file,$msa2profile_sspro_uniref90file,$msa2profile_hhblitfile, @probfiles) = @{ $file_ref };
+	my ($feats_ref, $window, $boost_wind, $reduced) = @{ $opt_ref  };
+	my ($pssm,$pssm_uniref50, $hmmEm, $hmmTr, $aln_sspro, $aln_sspro_unif50, $aln_sspro_unif90, $aln_hhblits, $atch, $seq, $bound, $skipx) = @{ $feats_ref };
+	# SSA file not necessary for making testfeatures, only features
+	# Prob files never necessary
+	return ("err: features: Couldn't find file $ssafile") unless ((-f $ssafile) || ($test && !$reduced));
+	return ("err: features: Couldn't find file $pssmfile") unless (-f $pssmfile);
+	return ("err: features: Couldn't find file $pssmfile") unless (-f $pssm_uniref50file);
+	foreach (@probfiles){
+		return ("err: features: Couldn't find file $_") unless (-f $_);
+	}
+
+	# Ensures that window size is odd. Default value is 15
+	if ($window > 0){
+		$window++ if ($window % 2 == 0);
+	} else {
+		$window = 15;
+	}
+
+	# Ensures that boost window size is odd. Default value is 1
+	if ($boost_wind > 0){ 
+		$boost_wind++ if ($boost_wind % 2 == 0); 
+	}
+	else { $boost_wind = 1; }
+
+	#################################
+	# Initialize Seq information
+	#################################
+
+	my @AAs = qw/A C D E F G H I K L M N P Q R S T V W Y/;
+	my %SSHotCode;
+
+	@{ $SSHotCode{"G"} }  = qw/0 0 0 0 0 0 0 1/;
+	@{ $SSHotCode{"H"} }  = qw/0 0 0 0 0 0 1 0/;
+	@{ $SSHotCode{"I"} }  = qw/0 0 0 0 0 1 0 0/;
+	@{ $SSHotCode{"T"} }  = qw/0 0 0 0 1 0 0 0/;
+	@{ $SSHotCode{"E"} }  = qw/0 0 0 1 0 0 0 0/;
+	@{ $SSHotCode{"B"} }  = qw/0 0 1 0 0 0 0 0/;
+	@{ $SSHotCode{"S"} }  = qw/0 1 0 0 0 0 0 0/;
+	@{ $SSHotCode{"C"} }  = qw/1 0 0 0 0 0 0 0/;
+	@{ $SSHotCode{"-"} }  = qw/0 0 0 0 0 0 0 0/; #only used if boosting
+
+	# Makes binary code representing each residue
+	my %AAHotCode;
+	for (my $ii=0; $ii<20; $ii++){
+		my @hotcode;
+		for (my $jj=0; $jj<21; $jj++){
+			if ($ii == $jj){
+				push(@hotcode, 1);
+			}
+			else {
+				push(@hotcode, 0);
+			}
+		}
+		@{ $AAHotCode{$AAs[$ii]} } = @hotcode;
+	}
+	@{ $AAHotCode{"-"} } =  qw/0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1/;
+	@{ $AAHotCode{"X"} } =  qw/0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1/; 
+
+
+  #################################
+	# Collect PSSM information
+	#################################
+
+	open (PSSM, $pssmfile) or return ("err: features: Couldn't open pssm file");
+	my @lines = <PSSM>;
+	my $pfilelen = @lines;
+	chomp(@lines);
+	close PSSM;
+
+	my @pssmlines;
+	@pssmlines = load_pssm($pssmfile);
+  if($pssm_uniref50)
+  {
+  	#################################
+  	# Collect PSSM information
+  	#################################
+  
+  	open (PSSM, $pssm_uniref50file) or return ("err: features: Couldn't open pssm file");
+  	@lines = <PSSM>;
+  	$pfilelen = @lines;
+  	chomp(@lines);
+  	close PSSM;
+  
+  	@pssmlines;
+  	@pssmlines = load_pssm($pssm_uniref50file);
+  }
+	#################################
+	# Collect HMM information
+	#################################
+  #perl /storage/htc/bdm/Collaboration/jh7x3/DeepCov_SS_SA_project/DNSS2.0/lib/testhmm.pl /storage/htc/bdm/Collaboration/Zhiye/SSP/DNSS2/datasets/feature_construct/uniclust30_2017_10_hmm/1UI0-A.hmm2prob
+  #print "Loading $hmmEmfile\n";
+  open (HMM, $hmmEmfile) or return ("err: features: Couldn't open hmm file $hmmEmfile");  
+  my @hmmlines = <HMM>;
+  close HMM;
+  
+  shift @hmmlines;
+  
+  my @hmmseq;
+  my @hmmEm_prob;
+  my @hmmTr_prob;
+  my $i;
+  my $line;
+  foreach $line (@hmmlines)
+  {
+    chomp $line;
+    my @tmp = split(/\t/,$line);
+    my ($res) = $tmp[0];
+    push (@hmmseq,$res);
+    
+    #### Emission prob
+    my $hmmEm_prob_tmp = $tmp[2];
+    for($i=3;$i<22;$i++)
+    {
+     #print $tmp[$i]." ";
+      $hmmEm_prob_tmp .= " ".$tmp[$i];
+    }
+    #print "\n";
+    push (@hmmEm_prob,$hmmEm_prob_tmp);
+    
+    #### Transition prob
+    my $hmmTr_prob_tmp = $tmp[22];
+    for($i=23;$i<29;$i++)
+    {
+      $hmmTr_prob_tmp .= " ".$tmp[$i];
+    }
+    push (@hmmTr_prob,$hmmTr_prob_tmp);
+  }
+
+	#################################
+	# Collect MSA2PROFILE information
+	#################################
+  open (PROFILE, $msa2profile_ssprofile) or die ("err: features: Couldn't open msa2profile_ssprofile file");
+  my @msa2profilelines = <PROFILE>;
+  close PROFILE;
+  
+  shift @msa2profilelines; 
+  
+  my @msa2profileseq_sspro;
+  my @msa2profile_sspro_prob;
+  my $i;
+  foreach $line (@msa2profilelines)
+  {
+    chomp $line;
+    my @tmp = split(/\t/,$line);
+    my ($res) = $tmp[1];
+    push (@msa2profileseq_sspro,$res);
+    
+    #### Emission prob
+    my $msa2profile_prob_tmp = $tmp[2];
+    for($i=3;$i<22;$i++)
+    {
+     #print $tmp[$i]." ";
+      $msa2profile_prob_tmp .= " ".$tmp[$i];
+    }
+    #print "\n";
+    push (@msa2profile_sspro_prob,$msa2profile_prob_tmp);
+    
+  }
+	
+	#################################
+	# Collect MSA2PROFILE information
+	#################################
+  open (PROFILE, $msa2profile_sspro_uniref50file) or die ("err: features: Couldn't open msa2profile_sspro_uniref50file file");
+  my @msa2profilelines_uniref50 = <PROFILE>;
+  close PROFILE;
+  
+  shift @msa2profilelines_uniref50;
+  
+  my @msa2profileseq_sspro_uniref50;
+  my @msa2profile_sspro_prob_uniref50;
+  my $i;
+  foreach $line (@msa2profilelines_uniref50)
+  {
+    chomp $line;
+    my @tmp = split(/\t/,$line);
+    my ($res) = $tmp[1];
+    push (@msa2profileseq_sspro_uniref50,$res);
+    
+    #### Emission prob
+    my $msa2profile_prob_uniref50_tmp = $tmp[2];
+    for($i=3;$i<22;$i++)
+    {
+     #print $tmp[$i]." ";
+      $msa2profile_prob_uniref50_tmp .= " ".$tmp[$i];
+    }
+    #print "\n";
+    push (@msa2profile_sspro_prob_uniref50,$msa2profile_prob_uniref50_tmp);
+    
+  }
+		
+	#################################
+	# Collect MSA2PROFILE information
+	#################################
+  open (PROFILE, $msa2profile_sspro_uniref90file) or die ("err: features: Couldn't open msa2profile_sspro_uniref90file file");
   my @msa2profilelines_uniref90 = <PROFILE>;
   close PROFILE;
   
@@ -1668,6 +2532,27 @@ sub predict_SS2 {
 		return ("err: predict_SS: File $featfile not found");
 	} 
 	`python2 $GLOBAL_PATH/scripts/test_dnss_single.py $model $weight $featfile $predfile $probfile &> $outdir/$tag.log`;
+	return ($probfile, $predfile);
+}
+
+sub predict_SS2_8c {
+	my ($model, $weight, $featfile, $outdir, $tag) = @_;
+	my @paths = split('/', $featfile);
+	my @info = split(/\./, $paths[$#paths]);
+	my $prot = join(/./, @info[$#info-1]);
+	$prot .= $tag;
+
+	#my $npydir = $outdir . "npy/";
+	`mkdir $outdir` unless (-d $outdir);
+	#`mkdir $npydir` unless (-d $npydir);
+
+	my $probfile = $outdir . "$prot.prob";
+	my $predfile = $outdir . "$prot.pred";
+
+	unless (-f $featfile){
+		return ("err: predict_SS: File $featfile not found");
+	} 
+	`python2 $GLOBAL_PATH/scripts/test_dnss_single_8class.py $model $weight $featfile $predfile $probfile &> $outdir/$tag.log`;
 	return ($probfile, $predfile);
 }
 
