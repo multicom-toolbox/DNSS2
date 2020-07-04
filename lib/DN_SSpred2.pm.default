@@ -71,7 +71,7 @@ use vars qw(@ISA @EXPORT @EXPORT_OK);
 @ISA = qw(Exporter);
 @EXPORT = ();
 @EXPORT_OK = qw(generate_feature_for_convolution generate_feature_for_convolution_DNSS2_exp generate_feature_for_convolution_DNSS2_exp_8class  generate_testfeature_for_convolution_DNSS2 newDN make_features  make_features_8class all_testfeatures make_testfeatures print_features
-	train_DN test_DN all_dnss_files predict_SS  predict_SS2 predict_SS2_8c make_dnss_file
+	train_DN test_DN all_dnss_files predict_SS  predict_SS2 predict_SS2_8c make_dnss_file make_dnss_file_8c
 	score_probs score_dnss sort_scores all_score
 	calc_confusion_matrix print_matrix
 	import_ssa import_dnss
@@ -2546,8 +2546,8 @@ sub predict_SS2_8c {
 	`mkdir $outdir` unless (-d $outdir);
 	#`mkdir $npydir` unless (-d $npydir);
 
-	my $probfile = $outdir . "$prot.prob";
-	my $predfile = $outdir . "$prot.pred";
+	my $probfile = $outdir . "$prot.ss8.prob";
+	my $predfile = $outdir . "$prot.ss8.pred";
 
 	unless (-f $featfile){
 		return ("err: predict_SS: File $featfile not found");
@@ -2700,6 +2700,96 @@ sub make_dnss_file {
 
 	return 1;
 }
+
+
+################################################################
+# Name: make_dnss_file_8c
+# In:	predfile_ref : array containing one or multiple prediction dirs
+#	pssm : pssm file
+#	out : outfile name (including path)
+#	header : prot info, which will be printed as header of file
+# Out:	None. Writes dnss file at designated outfile
+################################################################
+
+sub make_dnss_file_8c {
+	my ($predfile_ref, $pssmfile, $outfile, $vdnssfile, $header, $ssafile) = @_;
+	my @predfiles = @{ $predfile_ref };
+	my @seq;
+
+	# PSSM residue sequence is loaded
+	open (IN, $pssmfile) or return "err: make_dnss_file: Couldn't open file $pssmfile";
+	<IN>; <IN>; <IN>;
+	while ((my $line = <IN>) =~ m/^\s*(\d+)\s*(\w)/){
+		my ($num, $aa) = $line =~ /^\s*(\d+)\s*(\w)/;
+		push (@seq, $aa);
+	}
+	close IN or return "err: make_dnss_file: Couldn't close file $pssmfile";
+
+	# If multiple prob files are used, their sum is calculated
+	# Then this result is used to convert probabilities to structure
+	my @probs = sum_probs_8c(@predfiles);
+	my @ss = probs_to_ss_8c(@probs);
+	my @best = best_probs(@probs);
+
+	if (@ss != @seq){
+#		print "\nBefore alignment:\n";
+#		print_comparison(\@seq, \@ss);
+
+		my @ssaseq = load_ssa($ssafile); 
+		my @lines = (\@seq, \@ssaseq);
+		my ($new_pssm_ref, $new_ssa_ref) = align_seqs(@lines);
+		@seq = @{ $new_pssm_ref };
+		@ssaseq = @{ $new_ssa_ref };
+
+		my @newss;
+		for (my $ii=0; $ii<@ssaseq; $ii++){
+			if ($ssaseq[$ii] eq "-"){
+				push (@newss, "-");
+			}
+			else {
+				push (@newss, shift(@ss));
+			}
+		}
+		@ss = @newss;
+
+#		print "\nAfter alignment:\n";
+#		print_comparison(\@ssaseq, \@seq, \@ss);
+#		print "Continue? (y/n)\n";
+#		my $response = <STDIN>;
+#		unless ($response =~ /y/){
+#			exit;
+#		}
+	}
+
+	# Format of DNSS file is as follows:
+	# >ProtName-A  	(given by input "header")
+	# ACDFGHIKL	(sequence found in PSSM file)
+	# CCCEEEHHH	(secondary structure prediction)
+	open (OUT, ">$outfile") or return "err: make_dnss_file: Coudln't open file $outfile";
+	print OUT "$header\n";
+	print OUT @seq;
+	print OUT "\n";
+	print OUT @ss;
+	print OUT "\n";
+	close OUT or return "err: make_dnss_file: Coudln't close file $outfile";
+
+	# Format of VDNSS file is as follows:
+	# >ProtName-A  		(given by input "header")
+	# A	C	.6969	(First col is residue)	
+	# C	C	.8797	(Second col is ss pred)
+	# D	H	.9900	(Third col is confidence)
+	# F	E	.7989	(File is Tab separated)
+
+	open (OUT, ">$vdnssfile") or return "err: make_dnss_file: Couldn't open file $vdnssfile";
+	print OUT "$header\n";
+	for (my $ii=0; $ii<@seq; $ii++){
+		print OUT "$seq[$ii]\t$ss[$ii]\t$best[$ii]\n";
+	}
+	close OUT or return "err: make_dnss_file: Coudln't close file $vdnssfile";
+
+	return 1;
+}
+
 #############################
 #############################
 ##    SCORE_CALCULATIONS   ##
@@ -2988,6 +3078,84 @@ sub sum_probs {
 }
 
 ################################################################
+# Name: sum_probs_8c
+# In:	probfiles : any number, but usually 3, prob files
+# Out:	sumprobs : array containing the sum of probabilies 
+# 
+# Subs:	probs_to_ss : Converts probs to an ss char (C, E, H)
+#	add_probs : adds a line of probs to an existing line
+################################################################
+
+sub sum_probs_8c {
+	my (@probfiles) = @_;
+	my @sumprobs;
+	my $targs = 8;
+	my $linecount = 0;
+
+	# Sets template for initializing probs
+	my @zeros;
+	for (0..$targs-1){
+		push (@zeros, 0);
+	}
+
+	# Loops over any number of prob files. Commonly 1 or 3 files are used
+	foreach my $file (@probfiles) {
+		open (IN, $file) or return ("err: sum_probs: Unable to open file $file");
+		
+		my @fileprobs;
+		my $count = 0;
+		while (my $line = <IN>){
+			my @lineprobs = split(/ /, $line);
+			my $boost = @lineprobs/$targs;
+			my $half = ($boost-1)/2;
+
+			# Adds probs based on how much boosting was done
+			for (my $jj=0; $jj<$boost; $jj++){
+				next if ($count+$jj-$half < 0);
+
+				my $curr = \@zeros;
+				if ($fileprobs[$jj+$count-$half]){
+					$curr = $fileprobs[$jj+$count-$half];
+				}
+
+				# Separates one instance of a prediction and adds
+				my $beg = $jj*$targs;
+				my $end = ($jj+1)*$targs-1;
+				my @add = @lineprobs[$beg..$end];
+				my @probs = add_probs($curr, \@add);
+				$fileprobs[$jj+$count-$half] = \@probs;
+			}
+			$count++;
+		}
+
+		close IN or return ("err: sum_probs: Unable to close file $file");
+
+		# Normalizes probs to sum to 1 and adds this file's probs to totals
+		for (my $ii=0; $ii<@fileprobs; $ii++){
+			my @nums = @{ $fileprobs[$ii] };
+			@nums = normalize_array(@nums);
+			$fileprobs[$ii] = \@nums;
+
+			my $curr = \@zeros;
+			$curr = $sumprobs[$ii] if ($sumprobs[$ii]);
+			my @sum = add_probs($curr, $fileprobs[$ii]);
+			$sumprobs[$ii] = \@sum;
+		}
+
+		$linecount = $count-1;
+	}
+
+	# Normalizes probs to sum to 1 since they are sums
+	for (my $ii=0; $ii<@sumprobs; $ii++){
+		my @nums = @{ $sumprobs[$ii] };
+		@nums = normalize_array(@nums);
+		$sumprobs[$ii] = \@nums;
+	}
+
+	return @sumprobs[0..$linecount];
+}
+
+################################################################
 # Name:	add_probs
 # In:	2 array refs of probs that are to be added
 # Out:	array containing added probs
@@ -3015,6 +3183,37 @@ sub probs_to_ss {
 	my (@probs) = @_;
 	my @ss;
 	my @options = ("C", "E", "H");
+
+	foreach (@probs){
+		my @nums = @{$_};
+		my @sorted = sort {$b <=> $a} @nums;
+
+		# Note that here the order of comparison matters in a rare
+		# amount of cases. Sometimes probs are equal (e.g. "1 1 1")
+		# in which case the current implementation will assign ties to
+		# SS in this priority order: C, E, H
+		for (my $ii=0; $ii<@nums; $ii++){
+			if ($nums[$ii] == $sorted[0]){
+				push (@ss, $options[$ii]);
+				goto NEXT;
+			}
+		}
+		NEXT:
+	}
+	return @ss;
+}
+
+ 
+################################################################
+# Name:	probs_to_ss_8c
+# In:	array of probs
+# Out:	array of predicted SS chars
+################################################################
+
+sub probs_to_ss_8c {
+	my (@probs) = @_;
+	my @ss;
+	my @options = ("C", "S", "B", "E", "T", "I", "H", "G");
 
 	foreach (@probs){
 		my @nums = @{$_};

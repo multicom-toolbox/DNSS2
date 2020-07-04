@@ -12,7 +12,7 @@ $GLOBAL_PATH='/faculty/jhou4/tools/DNSS2/';
 use strict;
 use lib "$GLOBAL_PATH/lib";
 use Time qw(formatted_localtime);
-use DN_SSpred2 qw(generate_testfeature_for_convolution_DNSS2 make_testfeatures predict_SS2 timeprint make_dnss_file check_err); 
+use DN_SSpred2 qw(generate_testfeature_for_convolution_DNSS2 make_testfeatures predict_SS2 predict_SS2_8c timeprint make_dnss_file make_dnss_file_8c check_err); 
 use SeqAlign qw(load_fasta);
 use Getopt::Long;
 
@@ -264,7 +264,7 @@ for (my $ii=0; $ii<@fasta; $ii++){
     
     generate_testfeature_for_convolution_DNSS2(	$logfile, $overdir,  \@testlist,	\@para_dirs, \@para_options);
     
-
+    
     ## Predict SS using 1st layer DNs
     my @probfiles;
     my @deletefiles;

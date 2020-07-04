@@ -12,7 +12,7 @@ $GLOBAL_PATH='/faculty/jhou4/tools/DNSS2/';
 use strict;
 use lib "$GLOBAL_PATH/lib";
 use Time qw(formatted_localtime);
-use DN_SSpred2 qw(generate_testfeature_for_convolution_DNSS2 make_testfeatures predict_SS2 timeprint make_dnss_file check_err); 
+use DN_SSpred2 qw(generate_testfeature_for_convolution_DNSS2 make_testfeatures predict_SS2 predict_SS2_8c timeprint make_dnss_file_8c check_err); 
 use SeqAlign qw(load_fasta);
 use Getopt::Long;
 
@@ -274,10 +274,10 @@ for (my $ii=0; $ii<@fasta; $ii++){
             timeprint ($logfile, "Accessing model $select_model");
             
             
-            my $model_in="$modeldir/model-train-$select_model.json"; 
-            my $model_weight_in= "$modeldir/model-train-weight-$select_model-best-val.h5";
+            my $model_in="$modeldir/8class/model-train-$select_model.json"; 
+            my $model_weight_in= "$modeldir/8class/model-train-weight-$select_model-best-val.h5";
             
-            my ($file1, $file2) = predict_SS2( $model_in, $model_weight_in, $feat, $probdir, $select_model);
+            my ($file1, $file2) = predict_SS2_8c( $model_in, $model_weight_in, $feat, $probdir, $select_model);
             $err++ if (check_err($file1, $logfile));
             push (@probfiles, $file1);
             push (@deletefiles, $file2);
@@ -287,13 +287,12 @@ for (my $ii=0; $ii<@fasta; $ii++){
     ## ensemble predictions
     timeprint ($logfile, "Ensemble predictions ...");
     
-  
     my %prob_avg=();
     my $net_num = 0;
     for (my $jj=0; $jj<@DN1s; $jj++)
     {
       my $select_model = $DN1s[$jj];
-      my $probfile = $probdir . $name[$ii].$DN1s[$jj].".prob";
+      my $probfile = $probdir . $name[$ii].$DN1s[$jj].".ss8.prob";
       #print "$prob_file\n";
       if(!(-e $probfile))
       {
@@ -309,59 +308,83 @@ for (my $ii=0; $ii<@fasta; $ii++){
         chomp $li;
         $c++;
         my @tmp = split(/\s++/,$li);
-        my $h_prob = $tmp[0];
-        my $e_prob = $tmp[1];
-        my $c_prob = $tmp[2];
+        my $G_prob = $tmp[0];
+        my $H_prob = $tmp[1];
+        my $I_prob = $tmp[2];
+        my $T_prob = $tmp[3];
+        my $E_prob = $tmp[4];
+        my $B_prob = $tmp[5];
+        my $S_prob = $tmp[6];
+        my $C_prob = $tmp[7];
         if(exists($prob_avg{$c}))
         {
           my @tmp2 =split(/\s/,$prob_avg{$c});
-          $h_prob = $tmp2[0] + $h_prob;
-          $e_prob = $tmp2[1] + $e_prob;
-          $c_prob = $tmp2[2] + $c_prob;
-          $prob_avg{$c} = "$h_prob $e_prob $c_prob";
+          $G_prob = $tmp2[0] + $G_prob;
+          $H_prob = $tmp2[1] + $H_prob;
+          $I_prob = $tmp2[2] + $I_prob;
+          $T_prob = $tmp2[3] + $T_prob;
+          $E_prob = $tmp2[4] + $E_prob;
+          $B_prob = $tmp2[5] + $B_prob;
+          $S_prob = $tmp2[6] + $S_prob;
+          $C_prob = $tmp2[7] + $C_prob;
+          $prob_avg{$c} = "$G_prob $H_prob $I_prob $T_prob $E_prob $B_prob $S_prob $C_prob";
         }else{
-          $prob_avg{$c} = "$h_prob $e_prob $c_prob";
+          $prob_avg{$c} = "$G_prob $H_prob $I_prob $T_prob $E_prob $B_prob $S_prob $C_prob";
         }
       }
       close TMP;
       
     }
-    my $out_file1="$probdir/$name[$ii].Ensemble.prob";
-    my $out_file2="$probdir/$name[$ii].Ensemble.pred";
+    my $out_file1="$probdir/$name[$ii].Ensemble.ss8.prob";
+    my $out_file2="$probdir/$name[$ii].Ensemble.ss8.pred";
     open(OUT1,">$out_file1") || die "Failed to find $out_file1\n";
     open(OUT2,">$out_file2") || die "Failed to find $out_file2\n";
     foreach  my $indx (sort { $a <=> $b } keys %prob_avg) {
       my @tmp2 =split(/\s/,$prob_avg{$indx});
       my $max_index = maxindex(\@tmp2);
-      print OUT1 sprintf("%.6f",$tmp2[0]/$net_num)." ".sprintf("%.6f",$tmp2[1]/$net_num)." ".sprintf("%.6f",$tmp2[2]/$net_num)."\n";
+      print OUT1 sprintf("%.6f",$tmp2[0]/$net_num)." ".sprintf("%.6f",$tmp2[1]/$net_num)." ".sprintf("%.6f",$tmp2[2]/$net_num)." ".sprintf("%.6f",$tmp2[3]/$net_num)." ".sprintf("%.6f",$tmp2[4]/$net_num)." ".sprintf("%.6f",$tmp2[5]/$net_num)." ".sprintf("%.6f",$tmp2[6]/$net_num)." ".sprintf("%.6f",$tmp2[7]/$net_num)."\n";
       if($max_index == 0)
       {
-        print OUT2 "1 0 0\n";
+        print OUT2 "1 0 0 0 0 0 0 0\n";
       }elsif($max_index == 1)
       {
-        print OUT2 "0 1 0\n";
+        print OUT2 "0 1 0 0 0 0 0 0\n";
       }elsif($max_index == 2)
       {
-        print OUT2 "0 0 1\n";
+        print OUT2 "0 0 1 0 0 0 0 0\n";
+      }elsif($max_index == 3)
+      {
+        print OUT2 "0 0 0 1 0 0 0 0\n";
+      }elsif($max_index == 4)
+      {
+        print OUT2 "0 0 0 0 1 0 0 0\n";
+      }elsif($max_index == 5)
+      {
+        print OUT2 "0 0 0 0 0 1 0 0\n";
+      }elsif($max_index == 6)
+      {
+        print OUT2 "0 0 0 0 0 0 1 0\n";
+      }elsif($max_index == 7)
+      {
+        print OUT2 "0 0 0 0 0 0 0 1\n";
       }else{
         die "wrong ss index $max_index\n";
       }
     }
     close OUT1;
     close OUT2;   
-    
-    
-    my $probfile = "$probdir/$name[$ii].Ensemble.prob";
+      
+    my $probfile = "$probdir/$name[$ii].Ensemble.ss8.prob";
     ## Write output DNSS file
-    my $dnss = $outdir . "$name[$ii].dnss";
-    my $vdnss = $outdir . "$name[$ii].vdnss";
+    my $dnss = $outdir . "$name[$ii].ss8.dnss";
+    my $vdnss = $outdir . "$name[$ii].ss8.vdnss";
     my $header = ">$name[$ii]";
     my @dirarray = ($probfile);
-    my $return = make_dnss_file (\@dirarray, $pssm, $dnss, $vdnss, $header);
+    my $return = make_dnss_file_8c (\@dirarray, $pssm, $dnss, $vdnss, $header);
     next if (check_err($return, $logfile));
-    my $dnss2 = "$probdir/$name[$ii].Ensemble.dnss";
-    my $vdnss2 = "$probdir/$name[$ii].Ensemble.vdnss";
-    my $return = make_dnss_file (\@dirarray, $pssm, $dnss2, $vdnss2, $header);
+    my $dnss2 = "$probdir/$name[$ii].Ensemble.ss8.dnss";
+    my $vdnss2 = "$probdir/$name[$ii].Ensemble.ss8.vdnss";
+    my $return = make_dnss_file_8c (\@dirarray, $pssm, $dnss2, $vdnss2, $header);
     next if (check_err($return, $logfile));
     
     
@@ -369,18 +392,18 @@ for (my $ii=0; $ii<@fasta; $ii++){
     for (my $jj=0; $jj<@DN1s; $jj++)
     {
       my $select_model = $DN1s[$jj];
-      my $probfile = $probdir . $name[$ii].$DN1s[$jj].".prob";
+      my $probfile = $probdir . $name[$ii].$DN1s[$jj].".ss8.prob";
       #print "$prob_file\n";
       if(!(-e $probfile))
       {
         print "Failed to find $probfile\n";
         next;
       }
-      my $dnss = $probdir . $name[$ii].$DN1s[$jj].".dnss";
-      my $vdnss = $probdir . $name[$ii].$DN1s[$jj].".vdnss";
+      my $dnss = $probdir . $name[$ii].$DN1s[$jj].".ss8.dnss";
+      my $vdnss = $probdir . $name[$ii].$DN1s[$jj].".ss8.vdnss"; 
       my $header = ">$name[$ii]";
       my @dirarray = ($probfile);
-      my $return = make_dnss_file (\@dirarray, $pssm, $dnss, $vdnss, $header);
+      my $return = make_dnss_file_8c (\@dirarray, $pssm, $dnss, $vdnss, $header);
       next if (check_err($return, $logfile));
       
     }
