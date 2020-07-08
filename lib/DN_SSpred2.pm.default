@@ -64,7 +64,7 @@ use strict;
 use PDBUtils;
 use Time qw(formatted_localtime);
 use ProteinUtils qw(scaled_log_odds_n_inf atchley_factor);
-use SeqAlign qw(load_ssa load_pssm load_seq load_dnss align_and_print remove_gaps get_align_arrays apply_alignment print_comparison print_comparison_named print_separator print_double_separator align_seqs clean_seqs);
+use SeqAlign qw(load_ssa load_pssm load_seq load_fasta load_sspro load_dnss load_deepcnf_ss load_deepcnf_seq align_and_print remove_gaps get_align_arrays apply_alignment print_comparison print_comparison_named print_separator print_double_separator align_seqs clean_seqs);
 use Exporter;
 use vars qw(@ISA @EXPORT @EXPORT_OK);
 
@@ -75,7 +75,7 @@ use vars qw(@ISA @EXPORT @EXPORT_OK);
 	score_probs score_dnss sort_scores all_score
 	calc_confusion_matrix print_matrix
 	import_ssa import_dnss
-	load_results write_results shuffle timeprint check_err);
+	load_results write_results shuffle timeprint check_err score_server_prediction score_server_prediction_ss8);
 
 #############################
 #############################
@@ -3454,6 +3454,679 @@ sub calculate_sov {
 	return $Sovscore;
 
 }
+
+
+
+
+
+################################################################
+# Name: score_server_prediction
+# In:	dnssdir : dir containing dnss files
+#	list_ref : array ref of list of proteins to be scored
+#	tag : the desired name of the output score file
+# Out:	results: array containing (AvgQ3, AvgSov);
+################################################################
+
+sub score_server_prediction {
+	my ($dnssdir, $list_ref, $tag,$ssadir, $server,$eva_ext,$seq_ext) = @_;
+
+	# No scorefile is made if no tag is specified
+	my $scorefile = "";
+	if ($tag){ $scorefile = "$dnssdir/$tag.score"; }
+	print "Saving to $scorefile\n";
+	# Predictions are scored
+	my @results = all_score_from_server ($ssadir, $dnssdir, $scorefile, $list_ref, $server, $eva_ext,$seq_ext);
+	return @results;	
+}
+
+
+################################################################
+# Name: score_server_prediction_ss8
+# In:	dnssdir : dir containing dnss files
+#	list_ref : array ref of list of proteins to be scored
+#	tag : the desired name of the output score file
+# Out:	results: array containing (AvgQ3, AvgSov);
+################################################################
+
+sub score_server_prediction_ss8 {
+	my ($dnssdir, $list_ref, $tag,$ssadir, $server,$eva_ext,$seq_ext) = @_;
+
+	# No scorefile is made if no tag is specified
+	my $scorefile = "";
+	if ($tag){ $scorefile = "$dnssdir/$tag.score"; }
+	print "Saving to $scorefile\n";
+	# Predictions are scored
+	my @results = all_score_from_server_ss8 ($ssadir, $dnssdir, $scorefile, $list_ref, $server, $eva_ext,$seq_ext);
+	return @results;	
+}
+
+
+
+################################################################
+# Name: all_score_from_server
+# In:	refdir : directory of ssa files
+#	evadir : directory of eva files
+#	sovfile : file to store scoring results
+#	list : list of proteins
+# Out:	Q3score, Sovscore
+#	prints more information to sovfile
+################################################################
+
+sub all_score_from_server {
+	my ($refdir, $evadir, $sovfile, $list_ref, $server, $eva_ext,$seq_ext) = @_;
+	my @list = @{ $list_ref };
+	$eva_ext = "dnss" unless ($eva_ext);
+
+	my %Scorelines; 	# Holds ProtID => (scores)
+	my %Qsegments;		# Holds percentile => # of occurrences
+	my %Ssegments;		# Holds ^ for Sov scores instead of Q
+	my $Qmatch = 0;		# Holds correctly scored residues (ignoring chains)
+	my $Qtot = 0;		# Holds total residues compared (ignoring chains)
+	my $Qsum = 0;		# Holds sum of Q scores by chain
+	my $Sovsum = 0;		# Holds sum of Sov scores by chain
+	my $num = 0;		# Holds number of chains scored
+
+	my $count = 0;
+	my $percent = 0;
+	foreach my $prot (@list) {
+		if ($count/@list*100 > $percent && $percent < 100){
+			print STDERR "$percent % completed.\n";
+			$percent += 10;
+		}
+		$count ++;
+
+		# Reference sequence and ss are loaded from SSA file
+		my $reffile = $refdir . "$prot.ssa";
+		unless (-f $reffile) {
+			print "$prot: No SSA $reffile found. Skipping\n";
+			next;
+		}
+		my @ref_seq = load_ssa($reffile);
+		my @ref_ss = import_ssa($reffile);
+		next if (check_err($ref_ss[0]));
+
+		# Evaluee sequence and ss are loaded from eva file
+		my $evafile = $evadir . "$prot$eva_ext";
+		my $seqfile = $evadir . "$prot$seq_ext";
+		unless (-f $evafile) {
+			print "$prot: No eva file found. Skipping\n";
+			next;
+		}
+    
+    my (@eva_seq,@eva_ss);
+    @eva_seq = load_fasta($seqfile);
+    @eva_ss = load_sspro($evafile);
+=pod
+    if($server eq 'scratch')
+    {
+      @eva_seq = load_fasta($seqfile);
+      @eva_ss = load_sspro($evafile);
+      #print ">$prot\n";
+      #print join('',@eva_seq)."\n";
+      #print join('',@eva_ss)."\n\n";
+    }elsif($server eq 'pspro')
+    {
+      @eva_seq = load_fasta($seqfile);
+      @eva_ss = load_sspro($evafile);
+    }elsif($server eq 'psipred')
+    {
+      @eva_seq = load_fasta($seqfile);
+      @eva_ss = load_sspro($evafile);
+    }elsif($server eq 'deepcnf')
+    {
+      @eva_seq = load_deepcnf_seq($evafile);
+      @eva_ss = load_deepcnf_ss($evafile);
+      #print join('',@eva_seq)."\n\n";
+      #print join('',@eva_ss)."\n";
+      #sleep(2);
+    }elsif($server eq 'dnss')
+    {
+      @eva_seq = load_seq($evafile);
+      @eva_ss = import_struct($evafile);
+    }else{
+      die "The server $server not support!\n";
+    }
+=cut
+    
+		
+		
+		next if (check_err($eva_ss[0]));
+
+		if (@eva_ss == 0){
+			print "all_score: $prot eva file ss missing\n";
+			next;
+		}
+		if (@ref_ss == 0){
+			print "all_score: $prot ref file ss missing\n";
+			next;
+		}
+
+		# Seqs are aligned to ensure that ss comparisons are relevant
+		my (@align_arrays) = get_align_arrays(\@ref_seq, \@eva_seq);
+
+		# Alignment is applied to seqs (for diagnostic purposes only)
+		my @seqs = (\@ref_seq, \@eva_seq);
+		my ($ref_ref, $eva_ref) = apply_alignment(\@seqs, \@align_arrays);
+		@ref_seq = @{ $ref_ref };
+		@eva_seq = @{ $eva_ref };
+
+		# Alignment is applied to SSs
+		my @seqs = (\@ref_ss, \@eva_ss);
+		my ($ref_ref, $eva_ref) = apply_alignment(\@seqs, \@align_arrays);
+		@ref_ss = @{ $ref_ref };
+		@eva_ss = @{ $eva_ref };
+
+		# Optional diagnostic print statements
+#		print "\nComparing the following sequences/structures\n";
+#		my @names = ("Ref Seq", "Ref SS", "Eva Seq", "Eva SS");
+#		my @seqs = (\@ref_seq, \@ref_ss, \@eva_seq, \@eva_ss);
+#		print_comparison_named(\@names, \@seqs);
+
+		# Scores are calculated for this prot
+		my ($thismat, $thistot, $thisQ, $thisSov) = calc_sov(\@ref_ss, \@eva_ss);
+		next if (check_err($thismat));
+		
+		# Sums are updated
+		$Qmatch += $thismat;
+		$Qtot += $thistot;
+		$Qsum += $thisQ;
+		$Sovsum += $thisSov;
+		$num++;
+
+		# Score is placed into a percentile group for Q and Sov
+		my $Qseg = int($thisQ/10);
+		$Qsegments{$Qseg}++;
+
+		my $Sseg = int($thisSov/10);
+		$Ssegments{$Sseg}++;
+
+		# Print file information is stored
+		my $scoreout = "\n>$prot\n";
+		$scoreout .= "!Q3  = $thisQ\n";
+		$scoreout .= "!Sov = $thisSov\n";
+		$Scorelines{$prot} = $scoreout;
+	}
+	print "100% complete!\n";
+
+	# Averages are calculated
+	my $Qtotscore = $Qmatch/$Qtot*100;
+	my $Qscore = $Qsum/$num;
+	my $Sovscore = $Sovsum/$num;
+
+	# Score file is written
+	my @comments;
+	push (@comments, "#Total Matches: $Qmatch\tTotal residues: $Qtot\n");
+	push (@comments, "#Total Q3 score    : $Qtotscore\n");
+	push (@comments, "#Average Q3 score  : $Qscore\n");
+	push (@comments, "#Average Sov score : $Sovscore\n");
+	push (@comments, "#\n#Number of proteins in each score range:\n");
+	for (my $ii=0; $ii<10; $ii++){
+		my $low = $ii. "0";
+		my $high = $ii+1 . "0";
+		my $range = "\t$low-$high |";
+		push (@comments, $range);
+	}
+	push (@comments, "\n#Q3:");
+	for (my $ii=0; $ii<10; $ii++){
+		push (@comments, "\t$Qsegments{$ii}");
+	}
+	push (@comments, "\n#Sov:");
+	for (my $ii=0; $ii<10; $ii++){
+		push (@comments, "\t$Ssegments{$ii}");
+	}
+	push (@comments, "\n");
+
+	my @keys = sort (keys %Scorelines);
+
+	open (OUT, ">$sovfile") or return ($Qscore, $Sovscore);
+	print OUT @comments;
+	foreach my $prot (@keys) {
+		print OUT $Scorelines{$prot};
+	}
+	close OUT or return ("err: all_score: Couldn't close file $sovfile");
+	
+	return ($Qscore, $Sovscore);
+}
+
+
+################################################################
+# Name: all_score_from_server
+# In:	refdir : directory of ssa files
+#	evadir : directory of eva files
+#	sovfile : file to store scoring results
+#	list : list of proteins
+# Out:	Q3score, Sovscore
+#	prints more information to sovfile
+################################################################
+
+sub all_score_from_server_ss8 {
+	my ($refdir, $evadir, $sovfile, $list_ref, $server, $eva_ext,$seq_ext) = @_;
+	my @list = @{ $list_ref };
+	$eva_ext = "dnss" unless ($eva_ext);
+
+	my %Scorelines; 	# Holds ProtID => (scores)
+	my %Qsegments;		# Holds percentile => # of occurrences
+	my %Ssegments;		# Holds ^ for Sov scores instead of Q
+	my $Qmatch = 0;		# Holds correctly scored residues (ignoring chains)
+	my $Qtot = 0;		# Holds total residues compared (ignoring chains)
+	my $Qsum = 0;		# Holds sum of Q scores by chain
+	my $Sovsum = 0;		# Holds sum of Sov scores by chain
+	my $num = 0;		# Holds number of chains scored
+
+	my $count = 0;
+	my $percent = 0;
+	foreach my $prot (@list) {
+		if ($count/@list*100 > $percent && $percent < 100){
+			print STDERR "$percent % completed.\n";
+			$percent += 10;
+		}
+		$count ++;
+
+		# Reference sequence and ss are loaded from SSA file
+		my $reffile = $refdir . "$prot.ssa";
+		unless (-f $reffile) {
+			print "$prot: No SSA $reffile found. Skipping\n";
+			next;
+		}
+		my @ref_seq = load_ssa($reffile);
+		my @ref_ss = import_ssa($reffile);
+		next if (check_err($ref_ss[0]));
+
+		# Evaluee sequence and ss are loaded from eva file
+		my $evafile = $evadir . "$prot$eva_ext";
+		my $seqfile = $evadir . "$prot$seq_ext";
+		unless (-f $evafile) {
+			print "$prot: No eva file found. Skipping\n";
+			next;
+		}
+    
+    my (@eva_seq,@eva_ss);
+    @eva_seq = load_fasta($seqfile);
+    @eva_ss = load_sspro($evafile);
+=pod
+    if($server eq 'scratch')
+    {
+      @eva_seq = load_fasta($seqfile);
+      @eva_ss = load_sspro($evafile);
+      #print ">$prot\n";
+      #print join('',@eva_seq)."\n";
+      #print join('',@eva_ss)."\n\n";
+    }elsif($server eq 'pspro')
+    {
+      @eva_seq = load_fasta($seqfile);
+      @eva_ss = load_sspro($evafile);
+    }elsif($server eq 'psipred')
+    {
+      @eva_seq = load_fasta($seqfile);
+      @eva_ss = load_sspro($evafile);
+    }elsif($server eq 'deepcnf')
+    {
+      @eva_seq = load_deepcnf_seq($evafile);
+      @eva_ss = load_deepcnf_ss($evafile);
+      #print join('',@eva_seq)."\n\n";
+      #print join('',@eva_ss)."\n";
+      #sleep(2);
+    }elsif($server eq 'dnss')
+    {
+      @eva_seq = load_seq($evafile);
+      @eva_ss = import_struct($evafile);
+    }else{
+      die "The server $server not support!\n";
+    }
+=cut
+    
+		
+		
+		next if (check_err($eva_ss[0]));
+
+		if (@eva_ss == 0){
+			print "all_score: $prot eva file ss missing\n";
+			next;
+		}
+		if (@ref_ss == 0){
+			print "all_score: $prot ref file ss missing\n";
+			next;
+		}
+
+		# Seqs are aligned to ensure that ss comparisons are relevant
+		my (@align_arrays) = get_align_arrays(\@ref_seq, \@eva_seq);
+
+		# Alignment is applied to seqs (for diagnostic purposes only)
+		my @seqs = (\@ref_seq, \@eva_seq);
+		my ($ref_ref, $eva_ref) = apply_alignment(\@seqs, \@align_arrays);
+		@ref_seq = @{ $ref_ref };
+		@eva_seq = @{ $eva_ref };
+
+		# Alignment is applied to SSs
+		my @seqs = (\@ref_ss, \@eva_ss);
+		my ($ref_ref, $eva_ref) = apply_alignment(\@seqs, \@align_arrays);
+		@ref_ss = @{ $ref_ref };
+		@eva_ss = @{ $eva_ref };
+
+		# Optional diagnostic print statements
+#		print "\nComparing the following sequences/structures\n";
+#		my @names = ("Ref Seq", "Ref SS", "Eva Seq", "Eva SS");
+#		my @seqs = (\@ref_seq, \@ref_ss, \@eva_seq, \@eva_ss);
+#		print_comparison_named(\@names, \@seqs);
+
+		# Scores are calculated for this prot
+		my ($thismat, $thistot, $thisQ, $thisSov) = calc_sov_ss8(\@ref_ss, \@eva_ss);
+		next if (check_err($thismat));
+		
+		# Sums are updated
+		$Qmatch += $thismat;
+		$Qtot += $thistot;
+		$Qsum += $thisQ;
+		$Sovsum += $thisSov;
+		$num++;
+
+		# Score is placed into a percentile group for Q and Sov
+		my $Qseg = int($thisQ/10);
+		$Qsegments{$Qseg}++;
+
+		my $Sseg = int($thisSov/10);
+		$Ssegments{$Sseg}++;
+
+		# Print file information is stored
+		my $scoreout = "\n>$prot\n";
+		$scoreout .= "!Q8  = $thisQ\n";
+		$scoreout .= "!Sov = $thisSov\n";
+		$Scorelines{$prot} = $scoreout;
+	}
+	print "100% complete!\n";
+
+	# Averages are calculated
+	my $Qtotscore = $Qmatch/$Qtot*100;
+	my $Qscore = $Qsum/$num;
+	my $Sovscore = $Sovsum/$num;
+
+	# Score file is written
+	my @comments;
+	push (@comments, "#Total Matches: $Qmatch\tTotal residues: $Qtot\n");
+	push (@comments, "#Total Q8 score    : $Qtotscore\n");
+	push (@comments, "#Average Q8 score  : $Qscore\n");
+	push (@comments, "#Average Sov score : $Sovscore\n");
+	push (@comments, "#\n#Number of proteins in each score range:\n");
+	for (my $ii=0; $ii<10; $ii++){
+		my $low = $ii. "0";
+		my $high = $ii+1 . "0";
+		my $range = "\t$low-$high |";
+		push (@comments, $range);
+	}
+	push (@comments, "\n#Q8:");
+	for (my $ii=0; $ii<10; $ii++){
+		push (@comments, "\t$Qsegments{$ii}");
+	}
+	push (@comments, "\n#Sov:");
+	for (my $ii=0; $ii<10; $ii++){
+		push (@comments, "\t$Ssegments{$ii}");
+	}
+	push (@comments, "\n");
+
+	my @keys = sort (keys %Scorelines);
+
+	open (OUT, ">$sovfile") or return ($Qscore, $Sovscore);
+	print OUT @comments;
+	foreach my $prot (@keys) {
+		print OUT $Scorelines{$prot};
+	}
+	close OUT or return ("err: all_score: Couldn't close file $sovfile");
+	
+	return ($Qscore, $Sovscore);
+}
+
+
+# Calculates the Q8 score of a pair of SS sequences
+sub calculate_Q8 {
+	my ($ref_ref, $eva_ref) = @_;
+	my @ref_ss = @{ $ref_ref };
+	my @eva_ss = @{ $eva_ref };
+
+	my $Q8total = 0;
+	my $Q8match = 0;
+
+	my @SSs = ("C", "S", "B", "E", "T", "I", "H", "G");
+	my @Qscores;
+	for (my $jj=0; $jj<@SSs; $jj++){
+		my $thistotal = 0;
+		my $thismatch = 0;
+
+		for (my $ii=0; $ii<@ref_ss; $ii++){
+			next if ($ref_ss[$ii] ne $SSs[$jj]);
+			$thistotal++;
+			if ($ref_ss[$ii] eq $eva_ss[$ii]){
+				$thismatch++;
+			}
+		}
+
+		if ($thistotal == 0) {
+			push (@Qscores, 100);
+		}
+		else{
+			push (@Qscores, $thismatch/$thistotal*100);
+		}
+		$Q8total += $thistotal;
+		$Q8match += $thismatch;
+	}
+	
+	my $Q8score = $Q8match/$Q8total*100;
+	return ($Q8score, $Q8match, $Q8total, @Qscores);
+}
+
+
+#########################################################
+# Name: calc_sov_ss8
+# In:	ref_ref : array ref containing reference ss sequence
+#	eva_ref : array ref containing evaluee ss sequence
+#		note: these refs should be fully aligned,
+#			though need not be gapless
+# Out:	array containing (Qmatches, Qtotal, Q3score, Sovscore) 
+#
+# subs: len, seg_len, max, min, separate, get_first, get_last,
+#	import_ssa, import_ss_sa, import_pred, calculate_RQ3, 
+#	calculate_C, calculate_Q8, calculate_sov
+#########################################################
+
+sub calc_sov_ss8 {
+	my ($ref_ref, $eva_ref) = @_;
+	my @raw_ref_ss = @{ $ref_ref };
+	my @raw_eva_ss = @{ $eva_ref };
+	my ($Qmatch, $Qtotal, $Qscore, $Sovscore);
+
+	if (@raw_ref_ss != @raw_eva_ss){
+		return "err: calc_sov: input arrays not of equal size\n";
+	}
+
+	#Removes non-existent structure from comparison.
+	#Thus, SS prediction of AAs that are removed in
+	#known structure are not evaluated.
+	my (@ref_ss, @eva_ss);
+	for (my $ii=0; $ii<@raw_ref_ss; $ii++){
+		if ($raw_ref_ss[$ii] ne "-" && $raw_eva_ss[$ii] ne "-"){
+      if($raw_ref_ss[$ii] eq 'L')
+      {
+        push (@ref_ss, 'C'); # in DNSS, we use C to replace L
+      }else{
+        push (@ref_ss, $raw_ref_ss[$ii]);
+      }
+			if($raw_eva_ss[$ii] eq 'L')
+      {
+        push (@eva_ss, 'C'); # in DNSS, we use C to replace L
+      }else{
+        push (@eva_ss, $raw_eva_ss[$ii]);
+      }
+		}
+	}
+
+	# Optional diagnostic print statements
+#	print "Reduced structures to be scored:\n";
+#	my @names = ("Ref", "Eva");
+#	my @seqs = (\@ref_ss, \@eva_ss);
+#	print_comparison_named(\@names, \@seqs);
+
+	# Q scores are calculated
+	my @Qscores;
+	($Qscore, $Qmatch, $Qtotal, @Qscores) = calculate_Q8(\@ref_ss, \@eva_ss);
+
+	# Sov score is calculated
+	$Sovscore = calculate_sov(\@ref_ss, \@eva_ss);
+
+	return ($Qmatch, $Qtotal, $Qscore, $Sovscore);
+}
+
+sub calculate_sov_ss8 {
+	my ($ref_ref, $eva_ref) = @_;
+	my @ref_ss = @{ $ref_ref };
+	my @eva_ss = @{ $eva_ref };
+	
+	my @SSs = ("C", "S", "B", "E", "T", "I", "H", "G");
+
+	my $Ntotal = 0;
+	my $Sumtotal = 0;
+	my @Sovscores;
+
+	# A score is calculated for the correctness of each kind of secondary structure
+	foreach my $ss (@SSs){
+		my $ref_segstart = -1;
+		my $ref_segend = -1;
+		my $eva_segstart = -1;
+		my $eva_segend = -1;
+
+		my @ref_segs;
+		my @eva_segs;
+
+		# Arrays are made contianing the segments of current secondary structure
+		for (my $ii=0; $ii<@ref_ss; $ii++){
+			if ($ref_ss[$ii] eq $ss){
+				if ($ref_segstart == -1){
+					$ref_segstart = $ii;
+				}
+				$ref_segend = $ii;
+			}
+			else {
+				if ($ref_segstart != -1){
+					my $segstring = "$ref_segstart,$ref_segend";
+					push (@ref_segs, $segstring); 
+					$ref_segstart = -1;
+				}
+			}
+
+			if ($eva_ss[$ii] eq $ss){
+				if ($eva_segstart == -1){
+					$eva_segstart = $ii;
+				}
+				$eva_segend = $ii;
+			}
+			else {
+				if ($eva_segstart != -1){
+					my $segstring = "$eva_segstart,$eva_segend";
+					push (@eva_segs, $segstring); 
+					$eva_segstart = -1;
+				}
+			}
+		}
+		if ($ref_segstart != -1){
+			my $segstring = "$ref_segstart,$ref_segend";
+			push (@ref_segs, $segstring);
+		}
+		if ($eva_segstart != -1){
+			my $segstring = "$eva_segstart,$eva_segend";
+			push (@eva_segs, $segstring);
+		}
+
+		# Arrays are made containing the overlapping and non-overlapping regions
+		my @overlaps;
+		my @alones;
+		my $rmark = 0;
+
+		foreach my $evaseg (@eva_segs){
+			my $done = 0;
+			my $added = 0;
+			while (!$done){
+				if ($rmark == @ref_segs){
+					push (@alones, $evaseg);
+					$done = 1;
+					next;
+				}
+				my $refseg = $ref_segs[$rmark];
+				if (get_last($evaseg) < get_first($refseg)){
+					if (!$added){
+						push (@alones, $evaseg);
+					}
+					$done = 1;
+				}
+				elsif (get_first($evaseg) > get_last($refseg)){
+					$rmark++;
+					next;
+				}
+				else {
+					my $segstring = "$evaseg;$refseg";
+					push (@overlaps, $segstring);
+					$added++;
+					if (get_last($evaseg) > get_last($refseg)){
+						$rmark++;
+					}
+					elsif (get_last($evaseg) < get_last($refseg)){
+						$done = 1;
+					}
+					else {
+						$rmark++;
+						$done = 1;
+					}
+				}
+			}
+		}
+
+		# Here the individual normalization is calculated:
+		my $Ncount = 0;
+		foreach my $segpair (@overlaps){
+			my ($fl, $fr, $sl, $sr) = separate($segpair);
+
+			$Ncount += len($fr, $fl);
+		}
+		foreach my $seg (@alones){
+			my ($fl, $fr) = split(/,/, $seg);
+
+			$Ncount += len($fr, $fl);
+		}
+		$Ntotal += $Ncount;
+
+		# Here the individual summations are calculated.
+		my $thisSum = 0;
+		for (@overlaps){
+			my ($fl, $fr, $sl, $sr) = separate($_);
+			my $s1 = "$fl,$fr";
+			my $s2 = "$sl,$sr";
+
+			my $minov = len(max($fl, $sl), min($fr, $sr));
+			my $maxov = len(min($fl, $sl), max($fr, $sr));
+
+			my $diff = $maxov - $minov;
+			my $int1 = int(seg_len($s1)/2);
+			my $int2 = int(seg_len($s2)/2);
+			my $delta = min($diff, $minov, $int1, $int2);
+
+			my $numer = $minov + $delta;
+			my $overlapNum = ($numer / $maxov) * seg_len($s1);
+			$thisSum += $overlapNum;
+		}
+		$Sumtotal += $thisSum;
+		if ($Ncount == 0){
+			push (@Sovscores, 100);
+		}
+		else {
+			push (@Sovscores, $thisSum/$Ncount*100);
+		}
+	}
+
+	if ($Ntotal == 0){
+		return ("err: calculate_sov: File insufficient");
+	}
+	my $Sovscore= 100*$Sumtotal/$Ntotal;
+	return $Sovscore;
+
+}
+
 
 # Calculates the length between two indices
 sub len {

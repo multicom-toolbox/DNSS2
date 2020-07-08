@@ -1,7 +1,7 @@
 package SeqAlign;
 
 # Module: 	SeqAlign.pm
-# Author: 	Matt Spencer
+# Author: 	Matt Spencer, extended by Jie
 # Made:		~3/1/13
 # Last Mod:	11/07/13
 #
@@ -21,6 +21,7 @@ package SeqAlign;
 #       load_pssm : gets AA sequence in pssm file
 #       load_dssp : gets AA sequence in dssp file
 #	load_dnss : gets AA sequence in dnss file
+#	load_vdnsa : gets AA sequence in vdnsa file
 #	clean_seqs : removes all gaps from a pair of sequences
 #	align_seqs : makes two sequences align
 #	align_and_print : aligns sequences and prints
@@ -52,7 +53,7 @@ use vars qw(@ISA @EXPORT @EXPORT_OK);
 
 @ISA = qw(Exporter);
 @EXPORT = ();
-@EXPORT_OK =  qw(remove_gaps get_type load_seq load_ssa load_fasta load_sspro load_pdb load_pssm load_dssp load_dnss get_align_arrays get_align_arrays_absolute align_seqs align_and_print align_and_print_named apply_alignment align_score matched_score print_comparison print_comparison_named print_array print_separator print_double_separator print_help MAT_align_seqs clean_seqs);
+@EXPORT_OK =  qw(remove_gaps get_type load_seq load_ssa load_fasta load_sspro load_deepcnf_ss load_deepcnf_seq load_pdb load_pssm load_dssp load_dnss load_vdnsa get_align_arrays get_align_arrays_absolute align_seqs align_and_print align_and_print_named apply_alignment align_score matched_score print_comparison print_comparison_named print_array print_separator print_double_separator print_help MAT_align_seqs clean_seqs);
 
 ################################################################
 # Name : load_seq
@@ -75,6 +76,7 @@ sub load_seq {
 	@seq = load_pssm($file) if ($type eq "pssm");
 	@seq = load_dnss($file) if ($type eq "dnss");
 	@seq = load_psi($file) if ($type eq "horiz");
+	@seq = load_vdnsa($file) if ($type eq "vdnsa");
 
 	return @seq;
 }
@@ -94,7 +96,7 @@ sub get_type {
 	my @fileinfo = split (/\./, $pathinfo[$#pathinfo]);
 	my $suffix = $fileinfo[$#fileinfo];
 
-	return 0 unless ($suffix eq "pdb" || $suffix eq "ssa" || $suffix eq "ss_sa" || $suffix eq "fasta" || $suffix eq "pssm" || $suffix eq "dnss" || $suffix eq "horiz");
+	return 0 unless ($suffix eq "pdb" || $suffix eq "ssa" || $suffix eq "ss_sa" || $suffix eq "fasta" || $suffix eq "pssm" || $suffix eq "dnss" || $suffix eq "horiz" || $suffix eq "vdnsa");
 	return $suffix;
 }
 
@@ -162,6 +164,71 @@ sub load_sspro {
 	return @ss_saseq;
 }
 
+################################################################
+# Name : load_deepcnf
+# Takes: string: deepcnf file path
+# Returns: array: AA and SS sequence found in sspro
+################################################################
+
+sub load_deepcnf_seq {
+	my ($ss_sa) = @_;
+
+	open (SS_SA, $ss_sa) or die "Couldn't open file $ss_sa\n";
+	my @aa_saseq;
+  my $line;
+	while(<SS_SA>)
+  {
+    $line = $_;
+    chomp $line;
+    if(substr($line,0,1) eq '#')
+    {
+      next;
+    }
+    $line =~ s/^\s+|\s+$//g;
+    my @tmp = split(/\s+/,$line);
+    if(@tmp!=6)
+    {
+      next;
+    }
+    my $aa = $tmp[1];
+    #print "$aa\t$ss\n";
+    push @aa_saseq,$aa;
+  }
+    #print join('',@aa_saseq)."\n";
+    #print join('',@ss_saseq)."\n";
+    #sleep(2);
+	return @aa_saseq;
+}
+
+sub load_deepcnf_ss {
+	my ($ss_sa) = @_;
+
+	open (SS_SA, $ss_sa) or die "Couldn't open file $ss_sa\n";
+	my @ss_saseq;
+  my $line;
+	while(<SS_SA>)
+  {
+    $line = $_;
+    chomp $line;
+    if(substr($line,0,1) eq '#')
+    {
+      next;
+    }
+    $line =~ s/^\s+|\s+$//g;
+    my @tmp = split(/\s+/,$line);
+    if(@tmp!=6)
+    {
+      next;
+    }
+    my $ss = $tmp[2];
+    #print "$aa\t$ss\n";
+    push @ss_saseq,$ss;
+  }
+    #print join('',@aa_saseq)."\n";
+    #print join('',@ss_saseq)."\n";
+    #sleep(2);
+	return @ss_saseq;
+}
 ################################################################
 # Name : load_psi
 # Takes: string: psipred file path
@@ -299,6 +366,29 @@ sub load_dnss {
 
 	return @dnsseq;
 }
+
+################################################################
+# Name : load_vdnsa
+# Takes: string: vdnsa file path
+# Returns: array: AA sequence found in vndsa
+################################################################
+
+sub load_vdnsa {
+	my ($vdnsa) = @_;
+
+	open (VDNSA, $vdnsa) or die "Coulnd't open file $vdnsa\n";
+	my @saseq;
+	while (my $line = <VDNSA>){
+		next if ($line =~ m/^#/);
+		my @data = split(/\t/, $line);
+		push (@saseq, $data[0]);
+	}
+	close VDNSA or die "Couldn't close file $vdnsa\n";
+
+	return @saseq;
+}
+
+
 
 sub clean_seqs {
 	my (@seq_refs) = @_;
