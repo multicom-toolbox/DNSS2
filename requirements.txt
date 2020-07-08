@@ -1,0 +1,6 @@
+keras==1.2.2
+numpy==1.12.1
+theano==0.9.0
+tensorflow==1.5
+h5py
+pillow
