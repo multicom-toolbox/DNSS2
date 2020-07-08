@@ -28,17 +28,9 @@ source ~/python_virtualenv_DNSS2/bin/activate
 pip install --upgrade pip
 ```
 
-(b) Install Keras:
+(b) Install python packages:
 ```
-pip install keras==1.2.2
-```
-
-(c) Install theano, numpy, h5py and tensorflow: 
-```
-pip install numpy==1.12.1
-pip install theano==0.9.0
-pip install tensorflow==1.5
-pip install h5py
+pip install -r requirements.txt
 ```
 
 
