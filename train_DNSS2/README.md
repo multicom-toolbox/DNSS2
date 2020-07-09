@@ -10,6 +10,7 @@ perl lib/evaluation_ss_prediction.pl  -indir methods_prediction/DNSS2_results/ -
 ```
 
 
+
 ***Evaluate DNSS2 for 8-class***
 ```
 perl lib/evaluation_ss_prediction_ss8.pl  -indir methods_prediction/DNSS2_results/ -list datasets/dnss2-blind-test.lst -ssa datasets/seq_labels -server "DNSS2" -tag DNSS2_test_DNSS2-ss8_prediction  -eva_ext '.ss8_DNSS'  -seq_ext '.fasta'
@@ -63,7 +64,7 @@ perl lib/evaluation_ss_prediction_ss8.pl  -indir methods_prediction/PORT5_result
 **Note: Similar methods to evaluate MUFOLD, psipred, PSSPred, SSPRO, PORT5**
 
 
-### Model Training
+### Model Training (feature sets will be updated)
 
 ### 3-class training
 
@@ -73,11 +74,64 @@ cd train_DNSS2/models/Deep1Dconv_ss/scripts/
 sh runCNNSS_train_3class.sh
 ```
 
+***CRMN1Dconv***
+```
+cd train_DNSS2/models/CRMN1Dconv_ss/scripts
+sh runCRMNSS_train_3class.sh
+```
+***FracNet1Dconv***
+```
+cd train_DNSS2/models/FracNet1Dconv_ss/scripts
+sh runFracNetSS_train_3class.sh
+```
 
+***Inception1Dconv***
+```
+cd train_DNSS2/models/Inception1Dconv_ss/scripts
+sh runIncepSS_train_3class.sh
+```
+
+***RCNN1Dconv***
+```
+cd train_DNSS2/models/RCNN1Dconv_ss/scripts
+sh runRCNNSS_train_3class.sh
+```
+
+***Resnet1Dconv***
+```
+cd train_DNSS2/models/Resnet1Dconv_ss/scripts
+sh runResSS_train_3class.sh
+```
 ### 8-class training
 
 ***Deep1Dconv***
 ```
 cd train_DNSS2/models/Deep1Dconv_ss/scripts/
 sh runCNNSS_train_8class.sh
+```
+***CRMN1Dconv***
+```
+cd train_DNSS2/models/CRMN1Dconv_ss/scripts
+sh runCRMNSS_train_8class.sh
+```
+***FracNet1Dconv***
+```
+cd train_DNSS2/models/FracNet1Dconv_ss/scripts
+sh runFracNetSS_train_8class.sh
+```
+***RCNN1Dconv***
+```
+cd train_DNSS2/models/RCNN1Dconv_ss/scripts
+sh runRCNNSS_train_8class.sh
+```
+
+***Inception1Dconv***
+```
+cd train_DNSS2/models/Inception1Dconv_ss/scripts
+sh runIncepSS_train_8class.sh
+```
+***Resnet1Dconv***
+```
+cd train_DNSS2/models/Resnet1Dconv_ss/scripts
+sh runResSS_train_8class.sh
 ```
