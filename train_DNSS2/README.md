@@ -63,7 +63,7 @@ perl lib/evaluation_ss_prediction_ss8.pl  -indir methods_prediction/PORT5_result
 **Note: Similar methods to evaluate MUFOLD, psipred, PSSPred, SSPRO, PORT5**
 
 
-### Model Training
+### Model Training (feature sets will be updated)
 
 ### 3-class training
 
