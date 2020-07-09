@@ -7,18 +7,27 @@
 #SBATCH -t 2-00:00
 #SBATCH --mem 20G
 
-source /storage/hpc/scratch/zggc9/keras_theano/keras_virtual_env/bin/activate
-echo "Training secondary structure"
-module load R/R-3.3.1
 
 export HDF5_USE_FILE_LOCKING=FALSE
 temp_dir=$(pwd)
 GLOBAL_PATH=${temp_dir%%DNSS2*}'DNSS2'
-feature_dir=$GLOBAL_PATH/datasets/newfeature/features_win1_with_atch_hmmEm_hmmTr_hhblitsMSA_no_aa
-output_dir=$GLOBAL_PATH/output/model_train_IncepSS_win1
-acclog_dir=$GLOBAL_PATH/output/evaluate/paper_review
 
-python $GLOBAL_PATH/models/Inception1Dconv_ss/scripts/train_deepcovInception_ss_3class.py  15 33 4 nadam '5'  100 3  $feature_dir $output_dir 32
-python $GLOBAL_PATH/lib/test_dnss.py $GLOBAL_PATH/datasets/dnss2_train.lst  15 33 4 nadam '5' $feature_dir $output_dir $acclog_dir 'deepss_1dInception' 'train' 32
-python $GLOBAL_PATH/lib/test_dnss.py $GLOBAL_PATH/datasets/dnss2_val.lst  15 33 4 nadam '5' $feature_dir $output_dir $acclog_dir 'deepss_1dInception' 'evalu' 32
-python $GLOBAL_PATH/lib/test_dnss.py $GLOBAL_PATH/datasets/dnss2-blind-test.lst  15 33 4 nadam '5' $feature_dir $output_dir $acclog_dir 'deepss_1dInception' 'test' 32
+if [ -f "$GLOBAL_PATH/python_virtualenv_DNSS2/bin/activate" ]; then
+    echo "Found virutal environment $GLOBAL_PATH/python_virtualenv_DNSS2/bin/activate."
+else
+    echo "Virtual environment ($GLOBAL_PATH/python_virtualenv_DNSS2/bin/activate) does not exist."
+    exit
+fi
+
+source $GLOBAL_PATH/python_virtualenv_DNSS2/bin/activate
+echo "Training 3-class secondary structure"
+
+feature_dir=$GLOBAL_PATH/train_DNSS2/datasets/features_3class
+output_dir=$GLOBAL_PATH/output/model_train_IncepSS_3class
+acclog_dir=$GLOBAL_PATH/output//evaluate_3class/
+
+
+python $GLOBAL_PATH/train_DNSS2/models/Inception1Dconv_ss/scripts/train_deepcovInception_ss_3class.py  15 33 4 nadam '5'  100 3  $feature_dir $output_dir 32
+#python $GLOBAL_PATH/lib/test_dnss.py $GLOBAL_PATH/datasets/dnss2_train.lst  15 33 4 nadam '5' $feature_dir $output_dir $acclog_dir 'deepss_1dInception' 'train' 32
+#python $GLOBAL_PATH/lib/test_dnss.py $GLOBAL_PATH/datasets/dnss2_val.lst  15 33 4 nadam '5' $feature_dir $output_dir $acclog_dir 'deepss_1dInception' 'evalu' 32
+#python $GLOBAL_PATH/lib/test_dnss.py $GLOBAL_PATH/datasets/dnss2-blind-test.lst  15 33 4 nadam '5' $feature_dir $output_dir $acclog_dir 'deepss_1dInception' 'test' 32
