@@ -22,7 +22,7 @@ source $GLOBAL_PATH/python_virtualenv_DNSS2/bin/activate
 echo "Training 3-class secondary structure"
 #module load R/R-3.3.1
 
-feature_dir=$GLOBAL_PATH/train_DNSS2/datasets/features_win1_with_atch_hmmEm_hmmTr_hhblitsMSA_no_aa_3class
+feature_dir=$GLOBAL_PATH/train_DNSS2/datasets/features_3class
 output_dir=$GLOBAL_PATH/output/model_train_CNNSS_win1_3class
 acclog_dir=$GLOBAL_PATH/output/evaluate/
 

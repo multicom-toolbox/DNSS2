@@ -35,7 +35,7 @@ def chkdirs(fn):
   dn = os.path.dirname(fn)
   if not os.path.exists(dn): os.makedirs(dn)    
 
-def DeepSS_1dconv_train_win_filter_layer_opt_fast(data_all_dict_padding,testdata_all_dict_padding,train_list,test_list,val_list,CV_dir,feature_dir,model_prefix,epoch_outside,epoch_inside,interval_len,seq_end,win_array,use_bias,hidden_type,nb_filters,nb_layers,opt,lib_dir, batch_size_train): #/storage/htc/bdm/jh7x8/GANSS/Deep1Dconv_ss/lib/
+def DeepSS_1dconv_train_win_filter_layer_opt_fast(data_all_dict_padding,testdata_all_dict_padding,train_list,test_list,val_list,CV_dir,feature_dir,model_prefix,epoch_outside,epoch_inside,interval_len,seq_end,win_array,use_bias,hidden_type,nb_filters,nb_layers,opt,lib_dir, batch_size_train,nclass=3): 
     start=0
     end=seq_end
     import numpy as np
@@ -182,19 +182,19 @@ def DeepSS_1dconv_train_win_filter_layer_opt_fast(data_all_dict_padding,testdata
         ## ktop_node is the length of input proteins
         if model_prefix == 'deepss_1dconv':
             # opt = Adam(lr=0.002, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
-            DeepSS_CNN = DeepCov_SS_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepCov_SS_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
         elif model_prefix == 'deepss_1dRCNN':
-            DeepSS_CNN = DeepCovRCNN_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepCovRCNN_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
         elif model_prefix == 'deepss_1dResnet':
-            DeepSS_CNN = DeepResnet1D_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepResnet1D_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
         elif model_prefix == 'deepss_1dInception':
-            DeepSS_CNN = DeepInception1D_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepInception1D_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
         elif model_prefix == 'deepss_1dCRMN':
-            DeepSS_CNN = DeepCRMN_SS_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepCRMN_SS_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
         elif model_prefix == 'deepss_1dFrac':
-            DeepSS_CNN = DeepFracNet_SS_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepFracNet_SS_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
         else:
-            DeepSS_CNN = DeepCov_SS_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepCov_SS_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
 
     if os.path.exists(model_weight_out):
         print ("######## Loading existing weights ",model_weight_out)
@@ -295,7 +295,7 @@ def DeepSS_1dconv_train_win_filter_layer_opt_fast(data_all_dict_padding,testdata
     DeepSS_CNN.load_weights(model_weight_out_best)
     DeepSS_CNN.save_weights(model_weight_out)
 
-def DeepSS_1dconv_train_win_filter_layer_opt_fast_8class(data_all_dict_padding,testdata_all_dict_padding,train_list,test_list,val_list,CV_dir,feature_dir,model_prefix,epoch_outside,epoch_inside,interval_len,seq_end,win_array,use_bias,hidden_type,nb_filters,nb_layers,opt,lib_dir, batch_size_train): #/storage/htc/bdm/jh7x3/GANSS/Deep1Dconv_ss/lib/
+def DeepSS_1dconv_train_win_filter_layer_opt_fast_8class(data_all_dict_padding,testdata_all_dict_padding,train_list,test_list,val_list,CV_dir,feature_dir,model_prefix,epoch_outside,epoch_inside,interval_len,seq_end,win_array,use_bias,hidden_type,nb_filters,nb_layers,opt,lib_dir, batch_size_train,nclass=8): 
     start=0
     end=seq_end
     import numpy as np
@@ -442,19 +442,19 @@ def DeepSS_1dconv_train_win_filter_layer_opt_fast_8class(data_all_dict_padding,t
         ## ktop_node is the length of input proteins
         if model_prefix == 'deepss_1dconv':
             # opt = Adam(lr=0.002, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
-            DeepSS_CNN = DeepCov_SS_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepCov_SS_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
         elif model_prefix == 'deepss_1dRCNN':
-            DeepSS_CNN = DeepCovRCNN_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepCovRCNN_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
         elif model_prefix == 'deepss_1dResnet':
-            DeepSS_CNN = DeepResnet1D_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepResnet1D_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
         elif model_prefix == 'deepss_1dInception':
-            DeepSS_CNN = DeepInception1D_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepInception1D_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
         elif model_prefix == 'deepss_1dCRMN':
-            DeepSS_CNN = DeepCRMN_SS_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepCRMN_SS_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
         elif model_prefix == 'deepss_1dFrac':
-            DeepSS_CNN = DeepFracNet_SS_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepFracNet_SS_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
         else:
-            DeepSS_CNN = DeepCov_SS_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
+            DeepSS_CNN = DeepCov_SS_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt)
 
     if os.path.exists(model_weight_out):
         print ("######## Loading existing weights ",model_weight_out)

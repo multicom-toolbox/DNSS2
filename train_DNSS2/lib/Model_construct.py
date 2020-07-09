@@ -62,12 +62,12 @@ def _conv_relu1D(nb_filter, nb_row, subsample,use_bias=True):
     return f
 
 # Helper to build a conv -> BN -> softmax block
-def _conv_bn_softmax1D(nb_filter, nb_row, subsample,name,use_bias=True):
+def _conv_bn_softmax1D(nclass,nb_filter, nb_row, subsample,name,use_bias=True):
     def f(input):
         conv = Convolution1D(nb_filter=nb_filter, filter_length=nb_row, subsample_length=subsample,bias=use_bias,
                              init="he_normal", activation='relu', border_mode="same",name="%s_conv" % name)(input)
         norm = BatchNormalization(mode=0, axis=2,name="%s_nor" % name)(conv)
-        return Dense(output_dim=8, init="he_normal",name="%s_softmax" % name, activation="softmax")(norm) # change to predict 8 class ss
+        return Dense(output_dim=nclass, init="he_normal",name="%s_softmax" % name, activation="softmax")(norm) # change to predict 8 class ss
     
     return f
 
@@ -89,7 +89,7 @@ def _conv_bn_relu1D_drop(nb_filter, nb_row, subsample,use_bias=True):
         return Dropout(0.2)(acti)
     return f
     
-def DeepCov_SS_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt):
+def DeepCov_SS_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt):
     DeepSS_input_shape =(None,feature_num)
     filter_sizes=win_array
     DeepSS_input = Input(shape=DeepSS_input_shape)
@@ -100,7 +100,7 @@ def DeepCov_SS_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,
         for i in range(0,nb_layers):
             DeepSS_conv = _conv_bn_relu1D(nb_filter=nb_filters, nb_row=fsz, subsample=1,use_bias=use_bias)(DeepSS_conv)
 
-        DeepSS_conv = _conv_bn_softmax1D(nb_filter=1, nb_row=fsz, subsample=1,use_bias=use_bias,name='local_start')(DeepSS_conv)
+        DeepSS_conv = _conv_bn_softmax1D(nclass=nclass,nb_filter=1, nb_row=fsz, subsample=1,use_bias=use_bias,name='local_start')(DeepSS_conv)
         #DeepSS_conv = remove_1d_padding(ktop=ktop_node)(DeepSS_conv) ## remove the padding rows because they don't have targets
         #no need here, because if target is 0, the cross-entropy is zero, error will be not passed
         
@@ -146,7 +146,7 @@ def RCL_block(input_num_filters,l,fsz):
     
     return stack16
 
-def DeepCovRCNN_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt):
+def DeepCovRCNN_with_paras(nclass,win_array,feature_num,use_bias,hidden_type,nb_filters,nb_layers,opt):
     
     #Build Network
     filter_sizes=win_array
@@ -160,7 +160,7 @@ def DeepCovRCNN_with_paras(win_array,feature_num,use_bias,hidden_type,nb_filters
         
         for n in range(nb_layers):
             DeepSS_conv = RCL_block(nb_filters, DeepSS_conv,fsz)
-        DeepSS_conv = _conv_bn_softmax1D(nb_filter=1, nb_row=fsz, subsample=1,use_bias=use_bias,name='local_start')(DeepSS_conv)
+        DeepSS_conv = _conv_bn_softmax1D(nclass=nclass,nb_filter=1, nb_row=fsz, subsample=1,use_bias=use_bias,name='local_start')(DeepSS_conv)
         
         DeepSS_convs.append(DeepSS_conv)
     
@@ -197,7 +197,7 @@ def identity_Block_deep(input, nb_filter, kernel_size, with_conv_shortcut=False,
         x = merge([x, input], mode=mode)
         return x
 
-def DeepResnet1D_with_paras(win_array, feature_num, use_bias, hidden_type, nb_filters, nb_layers, opt):
+def DeepResnet1D_with_paras(nclass,win_array, feature_num, use_bias, hidden_type, nb_filters, nb_layers, opt):
     filter_sizes = win_array
     DeepSS_input_shape = (None, feature_num)
     DeepSS_input = Input(shape=DeepSS_input_shape)
@@ -232,7 +232,7 @@ def DeepResnet1D_with_paras(win_array, feature_num, use_bias, hidden_type, nb_fi
         DeepSS_conv = BatchNormalization(mode=0, axis=2)(DeepSS_conv)
         
 
-        DeepSS_conv = _conv_bn_softmax1D(nb_filter=1, nb_row=fsz, subsample=1, use_bias=use_bias, name='local_start')(DeepSS_conv)
+        DeepSS_conv = _conv_bn_softmax1D(nclass=nclass,nb_filter=1, nb_row=fsz, subsample=1, use_bias=use_bias, name='local_start')(DeepSS_conv)
         DeepSS_convs.append(DeepSS_conv)
 
     if len(filter_sizes) > 1:
@@ -254,7 +254,7 @@ def block_inception_a(input,nb_filters,kernel_size,use_bias=True):
     net = merge([branch_0, branch_1, branch_2, branch_3], mode='concat')
     return net
 
-def DeepInception1D_with_paras(win_array, feature_num, use_bias, hidden_type, nb_filters, nb_layers, opt):
+def DeepInception1D_with_paras(nclass,win_array, feature_num, use_bias, hidden_type, nb_filters, nb_layers, opt):
     filter_sizes = win_array
     DeepSS_input_shape = (None, feature_num)
     DeepSS_input = Input(shape=DeepSS_input_shape)
@@ -287,7 +287,7 @@ def DeepInception1D_with_paras(win_array, feature_num, use_bias, hidden_type, nb
             net = block_inception_a(net,nb_filters,fsz)
             net = Dropout(0.3)(net)#0.3
             
-        DeepSS_conv = _conv_bn_softmax1D(nb_filter=1, nb_row=fsz, subsample=1, use_bias=use_bias,
+        DeepSS_conv = _conv_bn_softmax1D(nclass=nclass,nb_filter=1, nb_row=fsz, subsample=1, use_bias=use_bias,
                                              name='local_start')(net)
         DeepSS_convs.append(DeepSS_conv)
 
@@ -311,7 +311,7 @@ def identity_Block_CRMN(input, nb_filter, kernel_size, with_conv_shortcut=False,
     else:
         x = merge([x, input], mode=mode)
         return x
-def DeepCRMN_SS_with_paras(win_array, feature_num, use_bias, hidden_type, nb_filters, nb_layers, opt):
+def DeepCRMN_SS_with_paras(nclass,win_array, feature_num, use_bias, hidden_type, nb_filters, nb_layers, opt):
 
     DeepSS_input_shape = (None, feature_num)
     filter_sizes = win_array
@@ -331,7 +331,7 @@ def DeepCRMN_SS_with_paras(win_array, feature_num, use_bias, hidden_type, nb_fil
 
         DeepSS_conv = merge([DeepSS_conv, Lstmlayer], mode='concat')
         DeepSS_conv = Dropout(0.2)(DeepSS_conv)
-        DeepSS_conv = _conv_bn_softmax1D(nb_filter=1, nb_row=fsz, subsample=1, use_bias=use_bias, name='local_start')(DeepSS_conv)
+        DeepSS_conv = _conv_bn_softmax1D(nclass,nb_filter=1, nb_row=fsz, subsample=1, use_bias=use_bias, name='local_start')(DeepSS_conv)
         DeepSS_convs.append(DeepSS_conv)
 
     if len(filter_sizes) > 1:
@@ -368,7 +368,7 @@ def fractal_block(nb_filter, nb_row, subsample=1, use_bias = True):
         return M4
     return f
 
-def DeepFracNet_SS_with_paras(win_array, feature_num, use_bias, hidden_type, nb_filters, nb_layers, opt):
+def DeepFracNet_SS_with_paras(nclass,win_array, feature_num, use_bias, hidden_type, nb_filters, nb_layers, opt):
     DeepSS_input_shape = (None, feature_num)
     filter_sizes = win_array
     DeepSS_input = Input(shape=DeepSS_input_shape)
@@ -380,7 +380,7 @@ def DeepFracNet_SS_with_paras(win_array, feature_num, use_bias, hidden_type, nb_
             DeepSS_conv = BatchNormalization(mode=0, axis=2)(DeepSS_conv)
             DeepSS_conv = Dropout(0.35)(DeepSS_conv)
 
-        DeepSS_conv = _conv_bn_softmax1D(nb_filter=1, nb_row=fsz, subsample=1, use_bias=use_bias, name='local_start')(DeepSS_conv)
+        DeepSS_conv = _conv_bn_softmax1D(nclass=nclass,nb_filter=1, nb_row=fsz, subsample=1, use_bias=use_bias, name='local_start')(DeepSS_conv)
         DeepSS_convs.append(DeepSS_conv)
 
     if len(filter_sizes) > 1:
