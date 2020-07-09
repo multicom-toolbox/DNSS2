@@ -73,6 +73,11 @@ cd train_DNSS2/models/Deep1Dconv_ss/scripts/
 sh runCNNSS_train_3class.sh
 ```
 
+***CRMN1Dconv***
+```
+cd train_DNSS2/models/CRMN1Dconv_ss/scripts
+sh runCRMNSS_train_3class.sh
+```
 
 ### 8-class training
 
@@ -80,4 +85,9 @@ sh runCNNSS_train_3class.sh
 ```
 cd train_DNSS2/models/Deep1Dconv_ss/scripts/
 sh runCNNSS_train_8class.sh
+```
+***CRMN1Dconv***
+```
+cd train_DNSS2/models/CRMN1Dconv_ss/scripts
+sh runCRMNSS_train_8class.sh
 ```
