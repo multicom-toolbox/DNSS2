@@ -1,5 +1,5 @@
 
-###Evaluate DNSS2
+###Evaluate DNSS2 for 3-class
 ```
 perl lib/evaluation_ss_prediction.pl  -indir methods_prediction/DNSS2_results/ -list datasets/dnss2-blind-test.lst -ssa datasets/seq_labels -server "DNSS2" -tag DNSS2_test_DNSS2_prediction  -eva_ext '.ss_DNSS'  -seq_ext '.fasta'
 
@@ -7,6 +7,17 @@ perl lib/evaluation_ss_prediction.pl  -indir methods_prediction/DNSS2_results/ -
 #Total Q3 score    : 84.2436839044563
 #Average Q3 score  : 84.6381116728131
 #Average Sov score : 75.572052107119
+```
+
+
+###Evaluate DNSS2 for 8-class
+```
+perl lib/evaluation_ss_prediction_ss8.pl  -indir methods_prediction/DNSS2_results/ -list datasets/dnss2-blind-test.lst -ssa datasets/seq_labels -server "DNSS2" -tag DNSS2_test_DNSS2-ss8_prediction  -eva_ext '.ss8_DNSS'  -seq_ext '.fasta'
+
+#Total Matches: 69165   Total residues: 92858
+#Total Q8 score    : 74.4846970643348
+#Average Q8 score  : 75.4631690193353
+#Average Sov score : 75.504306636193
 ```
 
 ###Examples to evaluate DeepCNF, MUFOLD, psipred, PSSPred, SSPRO
