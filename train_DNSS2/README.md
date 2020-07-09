@@ -63,10 +63,21 @@ perl lib/evaluation_ss_prediction_ss8.pl  -indir methods_prediction/PORT5_result
 **Note: Similar methods to evaluate MUFOLD, psipred, PSSPred, SSPRO, PORT5**
 
 
-###Model Training
+### Model Training
 
-###3-class training
+### 3-class training
+
+***Deep1Dconv***
+```
+cd train_DNSS2/models/Deep1Dconv_ss/scripts/
+sh runCNNSS_train_3class.sh
+```
 
 
+### 8-class training
 
-###8-class training
+***Deep1Dconv***
+```
+cd train_DNSS2/models/Deep1Dconv_ss/scripts/
+sh runCNNSS_train_8class.sh
+```
