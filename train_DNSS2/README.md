@@ -20,7 +20,7 @@ perl lib/evaluation_ss_prediction_ss8.pl  -indir methods_prediction/DNSS2_result
 #Average Sov score : 75.504306636193
 ```
 
-###Examples to evaluate DeepCNF, MUFOLD, psipred, PSSPred, SSPRO
+### Evaluate DeepCNF
 ```
 perl lib/evaluation_ss_prediction.pl  -indir methods_prediction/DeepCNF_results/ -list datasets/dnss2-blind-test.lst -ssa datasets/seq_labels -server "DeepCNF" -tag DNSS2_test_DeepCNF_prediction  -eva_ext '.ss_DeepCNF'  -seq_ext '.fasta'
 
@@ -30,6 +30,37 @@ perl lib/evaluation_ss_prediction.pl  -indir methods_prediction/DeepCNF_results/
 #Average Sov score : 70.2460603517276
 ```
 
+```
+perl lib/evaluation_ss_prediction_ss8.pl  -indir methods_prediction/DeepCNF_results/ -list datasets/dnss2-blind-test.lst -ssa datasets/seq_labels -server "DeepCNF" -tag DNSS2_test_DeepCNF-ss8_prediction  -eva_ext '.ss8_DeepCNF'  -seq_ext '.fasta'
+
+#Total Matches: 64325   Total residues: 92858
+#Total Q8 score    : 69.2724374851924
+#Average Q8 score  : 70.788352240158
+#Average Sov score : 74.2451396322931
+```
+
+### Evaluate PORT5
+
+```
+perl lib/evaluation_ss_prediction.pl  -indir methods_prediction/PORT5_results/ -list datasets/dnss2-blind-test.lst -ssa datasets/seq_labels -server "PORTER5" -tag DNSS2_test_PORTER5_prediction  -eva_ext '.ss_PORTER5'  -seq_ext '.fasta'
+
+#Total Matches: 78141   Total residues: 92858
+#Total Q3 score    : 84.1510693747442
+#Average Q3 score  : 84.9215806962511
+#Average Sov score : 76.4974236090553
+```
+
+```
+perl lib/evaluation_ss_prediction_ss8.pl  -indir methods_prediction/PORT5_results/ -list datasets/dnss2-blind-test.lst -ssa datasets/seq_labels -server "PORTER5" -tag DNSS2_test_PORTER5-ss8_prediction  -eva_ext '.ss8_PORTER5'  -seq_ext '.fasta'
+
+#Total Matches: 64325   Total residues: 92858
+#Total Q8 score    : 69.2724374851924
+#Average Q8 score  : 70.788352240158
+#Average Sov score : 74.2451396322931
+```
+
+
+**Note: Similar methods to evaluate MUFOLD, psipred, PSSPred, SSPRO, PORT5**
 
 
 ###Model Training
