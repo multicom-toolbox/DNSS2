@@ -24,7 +24,7 @@ echo "Training 3-class secondary structure"
 #module load R/R-3.3.1
 
 feature_dir=$GLOBAL_PATH/train_DNSS2/datasets/features_3class
-output_dir=$GLOBAL_PATH/output/model_train_CRMNSS_win1
+output_dir=$GLOBAL_PATH/output/model_train_CRMNSS_3class
 acclog_dir=$GLOBAL_PATH/output/evaluate/
 
 python $GLOBAL_PATH/train_DNSS2/models/CRMN1Dconv_ss/scripts/train_deepcovCRMN_ss_3class.py  15 35 2 nadam '6'  100 3  $feature_dir $output_dir 25
