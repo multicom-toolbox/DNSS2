@@ -106,6 +106,27 @@ perl configure.pl
    $ perl run_DNSS2.pl -seq test/2SN3-A.fasta -file -out ./output/2SN3-A
 ```
 
+```
+[07/10/2020 23:19:49]  Generating Testing File...
+[07/10/2020 23:19:49]  Accessing model deepss_1dconv
+[07/10/2020 23:20:32]  Accessing model deepss_1dCRMN
+[07/10/2020 23:21:05]  Accessing model deepss_1dFrac
+[07/10/2020 23:21:35]  Accessing model deepss_1dInception
+[07/10/2020 23:22:03]  Accessing model deepss_1dRCNN
+[07/10/2020 23:22:29]  Accessing model deepss_1dResnet
+[07/10/2020 23:22:54]  Ensemble predictions ...
+[07/10/2020 23:25:54]  2SN3-A prediction (3-class) successful! Saved to ./output/2SN3-A/2SN3-A.ss8.dnss and ./output/2SN3-A/2SN3-A.ss8.vdnss
+[07/10/2020 23:22:55]  Accessing model deepss_1dconv
+[07/10/2020 23:23:19]  Accessing model deepss_1dCRMN
+[07/10/2020 23:23:44]  Accessing model deepss_1dFrac
+[07/10/2020 23:24:09]  Accessing model deepss_1dInception
+[07/10/2020 23:24:35]  Accessing model deepss_1dRCNN
+[07/10/2020 23:25:00]  Accessing model deepss_1dResnet
+[07/10/2020 23:25:25]  Ensemble predictions ...
+[07/10/2020 23:25:25]  2SN3-A prediction (8-class) successful! Saved to ./output/2SN3-A/2SN3-A.ss8.dnss and ./output/2SN3-A/2SN3-A.ss8.vdnss
+[07/10/2020 23:25:25]  100% complete!
+```
+
 (2) Predicting multiple proteins:
 
 ```
