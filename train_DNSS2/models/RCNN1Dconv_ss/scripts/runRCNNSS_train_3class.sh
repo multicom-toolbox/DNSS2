@@ -26,8 +26,8 @@ output_dir=$GLOBAL_PATH/output/model_train_RCNNNetSS_3class
 acclog_dir=$GLOBAL_PATH/output//evaluate_3class/
 
 
-#python $GLOBAL_PATH/train_DNSS2/models/RCNN1Dconv_ss/scripts/train_deepcovRCNN_ss_3class.py  15 35 5 nadam '3'  100 3  $feature_dir $output_dir 25
-python $GLOBAL_PATH/train_DNSS2/lib/test_dnss_3class.py $GLOBAL_PATH/train_DNSS2/datasets/dnss2_train.lst  15 35 5 nadam '3' $feature_dir $output_dir $acclog_dir 'deepss_1dRCNN' 'train' 25
+python $GLOBAL_PATH/train_DNSS2/models/RCNN1Dconv_ss/scripts/train_deepcovRCNN_ss_3class.py  15 35 5 nadam '3'  100 3  $feature_dir $output_dir 25
+#python $GLOBAL_PATH/train_DNSS2/lib/test_dnss_3class.py $GLOBAL_PATH/train_DNSS2/datasets/dnss2_train.lst  15 35 5 nadam '3' $feature_dir $output_dir $acclog_dir 'deepss_1dRCNN' 'train' 25
 #python $GLOBAL_PATH/lib/test_dnss_3class.py $GLOBAL_PATH/datasets/dnss2_val.lst  15 35 5 nadam '3' $feature_dir $output_dir $acclog_dir 'deepss_1dRCNN' 'evalu' 25
 #python $GLOBAL_PATH/lib/test_dnss_3class.py $GLOBAL_PATH/datasets/dnss2-blind-test.lst  15 35 5 nadam '3' $feature_dir $output_dir $acclog_dir 'deepss_1dRCNN' 'test' 25
 
