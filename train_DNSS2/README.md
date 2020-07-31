@@ -71,6 +71,10 @@ perl lib/evaluation_ss_prediction_ss8.pl  -indir methods_prediction/PORT5_result
 cd train_DNSS2/datasets
 wget http://sysbio.rnet.missouri.edu/bdm_download/DNSS2/datasets/features_3class.tar.gz
 wget http://sysbio.rnet.missouri.edu/bdm_download/DNSS2/datasets/features_8class.tar.gz
+
+tar -zxvf features_3class.tar.gz
+tar -zxvf features_8class.tar.gz
+
 ```
 ### 3-class training
 
