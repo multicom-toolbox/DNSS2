@@ -1,4 +1,9 @@
 #!/usr/bin/perl
+# Script:    PredictSS.pl
+# Author:    Matt Spencer
+# Date Made:    10/8/2013
+# Last Mod:    10/29/2014
+# Lastest Modified: 11/2/2016 by Jie Hou
 my $GLOBAL_PATH;
 BEGIN { 
 $GLOBAL_PATH='/faculty/jhou4/tools/DNSS2/';

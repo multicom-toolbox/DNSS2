@@ -1,9 +1,4 @@
 #!/usr/bin/perl
-# Script:    PredictSS.pl
-# Author:    Matt Spencer
-# Date Made:    10/8/2013
-# Last Mod:    10/29/2014
-# Lastest Modified: 11/2/2016 by Jie Hou
 my $GLOBAL_PATH;
 BEGIN { 
 $GLOBAL_PATH='/faculty/jhou4/tools/DNSS2/';
@@ -80,10 +75,6 @@ while (-f $logfile){
     $ii++;
 }
 
-#my @DN1s = ($modeldir . "DN1.model.dat", $modeldir . "DN2.model.dat");
-#my @DN1s_util = ($modeldir . "/util_models/DN1.model.util.dat", $modeldir . "/util_models/DN2.model.util.dat");
-#my $DN2 = $modeldir . "DN3.model.dat";
-#my $DN2_util = $modeldir . "/util_models/DN3.model.util.dat";
 my @DN1s = ("deepss_1dconv","deepss_1dCRMN","deepss_1dFrac","deepss_1dInception","deepss_1dRCNN","deepss_1dResnet");
 
 unless (-d $tempdir){
@@ -384,8 +375,153 @@ for (my $ii=0; $ii<@fasta; $ii++){
       next if (check_err($return, $logfile));
       
     }
+    timeprint ($logfile, "$name[$ii] prediction (3-class) successful! Saved to $dnss and $vdnss"); 
     
-    timeprint ($logfile, "$name[$ii] prediction successful! Saved to $dnss and $vdnss");    
+    ## Predict 8-class SS
+    my @probfiles;
+    my @deletefiles;
+    my $err=0;
+    for (my $jj=0; $jj<@DN1s; $jj++){
+            my $select_model = $DN1s[$jj];
+            timeprint ($logfile, "Accessing model $select_model");
+            
+            
+            my $model_in="$modeldir/8class/model-train-$select_model.json"; 
+            my $model_weight_in= "$modeldir/8class/model-train-weight-$select_model-best-val.h5";
+            
+            my ($file1, $file2) = predict_SS2_8c( $model_in, $model_weight_in, $feat, $probdir, $select_model);
+            $err++ if (check_err($file1, $logfile));
+            push (@probfiles, $file1);
+            push (@deletefiles, $file2);
+    }
+    next if ($err);
+
+    ## ensemble predictions
+    timeprint ($logfile, "Ensemble predictions ...");
+    
+    my %prob_avg=();
+    my $net_num = 0;
+    for (my $jj=0; $jj<@DN1s; $jj++)
+    {
+      my $select_model = $DN1s[$jj];
+      my $probfile = $probdir . $name[$ii].$DN1s[$jj].".ss8.prob";
+      #print "$prob_file\n";
+      if(!(-e $probfile))
+      {
+        print "Failed to find $probfile\n";
+        next;
+      }
+      $net_num++;
+      open(TMP,"$probfile") || die "Failed to find $probfile\n";
+      my $c=0;
+      while(<TMP>)
+      {
+        my $li=$_;
+        chomp $li;
+        $c++;
+        my @tmp = split(/\s++/,$li);
+        my $G_prob = $tmp[0];
+        my $H_prob = $tmp[1];
+        my $I_prob = $tmp[2];
+        my $T_prob = $tmp[3];
+        my $E_prob = $tmp[4];
+        my $B_prob = $tmp[5];
+        my $S_prob = $tmp[6];
+        my $C_prob = $tmp[7];
+        if(exists($prob_avg{$c}))
+        {
+          my @tmp2 =split(/\s/,$prob_avg{$c});
+          $G_prob = $tmp2[0] + $G_prob;
+          $H_prob = $tmp2[1] + $H_prob;
+          $I_prob = $tmp2[2] + $I_prob;
+          $T_prob = $tmp2[3] + $T_prob;
+          $E_prob = $tmp2[4] + $E_prob;
+          $B_prob = $tmp2[5] + $B_prob;
+          $S_prob = $tmp2[6] + $S_prob;
+          $C_prob = $tmp2[7] + $C_prob;
+          $prob_avg{$c} = "$G_prob $H_prob $I_prob $T_prob $E_prob $B_prob $S_prob $C_prob";
+        }else{
+          $prob_avg{$c} = "$G_prob $H_prob $I_prob $T_prob $E_prob $B_prob $S_prob $C_prob";
+        }
+      }
+      close TMP;
+      
+    }
+    my $out_file1="$probdir/$name[$ii].Ensemble.ss8.prob";
+    my $out_file2="$probdir/$name[$ii].Ensemble.ss8.pred";
+    open(OUT1,">$out_file1") || die "Failed to find $out_file1\n";
+    open(OUT2,">$out_file2") || die "Failed to find $out_file2\n";
+    foreach  my $indx (sort { $a <=> $b } keys %prob_avg) {
+      my @tmp2 =split(/\s/,$prob_avg{$indx});
+      my $max_index = maxindex(\@tmp2);
+      print OUT1 sprintf("%.6f",$tmp2[0]/$net_num)." ".sprintf("%.6f",$tmp2[1]/$net_num)." ".sprintf("%.6f",$tmp2[2]/$net_num)." ".sprintf("%.6f",$tmp2[3]/$net_num)." ".sprintf("%.6f",$tmp2[4]/$net_num)." ".sprintf("%.6f",$tmp2[5]/$net_num)." ".sprintf("%.6f",$tmp2[6]/$net_num)." ".sprintf("%.6f",$tmp2[7]/$net_num)."\n";
+      if($max_index == 0)
+      {
+        print OUT2 "1 0 0 0 0 0 0 0\n";
+      }elsif($max_index == 1)
+      {
+        print OUT2 "0 1 0 0 0 0 0 0\n";
+      }elsif($max_index == 2)
+      {
+        print OUT2 "0 0 1 0 0 0 0 0\n";
+      }elsif($max_index == 3)
+      {
+        print OUT2 "0 0 0 1 0 0 0 0\n";
+      }elsif($max_index == 4)
+      {
+        print OUT2 "0 0 0 0 1 0 0 0\n";
+      }elsif($max_index == 5)
+      {
+        print OUT2 "0 0 0 0 0 1 0 0\n";
+      }elsif($max_index == 6)
+      {
+        print OUT2 "0 0 0 0 0 0 1 0\n";
+      }elsif($max_index == 7)
+      {
+        print OUT2 "0 0 0 0 0 0 0 1\n";
+      }else{
+        die "wrong ss index $max_index\n";
+      }
+    }
+    close OUT1;
+    close OUT2;   
+      
+    my $probfile = "$probdir/$name[$ii].Ensemble.ss8.prob";
+    ## Write output DNSS file
+    my $dnss = $outdir . "$name[$ii].ss8.dnss";
+    my $vdnss = $outdir . "$name[$ii].ss8.vdnss";
+    my $header = ">$name[$ii]";
+    my @dirarray = ($probfile);
+    my $return = make_dnss_file_8c (\@dirarray, $pssm, $dnss, $vdnss, $header);
+    next if (check_err($return, $logfile));
+    my $dnss2 = "$probdir/$name[$ii].Ensemble.ss8.dnss";
+    my $vdnss2 = "$probdir/$name[$ii].Ensemble.ss8.vdnss";
+    my $return = make_dnss_file_8c (\@dirarray, $pssm, $dnss2, $vdnss2, $header);
+    next if (check_err($return, $logfile));
+    
+    
+    #### convert individual network to ss predictions 
+    for (my $jj=0; $jj<@DN1s; $jj++)
+    {
+      my $select_model = $DN1s[$jj];
+      my $probfile = $probdir . $name[$ii].$DN1s[$jj].".ss8.prob";
+      #print "$prob_file\n";
+      if(!(-e $probfile))
+      {
+        print "Failed to find $probfile\n";
+        next;
+      }
+      my $dnss = $probdir . $name[$ii].$DN1s[$jj].".ss8.dnss";
+      my $vdnss = $probdir . $name[$ii].$DN1s[$jj].".ss8.vdnss"; 
+      my $header = ">$name[$ii]";
+      my @dirarray = ($probfile);
+      my $return = make_dnss_file_8c (\@dirarray, $pssm, $dnss, $vdnss, $header);
+      next if (check_err($return, $logfile));
+      
+    }
+    
+    
+    timeprint ($logfile, "$name[$ii] prediction (8-class) successful! Saved to $dnss and $vdnss");    
 }
 timeprint ($logfile, "100% complete!");
 
