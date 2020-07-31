@@ -1,5 +1,5 @@
 # DNSS2
-Deep learning architectures for protein secondary structure prediction (version 2)
+Deep learning architectures for protein secondary structure prediction (version 2). Both 3-class and 8-class prediction supported!
 
 Test Environment
 --------------------------------------------------------------------------------------
